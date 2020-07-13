@@ -23,6 +23,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
 end
@@ -42,7 +43,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'factory_bot_rails'
   gem 'shoulda-matchers'
   gem 'webdrivers'
 end

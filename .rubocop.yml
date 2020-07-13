@@ -1,7 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.6
 
 Metrics/AbcSize:
   Max: 17
@@ -17,3 +17,7 @@ Metrics/PerceivedComplexity:
 
 Layout/LineLength:
   Max: 198
+
+Style/NumericLiterals:
+  Exclude: 
+    - db/schema.rb
