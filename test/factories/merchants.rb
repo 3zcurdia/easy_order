@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :merchant do
-    name { 'MyString' }
+    name { 'My Business' }
+    user
   end
 end

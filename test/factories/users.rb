@@ -1,5 +1,11 @@
 FactoryBot.define do
   factory :user do
-    name { 'MyString' }
+    name { 'Joe Doe' }
+    sequence(:email) { |n| "joe.doe#{n}@example.com" }
+    password { 'pasword123' }
+
+    trait :merchant do
+      role { :merchant }
+    end
   end
 end

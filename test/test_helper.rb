@@ -8,6 +8,10 @@ class ActiveSupport::TestCase
   parallelize(workers: :number_of_processors)
 end
 
+class ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+end
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :minitest
