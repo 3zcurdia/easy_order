@@ -7,4 +7,8 @@ class Merchant < ApplicationRecord
   has_many :items, through: :menu
 
   validates :name, :slug, presence: true
+
+  def menu_items
+    menu.items
+  end
 end
