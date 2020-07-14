@@ -16,6 +16,9 @@ gem 'webpacker', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+# gem 'omniauth-apple'
 
 gem 'friendly_id'
 

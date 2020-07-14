@@ -1,4 +1,10 @@
 es:
+  sign_in: Ingresar
+  sign_up: Registrarse
+  forgot_your_password: ¿Olvidaste tu contraseña?
+  confirmation_instructions: ¿No recibió las instrucciones de confirmación?
+  unlock_instructions: ¿No recibió las instrucciones de desbloqueo?
+  sign_in_with: Ingresa con
   activerecord:
     attributes:
       user:
