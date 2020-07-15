@@ -1,9 +1,31 @@
 <h1 class="title">Panel de control</h1>
 
-<div class="content">
-  <ul>
+<div class="columns container">
   <% @merchants.each do |merchant| %>
-    <li><%= link_to merchant.name, page_path(merchant.slug) %></li>
+    <article class="media box">
+      <figure class="media-left">
+        <img class="image"><%= svg_code(page_url(merchant.slug)) %></img>
+      </figure>
+      <div class="media-content">
+        <h1 class="title"><%= merchant.name %></h1>
+        <h2 class="subtitle is-6">Creado el <%= l merchant.created_at.to_date, format: :long %></h2>
+        <div class="content">
+          <p>
+            <%= link_to page_path(merchant.slug) do %>
+              <span class="icon"><i class="fa fa-eye"></i></span>
+              Ver menu
+            <% end %><br/>
+            <%= link_to '#' do %>
+              <span class="icon"><i class="fa fa-edit"></i></span>
+              Editar
+            <% end %><br/>
+            <%= link_to '#' do %>
+              <span class="icon"><i class="fa fa-print"></i></span>
+              Imprimir QR
+            <% end %><br/>
+          </p>
+        </div>
+      </div>
+    </article>
   <% end %>
-  </ul>
 </div>

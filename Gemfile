@@ -21,6 +21,7 @@ gem 'omniauth-google-oauth2'
 # gem 'omniauth-apple'
 
 gem 'friendly_id'
+gem 'rqrcode'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

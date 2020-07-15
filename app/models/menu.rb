@@ -10,7 +10,7 @@ class Menu < ApplicationRecord
     !items.exists?
   end
 
-  def init_items(n)
-    n.times { items.build }
+  def init_items(number)
+    number.times { items.build }
   end
 end
