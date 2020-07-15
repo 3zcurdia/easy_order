@@ -1,0 +1,9 @@
+<h1 class="title">Panel de control</h1>
+
+<div class="content">
+  <ul>
+  <% @merchants.each do |merchant| %>
+    <li><%= link_to merchant.name, page_path(merchant.slug) %></li>
+  <% end %>
+  </ul>
+</div>

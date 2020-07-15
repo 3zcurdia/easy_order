@@ -5,4 +5,12 @@ class Menu < ApplicationRecord
   accepts_nested_attributes_for :items, allow_destroy: true, reject_if: lambda { |x|
     x['name'].blank? && x['price'].blank?
   }
+
+  def empty?
+    !items.exists?
+  end
+
+  def init_items(n)
+    n.times { items.build }
+  end
 end

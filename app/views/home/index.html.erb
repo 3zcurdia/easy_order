@@ -9,9 +9,13 @@
           <h2 class="subtitle">
             La manera mas <i>rapida</i> y <strong>facil</strong> de crear menús digitales
           </h2>
+          <% if Rails.env.production? %>
           <p class="subtitle">
             Esperanos...
           </p>
+          <% else %>
+          <%= link_to "Comenzar", new_builder_merchant_path, class: 'button is-dark is-large' %>
+          <% end %>
         </div>
       </div>
     </div>

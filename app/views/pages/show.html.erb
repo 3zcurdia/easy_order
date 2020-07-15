@@ -11,3 +11,25 @@
     </div>
   </div>
 </div>
+<div class="container my-4 mx-5">
+<% @merchant.menu_items.each do |item| %>
+  <article class="media">
+    <div class="media-left">
+      <p class="image is-64x64">
+        <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+      </p>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <h6><%= item.name %></h6>
+        <p><%= item.description %></p>
+      </div>
+    </div>
+    <div class="media-right">
+      <div class="content">
+        <p>$ <%= item.price %></p>
+      </div>
+    </div>
+  </article>
+<% end %>
+</div>

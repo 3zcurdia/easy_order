@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Build::MenusControllerTest < ActionDispatch::IntegrationTest
+class Builder::MerchantsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  namespace :build do
+  namespace :builder do
     resource :merchant, only: %i[new create show]
     resource :menu, only: %i[new update show]
     resource :preview, only: :show
