@@ -1,0 +1,9 @@
+<%= form_with(model: menu, url: build_menu_path(menu)) do |f| %>
+  <%= f.fields_for :items do |g| %>
+    <%= render 'menu_item', f: g %>
+  <% end %>
+
+  <div class="control">
+    <%= f.submit 'Vista previa', class: 'button is-info is-medium' %>
+  </div>
+<% end %>

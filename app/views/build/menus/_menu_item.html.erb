@@ -1,0 +1,21 @@
+<div class="columns">
+  <div class="column is-two-thirds">
+    <%= f.hidden_field(:id) if f.object.persisted? %>
+    <div class="field">
+      <div class="control">
+        <%= f.text_field :name, class: 'input', placeholder: 'Nombre' %>
+      </div>
+    </div>
+  </div>
+
+  <div class='column'>
+    <div class="field has-addons">
+      <p class="control">
+        <a class="button is-static">$</a>
+      </p>
+      <div class="control">
+        <%= f.text_field :price, class: 'input', placeholder: '10.00' %>
+      </div>
+    </div>
+  </div>
+</div>

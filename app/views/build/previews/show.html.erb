@@ -1,3 +1,24 @@
-<progress class="progress is-primary" value="90" max="100">90%</progress>
-<h1 class="title">Vista previa</h1>
-<p class="subtitle">Ya casi terminas</p>
+<div class="columns is-centered">
+  <div class="column is-two-thirds">
+    <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
+    <div class="tabs is-centered">
+      <ul>
+        <li><a>Crea tu marca</a></li>
+        <li><a>Agrega tu productos</a></li>
+        <li class="is-active"><a>Crea tu cuenta</a></li>
+      </ul>
+    </div>
+    <div class="columns">
+      <div class="column mx-6">
+        <%= render 'preview', merchant: @merchant %>
+      </div>
+      <div class="column">
+        <p class="title">¡Ya casi terminas!</p>
+        <p class="subtitle">Solo crea tu cuenta y listo</p>
+        <%= render "devise/registrations/form", resource: User.new, resource_name: :user %>
+        <hr/>
+        <%= render "devise/shared/oauth_links", resource_class: User, resource_name: :user %>
+      </div>
+    </div>
+  </div>
+</div>
