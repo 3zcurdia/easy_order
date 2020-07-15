@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   enum role: %i[guest user merchant admin]
   validates :name, presence: true
+  has_many :merchants, dependent: :destroy
+
+  scope :guest, -> { where(role: :guest) }
 
   def self.create_guest
     guest_id = "#{Time.now.to_i}#{rand(100)}"

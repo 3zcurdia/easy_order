@@ -1,3 +1,5 @@
-<%- resource_class.omniauth_providers.each do |provider| %>
-  <%= link_to "#{t(:sign_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'button' %>
+<div class="buttons">
+<% resource_class.omniauth_providers.each do |provider| %>
+  <%= link_to "#{t(:sign_in_with)} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'button is-info is-fullwidth' %>
 <% end %>
+</div>

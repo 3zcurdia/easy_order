@@ -5,6 +5,7 @@ es:
   confirmation_instructions: ¿No recibió las instrucciones de confirmación?
   unlock_instructions: ¿No recibió las instrucciones de desbloqueo?
   sign_in_with: Ingresa con
+  minimum_password_length: "mínimo %{min} caracteres"
   activerecord:
     attributes:
       user:
