@@ -5,7 +5,7 @@ module Builder
     before_action :enable_guest_user
 
     def redirect_logged_user
-      redirect_to dashboard_path if user_signed_in?
+      redirect_to user_root_path if user_signed_in?
     end
 
     def authorize_step!

@@ -22,12 +22,4 @@ module GuestUserAuthConcern
     @guest_user = User.create_guest
     session[:guest_user_id] = @guest_user.id
   end
-
-  # TODO: modify devise register controller
-  def migrate_guest
-    return unless guest_signed_in?
-    
-    MigrateGuestUser.new(session[:guest_user_id]).call(current_user)
-    guest_sign_out
-  end
 end

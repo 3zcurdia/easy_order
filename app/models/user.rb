@@ -6,7 +6,7 @@ class User < ApplicationRecord
   enum role: %i[guest user merchant admin]
   has_many :merchants, dependent: :destroy
 
-  scope :guest, -> { where(role: :guest) }
+  scope :guests_without_demo, -> { guest.where.not(id: Merchant.owned_by(guest).select(:user_id)) }
 
   def self.create_guest
     guest_id = "#{Time.now.to_i}#{rand(100)}"
