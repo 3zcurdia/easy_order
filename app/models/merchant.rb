@@ -9,6 +9,6 @@ class Merchant < ApplicationRecord
   validates :name, :slug, presence: true
 
   def menu_items
-    menu.items
+    menu&.items || []
   end
 end
