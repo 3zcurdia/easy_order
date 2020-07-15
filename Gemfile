@@ -18,6 +18,7 @@ gem 'webpacker', '~> 4.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'pundit'
 # gem 'omniauth-apple'
 
 gem 'friendly_id'

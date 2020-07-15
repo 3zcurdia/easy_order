@@ -11,4 +11,8 @@ class MenuItem < ApplicationRecord
 
     price_cents / 10.0
   end
+
+  def merchant
+    menu.merchant
+  end
 end
