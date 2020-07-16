@@ -9,17 +9,17 @@
   <div class="column is-half">
     <article class="media">
       <figure class="media-left">
-        <figure class="image is-pulled-right"><%= svg_code(page_url(@merchant.slug)) %></figure>
+        <figure class="image is-pulled-right"><%= svg_code(page_url(@merchant)) %></figure>
       </figure>
       <div class="media-content">
         <h1 class="title"><%= @merchant.name %></h1>
         <div class="content">
           <p>
-            <%= link_to page_path(@merchant.slug) do %>
+            <%= link_to page_path(@merchant) do %>
               <span class="icon"><i class="fa fa-link"></i></span>
-              <%= page_url(@merchant.slug) %>
+              <%= page_url(@merchant) %>
             <% end %><br/>
-            <%= link_to '#' do %>
+            <%= link_to page_url(@merchant, format: :png), target: '_blank' do %>
               <span class="icon"><i class="fa fa-print"></i></span> QR
             <% end %><br/>
           </p>
