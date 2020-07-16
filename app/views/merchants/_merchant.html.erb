@@ -1,6 +1,6 @@
 <article class="media box">
   <figure class="media-left">
-    <img class="image"><%= svg_code(page_url(merchant.slug)) %></img>
+    <figure class="image is-pulled-right"><%= svg_code(page_url(merchant.slug)) %></figure>
   </figure>
   <div class="media-content">
     <h1 class="title"><%= merchant.name %></h1>
@@ -14,11 +14,10 @@
       <p>
         <%= link_to merchant_path(merchant) do %>
           <span class="icon"><i class="fa fa-edit"></i></span>
-          Editar
+          Detalles
         <% end %><br/>
         <%= link_to '#' do %>
-          <span class="icon"><i class="fa fa-print"></i></span>
-          Imprimir QR
+          <span class="icon"><i class="fa fa-print"></i></span> QR
         <% end %><br/>
       </p>
     </div>

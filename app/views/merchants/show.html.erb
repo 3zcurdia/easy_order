@@ -5,13 +5,59 @@
     <li><%= link_to 'Editar', edit_merchant_path(@merchant) %></li>
   </ul>
 </nav>
-<h1 class="title"><%= @merchant.name %></h1>
 <div class="columns">
   <div class="column is-half">
-    <img class="image"><%= svg_code(page_url(@merchant.slug), 3) %></img>
-    <p class='content'>
-      <span class="icon"><i class="fa fa-link"></i></span>
-      <%= page_url(@merchant.slug) %>
-    </p>
+    <article class="media">
+      <figure class="media-left">
+        <figure class="image is-pulled-right"><%= svg_code(page_url(@merchant.slug)) %></figure>
+      </figure>
+      <div class="media-content">
+        <h1 class="title"><%= @merchant.name %></h1>
+        <div class="content">
+          <p>
+            <%= link_to page_path(@merchant.slug) do %>
+              <span class="icon"><i class="fa fa-link"></i></span>
+              <%= page_url(@merchant.slug) %>
+            <% end %><br/>
+            <%= link_to '#' do %>
+              <span class="icon"><i class="fa fa-print"></i></span> QR
+            <% end %><br/>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="column">
+    <h1 class="title">Menú</h1>
+    <% @merchant.menu_items.each do |item| %>
+      <article class="media">
+        <div class="media-left">
+          <p class="image is-64x64">
+            <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+          </p>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <h5><%= item.name %></h5>
+            <p><%= item.description %></p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <%= link_to edit_merchant_menu_item_path(@merchant, item), class: 'level-item' do %>
+                <span class="icon is-small"><i class="fas fa-edit"></i></span>
+              <% end %>
+              <%= link_to merchant_menu_items_path(@merchant, item), class: 'level-item', method: :delete do %>
+                <span class="icon is-small"><i class="fas fa-trash"></i></span>
+              <% end %>
+            </div>
+          </nav>
+        </div>
+        <div class="media-right">
+          <div class="content">
+            <p>$ <%= item.price %></p>
+          </div>
+        </div>
+      </article>
+    <% end %>
   </div>
 </div>
