@@ -1,25 +1,22 @@
 <% content_for(:title, @merchant.name) %>
-<div class="hero is-info">
+<div class="hero is-dark">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
         <%= @merchant.name %>
       </h1>
-      <h2 class="subtitle">
-        lorem ipsum dolor quet sit amet
-      </h2>
     </div>
   </div>
 </div>
 
-<div class="container my-4">
+<section class="section">
   <div class="columns">
     <div class="column">
       <% @merchant.menu_items.each do |item| %>
         <article class="media">
           <div class="media-left">
-            <p class="image is-64x64">
-              <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+            <p class="image is-92x92">
+              <img src="https://placeimg.com/92/92/bacon?=<%= rand(100) %>%">
             </p>
           </div>
           <div class="media-content">
@@ -48,4 +45,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</section>
