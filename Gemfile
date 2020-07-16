@@ -22,6 +22,7 @@ gem 'pundit'
 # gem 'omniauth-apple'
 
 gem 'friendly_id'
+gem 'geocoder'
 gem 'rqrcode'
 
 # Use Active Storage variant

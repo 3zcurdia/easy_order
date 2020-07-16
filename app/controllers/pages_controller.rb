@@ -27,6 +27,7 @@ class PagesController < ApplicationController
   def png_file
     filepath = "tmp/#{@merchant.slug}.png"
     return filepath if File.exist?(filepath)
+
     code.as_png(size: 512).save(filepath)
     filepath
   end

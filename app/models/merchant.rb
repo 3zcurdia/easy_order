@@ -10,6 +10,10 @@ class Merchant < ApplicationRecord
 
   validates :name, :slug, presence: true
 
+  store :info, accessors: %i[category address delivery payment_methods], coder: JSON
+  geocoded_by :address
+  after_validation :geocode
+
   def menu_items
     menu&.items || []
   end
