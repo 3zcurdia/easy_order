@@ -22,6 +22,7 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = Merchant.new(merchant_params)
+    @merchant.user = current_user
     authorize @merchant
 
     if @merchant.save
