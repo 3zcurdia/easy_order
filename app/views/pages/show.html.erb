@@ -11,25 +11,41 @@
     </div>
   </div>
 </div>
-<div class="container my-4 mx-5">
-<% @merchant.menu_items.each do |item| %>
-  <article class="media">
-    <div class="media-left">
-      <p class="image is-64x64">
-        <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
-      </p>
+
+<div class="container my-4">
+  <div class="columns">
+    <div class="column">
+      <% @merchant.menu_items.each do |item| %>
+        <article class="media">
+          <div class="media-left">
+            <p class="image is-64x64">
+              <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+            </p>
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <h6><%= item.name %></h6>
+              <p><%= item.description %></p>
+            </div>
+          </div>
+          <div class="media-right">
+            <div class="content">
+              <p>$ <%= item.price %></p>
+            </div>
+          </div>
+        </article>
+      <% end %>
     </div>
-    <div class="media-content">
-      <div class="content">
-        <h6><%= item.name %></h6>
-        <p><%= item.description %></p>
-      </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <% if @merchant.phone.present? %>
+        <%- message = 'Hola, vi anuncio en menufacilito.com y me gustaria ordenar' %>
+        <%= link_to whatsapp_url(@merchant.phone, message), class: 'button is-success is-fullwidth is-large' do %>
+          Ordenar por &nbsp; <span class='icon'><i class="fab fa-whatsapp"></i></span> 
+        <% end %>
+      <% end %>
     </div>
-    <div class="media-right">
-      <div class="content">
-        <p>$ <%= item.price %></p>
-      </div>
-    </div>
-  </article>
-<% end %>
+  </div>
 </div>
