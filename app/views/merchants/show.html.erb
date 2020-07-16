@@ -14,15 +14,23 @@
       <div class="media-content">
         <h1 class="title"><%= @merchant.name %></h1>
         <div class="content">
-          <p>
+          <ul>
+            <li>
             <%= link_to page_path(@merchant) do %>
               <span class="icon"><i class="fa fa-link"></i></span>
               <%= page_url(@merchant) %>
-            <% end %><br/>
+            <% end %>
+            </li>
+            <li>
+              <span class="icon"><i class="fa fa-phone"></i></span>
+              <%= @merchant.phone %>
+            </li>
+            <li>
             <%= link_to page_url(@merchant, format: :png), target: '_blank' do %>
               <span class="icon"><i class="fa fa-print"></i></span> QR
-            <% end %><br/>
-          </p>
+            <% end %>
+            </li>
+          </ul>
         </div>
       </div>
     </article>
