@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Panel de control", user_root_path %></li>
+    <li><%= link_to "Comercios", merchants_path %></li>
+    <li class="is-active"><a href="#">Crear</a></li>
+  </ul>
+</nav>
+<h1 class="title">Crear comercio</h1>
+<div class="columns">
+  <div class="column is-half">
+    <%= render 'form', merchant: @merchant %>
+  </div>
+</div>

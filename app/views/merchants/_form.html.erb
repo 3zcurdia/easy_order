@@ -1,0 +1,26 @@
+<%= form_with(model: merchant, local: true) do |f| %>
+  <% if merchant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(merchant.errors.count, "error") %> prohibited this merchant from being saved:</h2>
+
+      <ul>
+        <% merchant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, 'Nombre de tu negcio', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :name, class: 'input', placeholder: 'ej. La cocina de mamá' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit 'Actualizar', class: 'button is-primary' %>
+    </div>
+  </div>
+<% end %>

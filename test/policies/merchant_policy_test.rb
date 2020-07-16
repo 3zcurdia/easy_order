@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class MerchantPolicyTest < ActiveSupport::TestCase
-  # def test_scope
-  # end
   def user
     @user ||= create(:user, :merchant)
   end
@@ -13,6 +11,10 @@ class MerchantPolicyTest < ActiveSupport::TestCase
 
   def policy
     @policy ||= MerchantPolicy.new(user, merchant)
+  end
+
+  def test_index
+    assert policy.index?
   end
 
   def test_show

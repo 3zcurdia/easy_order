@@ -1,0 +1,19 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Panel de control", user_root_path %></li>
+    <li><%= link_to "Comercios", merchants_path %></li>
+    <li class="is-active"><%= link_to @merchant.name, '#' %></li>
+    <li><%= link_to 'Edit', edit_merchant_path(@merchant) %></li>
+  </ul>
+</nav>
+<h1 class="title"><%= @merchant.name %></h1>
+<div class="columns">
+  <div class="column is-half">
+    <img class="image"><%= svg_code(page_url(@merchant.slug), 3) %></img>
+    <p class='content'>
+      <span class="icon"><i class="fa fa-link"></i></span>
+
+      <%= page_url(@merchant.slug) %>
+    </p>
+  </div>
+</div>
