@@ -16,7 +16,7 @@
         <p class="title">¡Ya casi terminas!</p>
         <p class="subtitle">Solo crea tu cuenta y listo</p>
         <%= render "devise/registrations/form", resource: User.new, resource_name: :user %>
-        <hr/>
+        <div class="is-divider" data-content="O"></div>
         <%= render "devise/shared/oauth_links", resource_class: User, resource_name: :user %>
       </div>
     </div>
