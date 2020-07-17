@@ -1,8 +1,7 @@
 module Api
   class SearchMerchantsController < BaseController
     def index
-      slug = name.parameterize
-      render json: { slug: slug, available: available?(slug) }
+      render json: { available: available?(slug) }
     end
 
     def available?(name)

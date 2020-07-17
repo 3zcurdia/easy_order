@@ -1,14 +1,15 @@
 <%= form_with(model: merchant, url: builder_merchant_path(merchant)) do |f| %>
   <%= f.hidden_field :user_id %>
   <div class="field has-addons has-addons-centered">
-    <div class="control has-icons-left has-icons-right">
-      <%= f.text_field :name, class: 'input is-medium', placeholder: "El nombre de tu negocio" %>
+    <div class="control has-icons-left has-icons-right" data-controller="merchant-name" data-merchant-name-url="<%= api_search_merchants_path %>" >
+      <%= f.text_field :name, class: 'input is-medium', placeholder: "El nombre de tu negocio", data: { action: 'keyup->merchant-name#search', target: 'merchant-name.name'} %>
       <span class="icon is-small is-left">
         <i class="fas fa-briefcase fa-xs"></i>
       </span>
       <span class="icon is-small is-right">
-        <i class="fas fa-check fa-xs"></i>
+        <i class="fas fa-check fa-xs is-hidden" data-target="merchant-name.icon"></i>
       </span>
+      <p class="help" data-target="merchant-name.helpText"></p>
     </div>
 
     <div class="control">
