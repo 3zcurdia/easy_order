@@ -9,11 +9,11 @@
   </div>
 </div>
 
-<section class="section">
+<section class="section" data-controller="checkout">
   <div class="columns">
     <div class="column">
       <% @merchant.menu_items.each do |item| %>
-        <article class="media">
+        <article class="media" data-target="checkout.menuItem">
           <div class="media-left">
             <p class="image is-92x92">
               <img src="https://placeimg.com/92/92/bacon?=<%= rand(100) %>%">
@@ -22,12 +22,21 @@
           <div class="media-content">
             <div class="content">
               <h6><%= item.name %></h6>
-              <p><%= item.description %></p>
+              <p class="is-size-7-mobile"><%= item.description %></p>
             </div>
           </div>
-          <div class="media-right">
-            <div class="content">
-              <p>$ <%= item.price %></p>
+          <div class="media-right has-text-centered" style="width: 25%;" data-price="<%= item.price_cents%>">
+            <h2 class="subtitle"><%= item.price.format %></h2>
+            <div class="field has-addons" data-controller="numeric-input">
+              <div class="control">
+                <a class="button is-light" data-action="numeric-input#sub"><i class="fa fa-minus"></i></a>
+              </div>
+              <div class="control">
+                <input class="input" type="text" value="0" data-target='numeric-input.number' readonly>
+              </div>
+              <div class="control">
+                <a class="button is-light" data-action="numeric-input#add"><i class="fa fa-plus"></i></a>
+              </div>
             </div>
           </div>
         </article>
@@ -38,8 +47,7 @@
   <div class="columns">
     <div class="column">
       <% if @merchant.phone.present? %>
-        <%- message = 'Hola, vi anuncio en menufacilito.com y me gustaria ordenar' %>
-        <%= link_to whatsapp_url(@merchant.phone, message), class: 'button is-success is-fullwidth is-large' do %>
+        <%= link_to whatsapp_url(@merchant.phone), class: 'button is-success is-fullwidth is-large is-hidden', data: { target: 'whatsapp' } do %>
           <span class='icon'><i class="fab fa-whatsapp"></i></span> &nbsp; Ordenar por WhatsApp
         <% end %>
       <% end %>

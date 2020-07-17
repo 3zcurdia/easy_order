@@ -15,6 +15,7 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.new(menu_item_params)
     @menu_item.menu = menu
+    @menu_item.available = true
     authorize @menu_item
 
     if @menu_item.save

@@ -23,6 +23,7 @@ gem 'pundit'
 
 gem 'friendly_id'
 gem 'geocoder'
+gem 'money-rails'
 gem 'rqrcode'
 
 # Use Active Storage variant

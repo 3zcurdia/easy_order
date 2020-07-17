@@ -1,6 +1,3 @@
-// <div data-controller="hello">
-//   <h1 data-target="hello.output"></h1>
-// </div>
 
 import { Controller } from "stimulus"
 
