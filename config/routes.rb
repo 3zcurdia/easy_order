@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :preview, only: :show
   end
   resources :merchants do
-    resources :menu_items, except: :index
+    resources :menu_items, except: %i[index show]
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   get '/:id', to: 'pages#show', as: :page

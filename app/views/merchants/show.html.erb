@@ -36,7 +36,14 @@
     </article>
   </div>
   <div class="column">
-    <h1 class="title">Menú</h1>
+    <h1 class="title">
+      <%= link_to new_merchant_menu_item_path(@merchant), class: 'button is-success is-small is-pulled-right' do %>
+        <span class="icon ">
+          <i class="fa fa-plus"></i>
+        </span>
+      <% end %>
+      Menú
+    </h1>
     <% @merchant.menu_items.each do |item| %>
       <article class="media">
         <div class="media-left">
@@ -54,7 +61,7 @@
               <%= link_to edit_merchant_menu_item_path(@merchant, item), class: 'level-item' do %>
                 <span class="icon is-small"><i class="fas fa-edit"></i></span>
               <% end %>
-              <%= link_to merchant_menu_items_path(@merchant, item), class: 'level-item', method: :delete do %>
+              <%= link_to merchant_menu_item_path(@merchant, item), class: 'level-item', method: :delete do %>
                 <span class="icon is-small"><i class="fas fa-trash"></i></span>
               <% end %>
             </div>

@@ -1,0 +1,55 @@
+<%= form_with(model: [merchant, menu_item], local: true) do |f| %>
+  <div class="columns">
+    <% if menu_item.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+        <ul>
+          <% menu_item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="column is-two-thirds">
+      <div class="field">
+        <%= f.label :name, 'Nombre', class: 'label' %>
+        <div class="control">
+          <%= f.text_field :name, class: 'input', placeholder: 'ej. Chilaquiles con pollo' %>
+        </div>
+      </div>
+  
+      <div class="field">
+        <%= f.label :description, 'Descripcion', class: 'label' %>
+        <div class="control">
+          <%= f.text_area :description, class: 'textarea', rows: 2, placeholder: 'ej. Los tradicionales chilaquiles verdes con pechuga de pollo, crema y queso' %>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="column">
+      <%= f.label :price, 'Precio', class: 'label' %>
+      <div class="field has-addons">
+        <p class="control">
+          <a class="button is-static">$</a>
+        </p>
+        <div class="control">
+          <%= f.text_field :price, class: 'input',  placeholder: '100.0' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+
+      <div class="field">
+        <div class="control">
+          <%= f.submit class: 'button is-primary' %>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to "Panel de control", user_root_path %></li>
+    <li><%= link_to @merchant.name, merchant_path(@merchant) %></li>
+    <li class="is-active"><a href="#">Editar producto</a></li>
+  </ul>
+</nav>
+<h1 class="title">Editar producto</h1>
+<div class="columns">
+  <div class="column is-half">
+    <%= render 'form', menu_item: @menu_item, merchant: @merchant %>
+  </div>
+</div>

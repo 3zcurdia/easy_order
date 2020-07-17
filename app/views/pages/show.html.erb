@@ -40,7 +40,7 @@
       <% if @merchant.phone.present? %>
         <%- message = 'Hola, vi anuncio en menufacilito.com y me gustaria ordenar' %>
         <%= link_to whatsapp_url(@merchant.phone, message), class: 'button is-success is-fullwidth is-large' do %>
-          Ordenar por &nbsp; <span class='icon'><i class="fab fa-whatsapp"></i></span> 
+          <span class='icon'><i class="fab fa-whatsapp"></i></span> &nbsp; Ordenar por WhatsApp
         <% end %>
       <% end %>
     </div>
