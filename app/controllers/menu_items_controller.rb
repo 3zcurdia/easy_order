@@ -3,17 +3,19 @@ class MenuItemsController < ApplicationController
   before_action :set_merchant
   before_action :set_menu_item, only: %i[show edit update destroy]
 
-  def show; end
-
   def new
     @menu_item = menu.items.build
+    authorize @menu_item
   end
 
-  def edit; end
+  def edit
+    authorize @menu_item
+  end
 
   def create
     @menu_item = MenuItem.new(menu_item_params)
     @menu_item.menu = menu
+    authorize @menu_item
 
     if @menu_item.save
       redirect_to @merchant, notice: 'El elemento del menú se creó correctamente.'
@@ -23,6 +25,7 @@ class MenuItemsController < ApplicationController
   end
 
   def update
+    authorize @menu_item
     if @menu_item.update(menu_item_params)
       redirect_to @merchant, notice: 'El elemento del menú se actualizó correctamente.'
     else
@@ -31,6 +34,7 @@ class MenuItemsController < ApplicationController
   end
 
   def destroy
+    authorize @menu_item
     @menu_item.destroy
     redirect_to @merchant, notice: 'El elemento del menú se eliminó correctamente.'
   end
