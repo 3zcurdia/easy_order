@@ -8,6 +8,7 @@ class Merchant < ApplicationRecord
 
   scope :with_slug, ->(name) { where(slug: name.parameterize) }
   scope :owned_by, ->(users) { where(user_id: users.select(:id)) }
+  scope :demo, -> { owned_by(User.where(role: :guest)) }
 
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
