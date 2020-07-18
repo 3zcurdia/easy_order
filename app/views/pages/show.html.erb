@@ -60,7 +60,7 @@
     <div class="column">
       <% if delivery?(@merchant) %>
         <%= link_to whatsapp_url(@merchant.phone), class: 'button is-success is-fullwidth is-large', data: { target: 'checkout.order-button' } do %>
-          <span class='icon'><i class="fab fa-whatsapp"></i></span> &nbsp; Ordenar por WhatsApp
+          Ordenar por &nbsp; <span class='icon'><i class="fab fa-whatsapp"></i></span>
         <% end %>
       <% end %>
     </div>
