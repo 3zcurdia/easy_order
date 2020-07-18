@@ -44,8 +44,18 @@
   </nav>
   <section class="section">
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice].present? %>
+      <div class="notification is-info is-light">
+        <button class="delete"></button>
+        <%= notice %>
+      </div>
+      <% end %>
+      <% if flash[:alert].present? %>
+      <div class="notification is-warning is-light">
+        <button class="delete"></button>
+        <%= alert %>
+      </div>
+      <% end %>
       <%= yield %>
     </div>
   </section>
