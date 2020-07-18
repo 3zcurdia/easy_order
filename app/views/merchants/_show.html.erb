@@ -53,13 +53,11 @@
     <% merchant.menu_items.each do |item| %>
       <article class="media">
         <div class="media-left">
-          <p class="image is-64x64">
-            <% if item.photo.attached? %>
+          <% if item.photo.attached? %>
+            <p class="image is-64x64">
               <%= image_tag item.photo.variant(resize_to_limit: [128, 128]) %>
-            <% else %>
-              <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+            </p>
             <% end %>
-          </p>
         </div>
         <div class="media-content">
           <div class="content">
