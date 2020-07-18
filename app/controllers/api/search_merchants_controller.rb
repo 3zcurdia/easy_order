@@ -1,7 +1,7 @@
 module Api
   class SearchMerchantsController < BaseController
     def index
-      render json: { available: available?(slug) }
+      render json: { available: available?(name) }
     end
 
     def available?(name)

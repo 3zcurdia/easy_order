@@ -1,5 +1,4 @@
 module PagesHelper
-
   def delivery?(merchant)
     merchant.delivery && !!params[:delivery]
   end

@@ -22,7 +22,7 @@ class MigrateGuestUser
   def move_merchant_to(user)
     return unless merchant
 
-    merchant.update_all(user_id: user.id)
+    merchant.update(user_id: user.id)
   end
 
   def destroy
