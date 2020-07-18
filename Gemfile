@@ -28,9 +28,6 @@ gem 'image_processing'
 gem 'money-rails'
 gem 'rqrcode'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -59,4 +56,8 @@ group :test do
   gem 'shoulda-matchers'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'sentry-raven'
 end
