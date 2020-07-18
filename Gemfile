@@ -21,8 +21,10 @@ gem 'omniauth-google-oauth2'
 gem 'pundit'
 # gem 'omniauth-apple'
 
+gem 'aws-sdk-s3', require: false
 gem 'friendly_id'
 gem 'geocoder'
+gem 'image_processing'
 gem 'money-rails'
 gem 'rqrcode'
 

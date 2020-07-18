@@ -54,7 +54,11 @@
       <article class="media">
         <div class="media-left">
           <p class="image is-64x64">
-            <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+            <% if item.photo.attached? %>
+              <%= image_tag item.photo.variant(resize_to_limit: [128, 128]) %>
+            <% else %>
+              <img src="https://placeimg.com/64/64/bacon?=<%= rand(100) %>%">
+            <% end %>
           </p>
         </div>
         <div class="media-content">

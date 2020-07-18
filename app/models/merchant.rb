@@ -5,6 +5,7 @@ class Merchant < ApplicationRecord
   belongs_to :user
   has_one :menu, dependent: :destroy
   has_many :items, through: :menu
+  has_one_attached :logo
 
   scope :with_slug, ->(name) { where(slug: name.parameterize) }
   scope :owned_by, ->(users) { where(user_id: users.select(:id)) }
