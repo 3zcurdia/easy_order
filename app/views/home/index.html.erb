@@ -1,4 +1,7 @@
-<section class="hero is-warning is-fullheight">
+<video autoplay muted loop id="landingVideo">
+  <source src="https://res.cloudinary.com/hjvzgodea/video/upload/v1595112437/pasta_xhx4fg.mp4" type="video/mp4">
+</video>
+<section class="hero is-light is-fullheight">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
@@ -9,14 +12,9 @@
           <h2 class="subtitle">
             La manera mas <i>rapida</i> y <strong>facil</strong> de crear menús digitales
           </h2>
-          <% if Rails.env.production? %>
-          <p class="subtitle">
-            Esperanos...
-          </p>
-          <% else %>
           <%= link_to "Comenzar", builder_path, class: 'button is-dark is-large' %>
-          <% end %>
         </div>
       </div>
     </div>
+  </div>
 </section>
