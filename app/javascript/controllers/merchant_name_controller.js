@@ -31,7 +31,7 @@ export default class extends Controller {
     this.helpTextTarget.classList.add('is-success')
     this.nameTarget.classList.add('is-success')
     this.iconTarget.classList.remove('is-hidden')
-    this.helpTextTarget.textContent = 'Felicidades! eres el primero que se regista con este nombre'
+    this.helpTextTarget.textContent = '¡Felicidades! eres el primero que se regista con este nombre'
   }
 
   clear(){

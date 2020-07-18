@@ -15,6 +15,11 @@
     <div class="column is-two-thirds">
       <div class="field">
         <%= f.label :photo, 'Fotografia', class: 'label' %>
+        <% if menu_item.photo.attached? %>
+        <p class="image is-128x128">
+          <%= image_tag menu_item.photo %>
+        </p>
+        <% end %>
         <div class="control">
           <%= f.file_field :photo %>
         </div>
