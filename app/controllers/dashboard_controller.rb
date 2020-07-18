@@ -2,6 +2,9 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @merchants = current_user.merchants
+    @merchant = current_user.merchants.first
+    if @merchant.nil?
+      redirect_to new_merchant and return
+    end
   end
 end
