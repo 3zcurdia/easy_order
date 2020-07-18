@@ -7,7 +7,7 @@
     </div>
   </div>
 </div>
-<div class="container my-4 mx-5">
+<section class="section">
 <% merchant.menu_items.each do |item| %>
   <article class="media">
     <div class="media-left">
@@ -22,9 +22,9 @@
     </div>
     <div class="media-right">
       <div class="content">
-        <p>$ <%= item.price %></p>
+        <p><%= item.price.format %></p>
       </div>
     </div>
   </article>
 <% end %>
-</div>
+</section>

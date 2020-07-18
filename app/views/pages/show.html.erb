@@ -13,7 +13,7 @@
   <div class="columns">
     <div class="column">
       <% @merchant.menu_items.each do |item| %>
-        <article class="media" data-target="checkout.menuItem">
+        <article class="media" data-target="checkout.menu-item" data-name="<%= item.name %>%" data-price="<%= item.price_cents %>">
           <div class="media-left">
             <p class="image is-92x92">
               <img src="https://placeimg.com/92/92/bacon?=<%= rand(100) %>%">
@@ -25,8 +25,9 @@
               <p class="is-size-7-mobile"><%= item.description %></p>
             </div>
           </div>
-          <div class="media-right has-text-centered" style="width: 25%;" data-price="<%= item.price_cents%>">
+          <div class="media-right has-text-centered">
             <h2 class="subtitle"><%= item.price.format %></h2>
+            <% if delivery?(@merchant) %>
             <div class="field has-addons" data-controller="numeric-input">
               <div class="control">
                 <a class="button is-light" data-action="numeric-input#sub"><i class="fa fa-minus"></i></a>
@@ -38,19 +39,35 @@
                 <a class="button is-light" data-action="numeric-input#add"><i class="fa fa-plus"></i></a>
               </div>
             </div>
+            <% end %>
           </div>
         </article>
+      <% end %>
+      <% if delivery?(@merchant) %>
+        <div class="is-divider"></div>
+        <div class="container has-text-right">
+          <h1 class='title'>Total</h1>
+          <h2 class='subtitle is-2' data-target="checkout.total-value">$0.00</h2>
+        </div>
       <% end %>
     </div>
   </div>
 
   <div class="columns">
     <div class="column">
-      <% if @merchant.phone.present? %>
-        <%= link_to whatsapp_url(@merchant.phone), class: 'button is-success is-fullwidth is-large is-hidden', data: { target: 'whatsapp' } do %>
+      <% if @merchant.phone.present? && delivery?(@merchant) %>
+        <%= link_to whatsapp_url(@merchant.phone), class: 'button is-success is-fullwidth is-large', data: { target: 'checkout.order-button' } do %>
           <span class='icon'><i class="fab fa-whatsapp"></i></span> &nbsp; Ordenar por WhatsApp
         <% end %>
       <% end %>
     </div>
   </div>
 </section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong><%= @merchant.name %></strong>
+    </p>
+  </div>
+</footer>

@@ -4,6 +4,6 @@ export default class extends Controller {
   static targets = ["menuItem", "whatsapp"]
 
   connect() {
-    console.log("ready to checkout")
+    console.log("Ready to Checkout")
   }
 }

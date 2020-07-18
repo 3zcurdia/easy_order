@@ -12,6 +12,6 @@ class MenuItem < ApplicationRecord
   end
 
   def available
-    meta['available']
+    !!meta['available']
   end
 end

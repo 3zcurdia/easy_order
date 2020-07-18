@@ -23,7 +23,7 @@ module Builder
     private
 
     def menu_attributes
-      params.require(:menu).permit(items_attributes: %i[id name price])
+      params.require(:menu).permit(items_attributes: %i[id name price available])
     end
   end
 end
