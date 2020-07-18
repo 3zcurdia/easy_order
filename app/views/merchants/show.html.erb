@@ -21,6 +21,12 @@
               <%= page_url(@merchant) %>
             <% end %>
             </li>
+            <% if @merchant.delivery %>
+            <li>
+              <span class="icon"><i class="fas fa-truck"></i></span>
+              Entregas a domicilio
+            </li>
+            <% end %>
             <li>
               <span class="icon"><i class="fa fa-phone"></i></span>
               <%= @merchant.phone %>

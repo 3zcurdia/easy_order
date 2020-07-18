@@ -13,12 +13,24 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
-  store :info, accessors: %i[category address delivery payment_methods], coder: JSON
+  store :info, accessors: %i[category address payment_methods], coder: JSON
   geocoded_by :address
   after_validation :geocode
 
   def menu_items
     menu&.items || []
+  end
+
+  def delivery=(value)
+    info['delivery'] = if value.is_a?(TrueClass) || value.is_a?(FalseClass)
+                         value
+                       else
+                         value == '1'
+                       end
+  end
+
+  def delivery
+    info['delivery']
   end
 
   private

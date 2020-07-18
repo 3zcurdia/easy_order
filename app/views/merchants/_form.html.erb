@@ -19,6 +19,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :delivery, class: 'checkbox' do %>
+      <%= f.check_box :delivery, class: 'checkbox' %>
+      Entrega a domicilio
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :name, 'Tu telefono', class: 'label' %>
     <div class="control">
       <%= f.text_field :phone, class: 'input', placeholder: '55 6783 2673' %>
