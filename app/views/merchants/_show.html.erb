@@ -55,9 +55,9 @@
         <div class="media-left">
           <% if item.photo.attached? %>
             <p class="image is-64x64">
-              <%= image_tag item.photo.variant(resize_to_limit: [128, 128]) %>
+              <%= image_tag item.photo.variant(resize_to_fit: [128, 128]) %>
             </p>
-            <% end %>
+          <% end %>
         </div>
         <div class="media-content">
           <div class="content">

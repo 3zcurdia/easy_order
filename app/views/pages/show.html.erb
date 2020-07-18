@@ -15,9 +15,11 @@
       <% @merchant.menu_items.each do |item| %>
         <article class="media" data-target="checkout.menu-item" data-name="<%= item.name %>%" data-price="<%= item.price_cents %>">
           <div class="media-left">
-            <p class="image is-128x128-desktop is-64x64-mobile">
-              <img src="https://placeimg.com/92/92/bacon?=<%= rand(100) %>%">
+            <% if item.photo.attached? %>
+            <p class="image is-64x64">
+              <%= image_tag item.photo.variant(resize_to_fit: [128, 128]) %>
             </p>
+            <% end %>
           </div>
           <div class="media-content">
             <div class="content">
