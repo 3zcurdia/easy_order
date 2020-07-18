@@ -1,27 +1,20 @@
-<article class="media box">
+<article class="media">
   <figure class="media-left">
-    <figure class="image is-pulled-right"><%= svg_code(page_url(merchant)) %></figure>
   </figure>
   <div class="media-content">
-    <h1 class="title"><%= merchant.name %></h1>
+    <h1 class="title"><%= link_to merchant.name, merchant_path(merchant) %></h1>
     <h2 class="subtitle">
       <%= link_to page_path(merchant) do %>
       <span class="icon"><i class="fa fa-link"></i></span>
+      <% end %>
+      <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
+      <span class="icon"><i class="fas fa-qrcode"></i></span>
       <% end %>
       <% if merchant.delivery %>
       <span class="icon"><i class="fas fa-truck"></i></span>
       <% end %>
     </h2>
     <div class="content">
-      <p>
-        <%= link_to merchant_path(merchant) do %>
-          <span class="icon"><i class="fa fa-edit"></i></span>
-          Detalles
-        <% end %><br/>
-        <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
-          <span class="icon"><i class="fa fa-print"></i></span> QR
-        <% end %><br/>
-      </p>
     </div>
   </div>
 </article>

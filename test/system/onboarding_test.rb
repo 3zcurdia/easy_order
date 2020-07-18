@@ -27,7 +27,6 @@ class OnboardingTest < ApplicationSystemTestCase
 
     click_on 'Crear cuenta'
 
-    assert_text 'Panel de control'
     assert_text 'La tazita de té'
   end
 end
