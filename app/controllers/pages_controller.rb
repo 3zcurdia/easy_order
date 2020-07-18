@@ -16,12 +16,8 @@ class PagesController < ApplicationController
     @merchant = Merchant.friendly.find(params[:id])
   end
 
-  def permited_params
-    params.permit(:delivery)
-  end
-
   def code
-    @code ||= RQRCode::QRCode.new(page_url(@merchant, permited_params))
+    @code ||= RQRCode::QRCode.new(page_url(@merchant))
   end
 
   def svg_file

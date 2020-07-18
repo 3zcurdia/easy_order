@@ -4,11 +4,13 @@
   </figure>
   <div class="media-content">
     <h1 class="title"><%= merchant.name %></h1>
-    <h2 class="subtitle is-7">
-    <%= link_to page_path(merchant) do %>
+    <h2 class="subtitle">
+      <%= link_to page_path(merchant) do %>
       <span class="icon"><i class="fa fa-link"></i></span>
-      <%= page_url(merchant) %>
-    <% end %>
+      <% end %>
+      <% if merchant.delivery %>
+      <span class="icon"><i class="fas fa-truck"></i></span>
+      <% end %>
     </h2>
     <div class="content">
       <p>

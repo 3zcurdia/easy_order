@@ -1,6 +1,6 @@
 module PagesHelper
   def delivery?(merchant)
-    merchant.delivery && !!params[:delivery]
+    merchant.delivery && merchant.phone.present?
   end
 
   def whatsapp_url(phone, message = '')
