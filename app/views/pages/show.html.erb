@@ -16,7 +16,7 @@
         <article class="media" data-target="checkout.menu-item" data-name="<%= item.name %>%" data-price="<%= item.price_cents %>">
           <div class="media-left">
             <% if item.photo.attached? %>
-            <p class="image is-64x64">
+            <p class="image is-128x128">
               <%= image_tag item.photo.variant(resize_to_fit: [128, 128]) %>
             </p>
             <% end %>
@@ -25,6 +25,7 @@
             <div class="content">
               <h4><%= item.name %></h4>
               <p class="is-size-7-mobile"><%= item.description %></p>
+              <h2 class="subtitle is-5 is-hidden-desktop"><%= item.price.format %></h2>
             </div>
             <% if delivery?(@merchant) %>
             <div class="field has-addons" data-controller="numeric-input">
@@ -40,7 +41,7 @@
             </div>
             <% end %>
           </div>
-          <div class="media-right has-text-right">
+          <div class="media-right has-text-right is-hidden-mobile">
             <h2 class="subtitle"><%= item.price.format %></h2>
           </div>
         </article>
