@@ -11,7 +11,7 @@ export default class extends Controller {
   change() {
     this.clear();
     if (this.name.length > 3) {
-      this.search()
+      setTimeout(() => { this.search() }, 600)
     }
   }
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :search_merchants, only: :index
   end
+  get '/builder', to: redirect('/builder/merchant/new'), as: :builder
   namespace :builder do
     resource :merchant, only: %i[new create show]
     resource :menu, only: %i[new update show]

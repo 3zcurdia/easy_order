@@ -2,7 +2,7 @@
   <%= f.hidden_field :user_id %>
   <div class="field has-addons has-addons-centered">
     <div class="control has-icons-left has-icons-right" data-controller="merchant-name" data-merchant-name-url="<%= api_search_merchants_path %>" >
-      <%= f.text_field :name, class: 'input is-medium', placeholder: "El nombre de tu negocio", data: { action: 'keyup->merchant-name#search', target: 'merchant-name.name'} %>
+      <%= f.text_field :name, class: 'input is-medium', placeholder: "el nombre de tu negocio", data: { action: 'keyup->merchant-name#change', target: 'merchant-name.name'} %>
       <span class="icon is-small is-left">
         <i class="fas fa-briefcase fa-xs"></i>
       </span>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="control">
-      <%= f.submit 'Crea tu menú', class: 'button is-info is-medium' %>
+      <%= f.submit 'Continuar', class: 'button is-info is-medium' %>
     </div>
   </div>
 <% end %>

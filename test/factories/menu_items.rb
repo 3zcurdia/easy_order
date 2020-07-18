@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :menu_item do
     menu { nil }
-    name { 'MyString' }
-    description { 'MyText' }
-    price_cents { 1 }
-    currency { 'MyString' }
+    name { 'Mi producto' }
+    description { 'Lorem ipsum dolor sit amet' }
+    price_cents { 100_00 }
+    price_currency { 'MXN' }
   end
 end
