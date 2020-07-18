@@ -15,31 +15,31 @@
       <% @merchant.menu_items.each do |item| %>
         <article class="media" data-target="checkout.menu-item" data-name="<%= item.name %>%" data-price="<%= item.price_cents %>">
           <div class="media-left">
-            <p class="image is-92x92">
+            <p class="image is-128x128-desktop is-64x64-mobile">
               <img src="https://placeimg.com/92/92/bacon?=<%= rand(100) %>%">
             </p>
           </div>
           <div class="media-content">
             <div class="content">
-              <h6><%= item.name %></h6>
+              <h4><%= item.name %></h4>
               <p class="is-size-7-mobile"><%= item.description %></p>
             </div>
-          </div>
-          <div class="media-right has-text-centered">
-            <h2 class="subtitle"><%= item.price.format %></h2>
             <% if delivery?(@merchant) %>
             <div class="field has-addons" data-controller="numeric-input">
               <div class="control">
-                <a class="button is-light" data-action="numeric-input#sub"><i class="fa fa-minus"></i></a>
+                <a class="button is-small is-light" data-action="numeric-input#sub"><i class="fa fa-minus"></i></a>
               </div>
               <div class="control">
-                <input class="input" type="text" value="0" data-target='numeric-input.number' readonly>
+                <input class="input is-small" type="text" value="0" data-target='numeric-input.number' readonly>
               </div>
               <div class="control">
-                <a class="button is-light" data-action="numeric-input#add"><i class="fa fa-plus"></i></a>
+                <a class="button is-small is-light" data-action="numeric-input#add"><i class="fa fa-plus"></i></a>
               </div>
             </div>
             <% end %>
+          </div>
+          <div class="media-right has-text-right">
+            <h2 class="subtitle"><%= item.price.format %></h2>
           </div>
         </article>
       <% end %>
