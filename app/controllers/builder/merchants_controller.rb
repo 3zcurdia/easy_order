@@ -10,7 +10,7 @@ module Builder
 
     def create
       @merchant = Merchant.new(merchant_params)
-      if @merchant.save && @merchant.create_menu
+      if @merchant.save
         session[:guest_merchant_id] = @merchant.id
         redirect_to new_builder_menu_path
       else

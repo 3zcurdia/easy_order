@@ -17,6 +17,7 @@ class Merchant < ApplicationRecord
   store :info, accessors: %i[category address payment_methods], coder: JSON
   geocoded_by :address
   after_validation :geocode
+  after_create :create_menu
 
   def menu_items
     menu&.items || []

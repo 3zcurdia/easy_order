@@ -28,5 +28,9 @@ class OnboardingTest < ApplicationSystemTestCase
     click_on 'Crear cuenta'
 
     assert_text 'La tazita de té'
+    assert_text 'Expresso 0'
+    assert_text 'Expresso 1'
+    assert_text 'Expresso 2'
+    assert_text 'Expresso 3'
   end
 end
