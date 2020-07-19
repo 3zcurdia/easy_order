@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout 'landing_page'
+  layout 'page'
   before_action :set_merchant
 
   def show

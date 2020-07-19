@@ -1,5 +1,6 @@
 module Builder
   class BaseController < ApplicationController
+    layout 'page'
     include GuestUserAuthConcern
     before_action :redirect_logged_user
     before_action :enable_guest_user

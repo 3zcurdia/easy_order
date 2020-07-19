@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MenuFacilito.com</title>
+  <title><%= content_for?(:title) ? yield(:title) : 'menufacilito.com' %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -33,10 +33,7 @@
             <% if user_signed_in? %>
               <%= link_to "Salir", destroy_user_session_path, class: 'button is-primary', method: :delete %>
             <% else %>
-              <%= link_to 'Ingresar', new_session_path(:user), class: 'button' %>
-              <%= link_to new_registration_path(:user), class: 'button is-primary' do %>
-                <strong>Registrarse</strong>
-              <% end %>
+              <%= link_to 'Ya tengo una cuenta', new_session_path(:user), class: 'button' %>
             <% end %>
           </div>
         </div>

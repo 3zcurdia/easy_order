@@ -1,13 +1,15 @@
-<div class="columns is-centered">
-  <div class="column is-two-thirds">
-    <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
-    <div class="tabs is-centered">
-      <ul>
-        <li class="is-active"><a>Crea tu marca</a></li>
-        <li><a>Agrega tu productos</a></li>
-        <li><a>Crea tu cuenta</a></li>
-      </ul>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-two-thirds">
+      <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
+      <div class="tabs is-centered">
+        <ul>
+          <li class="is-active"><a>Crea tu marca</a></li>
+          <li><a>Agrega tu productos</a></li>
+          <li><a>Crea tu cuenta</a></li>
+        </ul>
+      </div>
+      <%= render 'form', merchant: @merchant %>
     </div>
-    <%= render 'form', merchant: @merchant %>
   </div>
-</div>
+</section>
