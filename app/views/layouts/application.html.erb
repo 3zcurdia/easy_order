@@ -26,18 +26,19 @@
         <span aria-hidden="true"></span>
       </a>
     </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <% if user_signed_in? %>
-            <%= link_to "Salir", destroy_user_session_path, class: 'button is-primary', method: :delete %>
-          <% else %>
-            <%= link_to 'Ingresar', new_session_path(:user), class: 'button' %>
-            <%= link_to new_registration_path(:user), class: 'button is-primary' do %>
-              <strong>Registrarse</strong>
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if user_signed_in? %>
+              <%= link_to "Salir", destroy_user_session_path, class: 'button is-primary', method: :delete %>
+            <% else %>
+              <%= link_to 'Ingresar', new_session_path(:user), class: 'button' %>
+              <%= link_to new_registration_path(:user), class: 'button is-primary' do %>
+                <strong>Registrarse</strong>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>
