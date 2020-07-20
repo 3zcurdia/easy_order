@@ -10,15 +10,16 @@ export default class extends Controller {
   sub() {
     if (this.value <= 0) {
       return
-    } 
+    }
     this.value--
   }
 
   get value() {
-    return this.numberTarget.value 
+    return this.numberTarget.value
   }
 
   set value(new_value) {
+    this.data.set('value', new_value)
     this.numberTarget.value = new_value
   }
 }
