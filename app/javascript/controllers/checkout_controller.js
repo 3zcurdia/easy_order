@@ -19,7 +19,7 @@ export default class extends Controller {
     this.cart.forEach((item) => {
       valueCents += item.price * item.quantity
     })
-    this.totalValueTarget.innerHTML = `$ ${valueCents/100.0}`
+    this.totalValueTarget.innerHTML = `$ ${(valueCents/100.0).toFixed(2)}`
   }
 
   updateWhatsappMessage() {
