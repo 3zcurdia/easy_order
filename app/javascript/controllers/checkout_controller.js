@@ -23,7 +23,7 @@ export default class extends Controller {
   }
 
   updateWhatsappMessage() {
-    let url = encodeURIComponent(`https://wa.me/${this.merchantPhone}?text=${this.orderMessage}`)
+    let url = `https://wa.me/${this.merchantPhone}?text=${encodeURIComponent(this.orderMessage)}`
     this.whatsappOrderTarget.setAttribute("href", url)
   }
 
