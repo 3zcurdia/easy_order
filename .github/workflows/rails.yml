@@ -52,4 +52,4 @@ jobs:
         POSTGRES_PASSWORD: postgres
         POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
-        bundle exec rails test
+        bundle exec rails test:models
