@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/p/:id', to: 'pages#show', as: :page
   root 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
   namespace :api do
@@ -14,5 +15,5 @@ Rails.application.routes.draw do
     resources :menu_items, except: %i[index show]
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
-  get '/:id', to: 'pages#show', as: :page
+  get '/privacy', to: 'privacy#show'
 end
