@@ -10,6 +10,20 @@
       </ul>
     </div>
   <% end %>
+  <h1 class="title">Información de tu negocio</h1>
+
+  <div class="field">
+    <%= f.label :logo, 'Logo', class: 'label' %>
+    <% if merchant.logo.attached? %>
+    <p class="image is-128x128">
+      <%= image_tag merchant.logo %>
+    </p>
+    <% end %>
+    <div class="control">
+      <%= f.file_field :logo %>
+    </div>
+  </div>
+
 
   <div class="field">
     <%= f.label :name, 'Nombre de tu negocio', class: 'label' %>
