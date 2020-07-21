@@ -32,6 +32,18 @@
     </div>
   </div>
 
+  <hr/>
+
+  <h1 class="title">Search Engine Optimization</h1>
+  <h2 class="subtitle">Ayuda a que Google te encuentre mas rapido</h2>
+  <div class="field">
+    <%= f.label :keyword_list, 'Palabras clave', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :keyword_list, class: 'input', value: f.object.keyword_list.to_s, placeholder: 'e.j. economico, pizza, mexiana' %>
+      <em class="help">(Separa las palabras clabe por comas)</em>
+    </div>
+  </div>
+
   <div class="field">
     <div class="control">
       <%= f.submit 'Actualizar', class: 'button is-primary' %>
