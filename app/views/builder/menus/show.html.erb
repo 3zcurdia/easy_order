@@ -1,13 +1,7 @@
 <div class="columns is-centered">
   <div class="column is-two-thirds">
     <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
-    <div class="tabs is-centered">
-      <ul>
-        <li><a>Crea tu marca</a></li>
-        <li class="is-active"><a>Agrega tu productos</a></li>
-        <li><a>Crea tu cuenta</a></li>
-      </ul>
-    </div>
+    <%= render 'shared/steps', step: 2 %>
     <%= render 'form', menu: @menu %>
   </div>
 </div>
