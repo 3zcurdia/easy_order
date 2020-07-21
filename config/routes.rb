@@ -1,7 +1,10 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   get '/p/:id', to: 'pages#show', as: :page
   root 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
+
   namespace :api do
     resources :search_merchants, only: :index
   end
@@ -16,4 +19,7 @@ Rails.application.routes.draw do
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   get '/privacy', to: 'privacy#show'
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
