@@ -28,6 +28,7 @@ gem 'geocoder'
 gem 'image_processing'
 gem 'money-rails'
 gem 'rqrcode'
+gem 'redis'
 gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
