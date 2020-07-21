@@ -28,14 +28,14 @@ class Merchant < ApplicationRecord
 
   def delivery=(value)
     info['delivery'] =
-    case value
-    when TrueClass
-      value
-    when String
-      value == '1'
-    else
-      false
-    end
+      case value
+      when TrueClass
+        value
+      when String
+        value == '1'
+      else
+        false
+      end
   end
 
   def delivery
