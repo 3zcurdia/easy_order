@@ -14,7 +14,7 @@ class MerchantPolicyTest < ActiveSupport::TestCase
   end
 
   def test_index
-    refute policy.index?
+    assert policy.index?
   end
 
   def test_show

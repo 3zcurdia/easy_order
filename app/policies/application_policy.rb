@@ -57,5 +57,9 @@ class ApplicationPolicy
     def resolve
       scope.all
     end
+
+    def admin?
+      user.admin?
+    end
   end
 end

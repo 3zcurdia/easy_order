@@ -1,12 +1,16 @@
 class MerchantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      if admin?
+        scope.all
+      else
+        user.merchants
+      end
     end
   end
 
   def index?
-    admin?
+    true
   end
 
   def show?
