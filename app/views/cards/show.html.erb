@@ -20,11 +20,13 @@
           </div>
           <div class="card-content">
             <div class="media">
+              <% if @merchant.logo.attached? %>
               <div class="media-left">
                 <figure class="image is-128x128">
                   <%= image_tag @merchant.logo.variant(resize_to_fit: [256, 256]) %>
                 </figure>
               </div>
+              <% end %>
               <div class="media-content">
                 <br/>
                 <h1 class="title is-4"><%= @merchant.name %></h1>
