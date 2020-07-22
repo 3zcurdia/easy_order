@@ -1,36 +1,4 @@
 @charset "utf-8";
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
-// Set your brand colors
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
-
-// Color palette from https://coolors.co/f52f57-5da95e-fdcd08-9c6bad
-$red-crayola: #F52F57;
-$bud-green: #5DA95E;
-$jonquil: #FDCD08;
-$purple-mountain: #9C6BAD;
-
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$primary: $purple-mountain; // $turquoise;
-$link: $pink; // $blue;
-// $info: $cyan;
-$success: $bud-green;
-$warning: $jonquil;
-$danger: $red-crayola;
-// $dark: $grey-darker;
-// $text: $grey-dark;
-$grey-light: $beige-light;
-$grey-dark: $brown;
-
-// Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-
-@import '~bulma/bulma';
-// @import '~bulma-divider';
-@import 'landing_page';
+@import 'theme';
 @import "steps";
+@import 'landing_page';
