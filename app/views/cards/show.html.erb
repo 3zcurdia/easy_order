@@ -19,7 +19,7 @@
             <figure class="image"><%= svg_code(page_url(@merchant), 9) %></figure>
           </div>
           <div class="card-content">
-            <div class="media">
+            <div class="media columns is-vcentered">
               <% if @merchant.logo.attached? %>
               <div class="media-left">
                 <figure class="image is-128x128">
@@ -28,7 +28,6 @@
               </div>
               <% end %>
               <div class="media-content">
-                <br/>
                 <h1 class="title is-4"><%= @merchant.name %></h1>
                 <p class="subtitle is-6">Menu en linea</p>
               </div>

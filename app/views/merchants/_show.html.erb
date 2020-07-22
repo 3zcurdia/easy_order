@@ -1,11 +1,11 @@
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     <li class="is-active"><%= link_to merchant.name, '#' %></li>
-    <li><%= link_to 'Editar', edit_merchant_path(merchant) %></li>
+    <li><%= link_to 'Edita tu negocio', edit_merchant_path(merchant) %></li>
   </ul>
 </nav>
 <div class="columns">
-  <div class="column is-half">
+  <div class="column">
     <article class="media">
       <figure class="media-left">
         <% if merchant.logo.attached? %>
@@ -53,14 +53,19 @@
     </article>
   </div>
   <div class="column">
-    <h1 class="title">
-      <%= link_to new_merchant_menu_item_path(merchant), class: 'button is-success is-small is-pulled-right' do %>
-        <span class="icon ">
+    <div class="level">
+      <div class="level-left">
+        <h1 class="title">Menú</h1>
+      </div>
+      <div class="level-right">
+        <%= link_to new_merchant_menu_item_path(merchant), class: 'button is-success' do %>
+        <span class="icon">
           <i class="fa fa-plus"></i>
         </span>
-      <% end %>
-      Menú
-    </h1>
+        <span> Agregar producto</span>
+        <% end %>
+      </div>
+    </div>
     <% merchant.menu_items.each do |item| %>
       <article class="media">
         <div class="media-left">
@@ -78,10 +83,10 @@
           <nav class="level is-mobile">
             <div class="level-left">
               <%= link_to edit_merchant_menu_item_path(merchant, item), class: 'level-item' do %>
-                <span class="icon is-small"><i class="fas fa-edit"></i></span>
+                <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
               <% end %>
-              <%= link_to merchant_menu_item_path(merchant, item), class: 'level-item', method: :delete do %>
-                <span class="icon is-small"><i class="fas fa-trash"></i></span>
+              <%= link_to merchant_menu_item_path(merchant, item), class: 'level-item has-text-danger', method: :delete do %>
+                <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
               <% end %>
             </div>
           </nav>
