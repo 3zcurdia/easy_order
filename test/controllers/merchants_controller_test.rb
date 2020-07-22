@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MerchantsControllerTest < ActionDispatch::IntegrationTest
   def user
-    @user ||= create(:user, :merchant)
+    @user ||= create(:user, :admin)
   end
 
   def merchant

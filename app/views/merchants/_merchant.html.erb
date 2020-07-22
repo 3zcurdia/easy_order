@@ -1,20 +1,45 @@
 <article class="media">
   <figure class="media-left">
+    <% if merchant.logo.attached? %>
+    <figure class="image is-128x128">
+      <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
+    </figure>
+    <% else %>
+      <figure class="image is-pulled-right"><%= svg_code(page_url(merchant)) %></figure>
+    <% end %>
   </figure>
   <div class="media-content">
-    <h1 class="title"><%= link_to merchant.name, merchant_path(merchant) %></h1>
-    <h2 class="subtitle">
+    <h1 class="title"><%= merchant.name %></h1>
+    <h2 class="subtitle is-6">
       <%= link_to page_path(merchant) do %>
-      <span class="icon"><i class="fa fa-link"></i></span>
-      <% end %>
-      <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
-      <span class="icon"><i class="fas fa-qrcode"></i></span>
-      <% end %>
-      <% if merchant.delivery %>
-      <span class="icon"><i class="fas fa-truck"></i></span>
+        <%= page_url(merchant) %>
       <% end %>
     </h2>
     <div class="content">
+      <ul>
+        <% if merchant.delivery %>
+        <li>
+          <span class="icon"><i class="fas fa-truck"></i></span>
+          Entregas a domicilio
+        </li>
+        <% end %>
+        <% if merchant.phone.present? %>
+        <li>
+          <span class="icon"><i class="fa fa-phone"></i></span>
+          <%= merchant.phone %>
+        </li>
+        <% end %>
+        <li>
+          <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
+            <span class="icon"><i class="fa fa-id-card"></i></span> Tarjetas de presentacion
+          <% end %>
+        </li>
+        <li>
+          <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
+            <span class="icon"><i class="fa fa-qrcode"></i></span> Codigo QR
+          <% end %>
+        </li>
+      </ul>
     </div>
   </div>
 </article>

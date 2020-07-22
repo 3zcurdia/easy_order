@@ -6,7 +6,7 @@ class MerchantPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    admin?
   end
 
   def show?
