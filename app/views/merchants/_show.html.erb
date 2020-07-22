@@ -38,6 +38,11 @@
             </li>
             <% end %>
             <li>
+              <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
+                <span class="icon"><i class="fa fa-id-card"></i></span> Tarjetas de presentacion
+              <% end %>
+            </li>
+            <li>
               <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
                 <span class="icon"><i class="fa fa-qrcode"></i></span> Codigo QR
               <% end %>
