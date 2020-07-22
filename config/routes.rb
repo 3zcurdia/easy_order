@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :merchants do
     resources :menu_items, except: %i[index show]
+    resource :cards, only: :show
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   get '/privacy', to: 'privacy#show'
