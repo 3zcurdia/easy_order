@@ -12,13 +12,13 @@
   <meta name="keywords" content="<%= content_for(:keywords)%>">
 
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <script src="https://kit.fontawesome.com/238d584d83.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <%= yield %>
 </body>
+<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<script src="https://kit.fontawesome.com/238d584d83.js" crossorigin="anonymous"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173157976-1"></script>

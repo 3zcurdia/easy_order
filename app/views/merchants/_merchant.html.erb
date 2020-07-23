@@ -10,11 +10,6 @@
   </figure>
   <div class="media-content">
     <h1 class="title"><%= merchant.name %></h1>
-    <h2 class="subtitle is-6">
-      <%= link_to page_path(merchant) do %>
-        <%= page_url(merchant) %>
-      <% end %>
-    </h2>
     <div class="content">
       <ul>
         <% if merchant.delivery %>
@@ -29,6 +24,11 @@
           <%= merchant.phone %>
         </li>
         <% end %>
+        <li>
+          <%= link_to page_path(merchant), target: '_blank' do %>
+          <span class='icon'><i class="fa fa-link"></i></span> <span>Tu pagina</span>
+          <% end %>
+        </li>
         <li>
           <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
             <span class="icon"><i class="fa fa-id-card"></i></span> Tarjetas de presentacion
