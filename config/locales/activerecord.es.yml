@@ -1,6 +1,12 @@
 ---
 es:
   activerecord:
+    models:
+      user: Usuario
+      merchant: Comercio
+      menu: Menú
+      menu_item: Producto
+      section: Sección
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
@@ -17,7 +23,7 @@ es:
     - vie
     - sáb
     abbr_month_names:
-    - 
+    -
     - ene
     - feb
     - mar
@@ -43,7 +49,7 @@ es:
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
-    - 
+    -
     - enero
     - febrero
     - marzo
