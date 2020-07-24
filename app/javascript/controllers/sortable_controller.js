@@ -15,13 +15,19 @@ export default class extends Controller {
   }
 
   update(event) {
+    let token = document.head.querySelector(`meta[name="csrf-token"]`).getAttribute("content")
     let url = event.item.getAttribute('data-url')
     let data = { position: event.newIndex }
+    let headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "X-CSRF-Token": token
+    }
     fetch(url, {
       body: JSON.stringify(data),
       method: 'PUT',
       credentials: "same-origin",
-      headers: this.headers
+      headers: headers
     })
     .then(response => response.json())
     .then(result => {
@@ -30,17 +36,5 @@ export default class extends Controller {
     .catch((error) => {
       console.error('Error:', error)
     })
-  }
-
-  get headers(){
-    return {
-      'Content-Type': 'application/json',
-      "X-CSRF-Token": this.getMetaValue("csrf-token")
-    }
-  }
-
-  getMetaValue(value) {
-    const element = document.head.querySelector(`meta[name="${name}"]`)
-    return element.getAttribute("content")
   }
 }
