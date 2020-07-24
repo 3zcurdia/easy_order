@@ -8,19 +8,4 @@
   <% end %>
 <% end %>
 
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p>
-      <strong>Creado con <%= link_to 'MenúFacilito', root_url %></strong>
-    </p>
-  </div>
-  <% if Rails.env.production? %>
-  <script type="text/javascript">
-    document.addEventListener("turbolinks:load", function() {
-      var user_id = Math.random; // TODO: fetch from server
-      mixpanel.identify(user_id);
-      mixpanel.track("Menu", {"merchant": "<%= @merchant.slug %>"});
-    })
-  </script>
-  <% end %>
-</footer>
+<%= render 'footer' %>
