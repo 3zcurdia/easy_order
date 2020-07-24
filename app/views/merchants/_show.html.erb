@@ -22,37 +22,8 @@
         <% end %>
       </div>
     </div>
-    <% merchant.menu_items.each do |item| %>
-      <article class="media">
-        <div class="media-left">
-          <% if item.photo.attached? %>
-            <p class="image is-64x64">
-              <%= image_tag item.photo.variant(resize_to_fit: [128, 128]) %>
-            </p>
-          <% end %>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <h5><%= item.name %></h5>
-            <p><%= item.description %></p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <%= link_to edit_merchant_menu_item_path(merchant, item), class: 'level-item' do %>
-                <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
-              <% end %>
-              <%= link_to merchant_menu_item_path(merchant, item), class: 'level-item has-text-danger', method: :delete do %>
-                <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
-              <% end %>
-            </div>
-          </nav>
-        </div>
-        <div class="media-right">
-          <div class="content">
-            <p><%= item.price.format %></p>
-          </div>
-        </div>
-      </article>
-    <% end %>
+    <ul data-controller="sortable">
+      <%= render merchant.menu_items, merchant: merchant %>
+    </ul>
   </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_010309) do
+ActiveRecord::Schema.define(version: 2020_07_23_064211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -55,7 +55,10 @@ ActiveRecord::Schema.define(version: 2020_07_21_010309) do
     t.jsonb 'meta', default: {}
     t.string 'price_currency', default: 'MXN'
     t.integer 'price_cents', default: 0, null: false
+    t.bigint 'section_id'
+    t.integer 'position', default: 0
     t.index ['menu_id'], name: 'index_menu_items_on_menu_id'
+    t.index ['section_id'], name: 'index_menu_items_on_section_id'
   end
 
   create_table 'menus', force: :cascade do |t|
@@ -78,6 +81,14 @@ ActiveRecord::Schema.define(version: 2020_07_21_010309) do
     t.index %w[latitude longitude], name: 'index_merchants_on_latitude_and_longitude'
     t.index ['slug'], name: 'index_merchants_on_slug', unique: true
     t.index ['user_id'], name: 'index_merchants_on_user_id'
+  end
+
+  create_table 'sections', force: :cascade do |t|
+    t.bigint 'menu_id', null: false
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['menu_id'], name: 'index_sections_on_menu_id'
   end
 
   create_table 'taggings', id: :serial, force: :cascade do |t|
@@ -130,7 +141,9 @@ ActiveRecord::Schema.define(version: 2020_07_21_010309) do
 
   add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
   add_foreign_key 'menu_items', 'menus'
+  add_foreign_key 'menu_items', 'sections'
   add_foreign_key 'menus', 'merchants'
   add_foreign_key 'merchants', 'users'
+  add_foreign_key 'sections', 'menus'
   add_foreign_key 'taggings', 'tags'
 end

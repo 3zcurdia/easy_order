@@ -11,6 +11,6 @@ class Menu < ApplicationRecord
   end
 
   def init_items(number)
-    number.times { items.build }
+    number.times { |i| items.build(position: i) }
   end
 end
