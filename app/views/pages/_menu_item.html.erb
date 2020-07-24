@@ -1,0 +1,32 @@
+<article class="media">
+  <div class="media-left">
+    <% if item.photo.attached? %>
+    <p class="image is-128x128">
+      <%= image_tag item.photo.variant(resize_to_fit: [256, 256]) %>
+    </p>
+    <% end %>
+  </div>
+  <div class="media-content">
+    <div class="content">
+      <h4><%= item.name %></h4>
+      <p class="is-size-7-mobile"><%= item.description %></p>
+      <h2 class="subtitle is-5 is-hidden-desktop"><%= item.price.format %></h2>
+    </div>
+    <% if delivery?(merchant) %>
+    <div class="field has-addons" data-controller="numeric-input" data-target="checkout.menuItem" data-name="<%= item.name %>" data-price="<%= item.price_cents %>">
+      <div class="control">
+        <a class="button is-small is-light" data-action="numeric-input#sub checkout#updateCart"><i class="fa fa-minus"></i></a>
+      </div>
+      <div class="control">
+        <input class="input is-small" type="text" value="0" data-target='numeric-input.number' readonly>
+      </div>
+      <div class="control">
+        <a class="button is-small is-light" data-action="numeric-input#add checkout#updateCart"><i class="fa fa-plus"></i></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="media-right has-text-right is-hidden-mobile is-hidden-tablet-only">
+    <h2 class="subtitle"><%= item.price.format %></h2>
+  </div>
+</article>

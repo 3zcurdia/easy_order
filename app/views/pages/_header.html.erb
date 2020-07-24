@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="hero is-dark px-5">
+    <div class="hero-body">
+      <article class="media columns is-vcentered">
+        <% if merchant.logo.attached? %>
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]), class: 'is-rounded' %>
+          </figure>
+        </div>
+        <% end %>
+        <div class="media-content">
+          <h1 class="title">
+            <%= merchant.name %>
+          </h1>
+        </div>
+      </article>
+    </div>
+  </div>
+</header>
