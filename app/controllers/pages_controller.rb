@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   private
 
   def set_merchant
-    @merchant = Merchant.friendly.find(params[:id])
+    @merchant = Merchant.includes(:keywords).friendly.find(params[:id])
   end
 
   def code
