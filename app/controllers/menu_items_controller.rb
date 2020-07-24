@@ -28,9 +28,15 @@ class MenuItemsController < ApplicationController
   def update
     authorize @menu_item
     if @menu_item.update(menu_item_params)
-      redirect_to @merchant, notice: 'El producto se actualizó correctamente.'
+      respond_to do |format|
+        format.html { redirect_to @merchant, notice: 'El producto se actualizó correctamente.' }
+        format.json { render json: @menu_item }
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html { render :edit }
+        format.json { render json: @menu_item.errors, status: :bad_request }
+      end
     end
   end
 
@@ -55,6 +61,6 @@ class MenuItemsController < ApplicationController
   end
 
   def menu_item_params
-    params.require(:menu_item).permit(:name, :description, :price, :photo)
+    params.require(:menu_item).permit(:position, :name, :description, :price, :photo)
   end
 end
