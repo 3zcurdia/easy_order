@@ -24,7 +24,7 @@
 <section class="section" data-controller="checkout", data-checkout-merchant-phone="52<%= @merchant.phone %>" >
   <div class="columns">
     <div class="column">
-      <% @merchant.menu_items.each do |item| %>
+      <% @menu_items.each do |item| %>
         <article class="media">
           <div class="media-left">
             <% if item.photo.attached? %>

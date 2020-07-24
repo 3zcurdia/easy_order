@@ -5,7 +5,7 @@
       <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
     </figure>
     <% else %>
-      <figure class="image is-pulled-right"><%= svg_code(page_url(merchant)) %></figure>
+      <figure class="image is-pulled-right"><%= svg_code(merchant) %></figure>
     <% end %>
   </figure>
   <div class="media-content">
@@ -35,7 +35,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to page_url(merchant, format: :png), target: '_blank' do %>
+          <%= link_to merchant_code_url(merchant, format: :png), target: '_blank' do %>
             <span class="icon"><i class="fa fa-qrcode"></i></span> Codigo QR
           <% end %>
         </li>

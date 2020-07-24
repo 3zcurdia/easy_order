@@ -23,7 +23,7 @@ class Merchant < ApplicationRecord
   acts_as_taggable_on :keywords
 
   def menu_items
-    menu&.items || []
+    menu&.items&.includes(photo_attachment: :blob)
   end
 
   def delivery=(value)
