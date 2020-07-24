@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 
 gem 'jbuilder', '~> 2.7'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.1'
 
 gem 'devise'
 gem 'omniauth-facebook'
