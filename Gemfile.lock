@@ -97,6 +97,7 @@ GEM
     concurrent-ruby (1.1.6)
     connection_pool (2.2.3)
     crass (1.0.6)
+    dalli (2.7.10)
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -326,6 +327,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.2)
   capybara (>= 2.15)
+  dalli
   devise
   factory_bot_rails
   friendly_id
