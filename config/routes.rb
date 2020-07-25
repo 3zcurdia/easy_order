@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :sections
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
+  resources :pages, only: :show
   get '/privacy', to: 'privacy#show'
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'

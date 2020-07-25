@@ -22,7 +22,7 @@ class Menu < ApplicationRecord
   def create_sections
     return unless sections.empty?
 
-    %w[Alimentos Bebidas Postres].each_with_index do |name, idx|
+    %w[alimentos bebidas postres].each_with_index do |name, idx|
       sections.create(name: name, position: idx)
     end
   end

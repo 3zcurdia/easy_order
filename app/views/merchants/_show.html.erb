@@ -27,7 +27,7 @@
     <div class="tabs">
       <ul>
         <% merchant.menu.sections.each do |section| %>
-          <li class="<%= 'is-active' if @section_filter == section.id %>"><%= link_to section.name, merchant_path(merchant, section: section.id) %></li>
+          <li class="is-capitalized <%= 'is-active' if @section_filter == section.id %>"><%= link_to section.name, merchant_path(merchant, section: section.id) %></li>
         <% end %>
       </ul>
     </div>

@@ -38,7 +38,8 @@
           <span><%= current_user.email %></span>
         </a>
         <div class="navbar-dropdown is-boxed">
-          <!-- <hr class="navbar-divider"> -->
+          <%= link_to "Panel de control", user_root_path, class: 'navbar-item' %>
+          <hr class="navbar-divider">
           <%= link_to "Cerrar session", destroy_user_session_path, class: 'navbar-item', method: :delete %>
         </div>
         <% else %>
