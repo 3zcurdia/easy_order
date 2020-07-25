@@ -1,11 +1,17 @@
 <section class="section" data-controller="checkout", data-checkout-merchant-phone="52<%= merchant.phone %>" >
   <div class="columns">
     <div class="column">
-      <% cache menu_items do %>
-       <%=  render partial: 'pages/menu_item', collection: menu_items, as: :item, locals: { merchant: merchant } %>
+      <% @merchant.menu.sections.each do |section| %>
+        <%- section_items = menu_items.where(section: section) %>
+        <% if section_items.any? %>
+          <h1 class="title is-4 is-capitalized"><%= section.name %></h1>
+          <% cache section_items do %>
+            <%= render partial: 'pages/menu_item', collection: section_items, as: :item, locals: { merchant: merchant } %>
+          <% end %>
+          <hr/>
+        <% end %>
       <% end %>
       <% if delivery?(merchant) %>
-        <hr/>
         <div class="container has-text-right">
           <h1 class='title'>Total</h1>
           <h2 class='subtitle is-2' data-target="checkout.totalValue">$0.00</h2>
