@@ -1,50 +1,54 @@
-<article class="media">
-  <figure class="media-left">
-    <% if merchant.logo.attached? %>
-    <figure class="image is-128x128">
-      <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
+<div class="card">
+  <div class="card-image">
+    <figure class="image is-4by4 is-hidden-mobile">
+      <% if merchant.logo.attached? %>
+        <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
+      <% else %>
+        <%= image_tag merchant_code_url(merchant, format: :png) %>
+      <% end %>
     </figure>
-    <% else %>
-      <figure class="image is-pulled-right"><%= svg_code(merchant) %></figure>
-    <% end %>
-  </figure>
-  <div class="media-content">
-    <h1 class="title"><%= merchant.name %></h1>
+  </div>
+  <div class="card-content">
+    <div class="media columns is-vcentered">
+      <div class="media-left">
+        <figure class="image is-128x128 is-hidden-tablet">
+          <% if merchant.logo.attached? %>
+            <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
+          <% else %>
+            <%= image_tag merchant_code_url(merchant, format: :png) %>
+          <% end %>
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= merchant.name %></p>
+        <p class="subtitle is-6">
+          <% if merchant.delivery %>
+            <span class="icon"><i class="fas fa-truck"></i></span>
+            <span>Entregas a domicilio</span>
+            <br/>
+          <% end %>
+          <% if merchant.phone.present? %>
+            <span class="icon"><i class="fa fa-phone"></i></span>
+            <span><%= merchant.phone %></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
     <div class="content">
-      <ul>
-        <% if merchant.delivery %>
-        <li>
-          <span class="icon"><i class="fas fa-truck"></i></span>
-          Entregas a domicilio
-        </li>
-        <% end %>
-        <% if merchant.phone.present? %>
-        <li>
-          <span class="icon"><i class="fa fa-phone"></i></span>
-          <%= merchant.phone %>
-        </li>
-        <% end %>
-        <li>
-          <%= link_to edit_merchant_path(merchant), target: '_blank' do %>
-          <span class='icon'><i class="fa fa-edit"></i></span> <span>Edita tu negocio</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to page_path(merchant), target: '_blank' do %>
-          <span class='icon'><i class="fa fa-link"></i></span> <span>Ve tú pagina</span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
-            <span class="icon"><i class="fa fa-id-card"></i></span> Imprime tarjetas de presentacion
-          <% end %>
-        </li>
-        <li>
-          <%= link_to merchant_code_url(merchant, format: :png), target: '_blank' do %>
-            <span class="icon"><i class="fa fa-qrcode"></i></span> Descarga el Codigo QR
-          <% end %>
-        </li>
-      </ul>
+      <%= link_to page_path(merchant), target: '_blank' do %>
+      <span class='icon'><i class="fa fa-link"></i></span> <span>Ve tú pagina</span>
+      <% end %><br/>
+      <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
+        <span class="icon"><i class="fa fa-id-card"></i></span> <span>Imprime tarjetas de presentacion</span>
+      <% end %><br/>
+      <%= link_to merchant_code_url(merchant, format: :png), target: '_blank' do %>
+        <span class="icon"><i class="fa fa-qrcode"></i></span> <span>Descarga el Codigo QR</span>
+      <% end %><br/>
+      <br/>
+      <%= link_to edit_merchant_path(merchant), class: 'button is-primary is-fullwidth is-outlined' do %>
+        <span class='icon'><i class="fa fa-edit"></i></span> <span>Edita tu negocio</span>
+      <% end %>
     </div>
   </div>
-</article>
+</div>

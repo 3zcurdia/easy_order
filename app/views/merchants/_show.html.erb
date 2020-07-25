@@ -1,5 +1,5 @@
 <div class="columns">
-  <div class="column">
+  <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
     <%= render @merchant %>
   </div>
   <div class="column">
@@ -16,8 +16,8 @@
         <% end %>
       </div>
     </div>
-    <ul data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(merchant)%>">
+    <div data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(merchant)%>">
       <%= render merchant.menu_items, merchant: merchant %>
-    </ul>
+    </div>
   </div>
 </div>
