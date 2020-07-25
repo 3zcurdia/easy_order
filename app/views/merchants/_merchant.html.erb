@@ -25,18 +25,23 @@
         </li>
         <% end %>
         <li>
+          <%= link_to edit_merchant_path(merchant), target: '_blank' do %>
+          <span class='icon'><i class="fa fa-edit"></i></span> <span>Edita tu negocio</span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to page_path(merchant), target: '_blank' do %>
-          <span class='icon'><i class="fa fa-link"></i></span> <span>Tu pagina</span>
+          <span class='icon'><i class="fa fa-link"></i></span> <span>Ve tú pagina</span>
           <% end %>
         </li>
         <li>
           <%= link_to merchant_cards_url(merchant), target: '_blank' do %>
-            <span class="icon"><i class="fa fa-id-card"></i></span> Tarjetas de presentacion
+            <span class="icon"><i class="fa fa-id-card"></i></span> Imprime tarjetas de presentacion
           <% end %>
         </li>
         <li>
           <%= link_to merchant_code_url(merchant, format: :png), target: '_blank' do %>
-            <span class="icon"><i class="fa fa-qrcode"></i></span> Codigo QR
+            <span class="icon"><i class="fa fa-qrcode"></i></span> Descarga el Codigo QR
           <% end %>
         </li>
       </ul>
