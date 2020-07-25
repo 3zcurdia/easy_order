@@ -1,0 +1,12 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to @merchant.name, merchant_path(@merchant) %></li>
+    <li class="is-active"><a href="#">Crear sección</a></li>
+  </ul>
+</nav>
+<h1 class="title">Crear sección</h1>
+<div class="columns">
+  <div class="column is-half">
+    <%= render 'form', section: @section, merchant: @merchant %>
+  </div>
+</div>

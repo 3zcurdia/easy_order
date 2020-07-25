@@ -1,6 +1,7 @@
-class SectionController < ApplicationController
+class SectionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_section, only: %i[edit create update]
+  before_action :set_merchant
+  before_action :set_section, only: %i[edit update]
 
   def new
     @section = Section.new
@@ -13,10 +14,11 @@ class SectionController < ApplicationController
 
   def create
     @section = Section.new(section_params)
+    @section.menu = @merchant.menu
     authorize @section
 
     if @section.save
-      redirect_to @merchant, notice: 'La seccion se creó correctamente.'
+      redirect_to @merchant, notice: 'La sección se creó correctamente.'
     else
       render :new
     end
@@ -25,7 +27,7 @@ class SectionController < ApplicationController
   def update
     authorize @section
     if @section.update(section_params)
-      redirect_to @merchant, notice: 'La seccion se actualizó correctamente.'
+      redirect_to @merchant, notice: 'La sección se actualizó correctamente.'
     else
       render :edit
     end
@@ -33,12 +35,12 @@ class SectionController < ApplicationController
 
   private
 
-  def merchant
-    @merchant ||= Merchant.includes(:keywords).friendly.find(params[:merchant_id])
+  def set_merchant
+    @merchant = Merchant.includes(:keywords).friendly.find(params[:merchant_id])
   end
 
   def set_section
-    @section = merchant.find(id)
+    @section = @merchant.menu.sections.find(params[:id])
   end
 
   def section_params

@@ -14,7 +14,7 @@ class Menu < ApplicationRecord
   end
 
   def build_items(number = 4)
-    number.times { |i| items.build(position: i, section: self.sections.first) }
+    number.times { |i| items.build(position: i, section: sections.first) }
   end
 
   private
@@ -22,8 +22,8 @@ class Menu < ApplicationRecord
   def create_sections
     return unless sections.empty?
 
-    %w[Alimentos Bebidas Postres].each do |name|
-      sections.create(name: name)
+    %w[Alimentos Bebidas Postres].each_with_index do |name, idx|
+      sections.create(name: name, position: idx)
     end
   end
 end
