@@ -9,12 +9,16 @@
       </div>
       <div class="level-right">
         <%= link_to new_merchant_menu_item_path(merchant), class: 'button is-success' do %>
-        <span class="icon">
-          <i class="fa fa-plus"></i>
-        </span>
-        <span> Agregar producto</span>
+          <span class="icon"><i class="fa fa-plus"></i></span> <span> Agregar producto</span>
         <% end %>
       </div>
+    </div>
+    <div class="tabs">
+      <ul>
+        <li class="is-active"><a>Alimentos</a></li>
+        <li><a>Bebidas</a></li>
+        <li><a>Postres</a></li>
+      </ul>
     </div>
     <div data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(merchant)%>">
       <%= render merchant.menu_items, merchant: merchant %>
