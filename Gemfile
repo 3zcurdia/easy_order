@@ -23,8 +23,8 @@ gem 'friendly_id'
 gem 'geocoder'
 gem 'image_processing'
 gem 'money-rails'
-gem 'rqrcode'
 gem 'redis'
+gem 'rqrcode'
 gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -39,8 +39,8 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'listen', '~> 3.2'
   gem 'letter_opener'
+  gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'rubocop'
@@ -59,7 +59,7 @@ group :test do
 end
 
 group :production do
-  gem 'sentry-raven'
-  gem 'scout_apm'
   gem 'dalli'
+  gem 'scout_apm'
+  gem 'sentry-raven'
 end

@@ -40,6 +40,15 @@ class MenuItemsController < ApplicationController
     end
   end
 
+  def sort
+    MenuItem.transaction do
+      sorted_params[:menu_items].each do |item|
+        MenuItem.where(id: item[:id]).update(position: item[:position])
+      end
+    end
+    render json: {}, status: :ok
+  end
+
   def destroy
     authorize @menu_item
     @menu_item.destroy
@@ -62,5 +71,9 @@ class MenuItemsController < ApplicationController
 
   def menu_item_params
     params.require(:menu_item).permit(:position, :name, :description, :price, :photo)
+  end
+
+  def sorted_params
+    params.require(:sorted).permit(menu_items: %i[id menu_id position])
   end
 end

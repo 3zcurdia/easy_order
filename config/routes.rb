@@ -15,9 +15,12 @@ Rails.application.routes.draw do
     resource :preview, only: :show
   end
   resources :merchants do
-    resources :menu_items, except: %i[index show]
+    resources :menu_items, except: %i[index show] do
+      put :sort, on: :collection
+    end
     resource :cards, only: :show
     resource :code, only: :show
+    resources :sections
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   get '/privacy', to: 'privacy#show'

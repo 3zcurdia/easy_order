@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :menu_item do
-    menu 
+    menu
     name { 'Mi producto' }
     description { 'Lorem ipsum dolor sit amet' }
     price_cents { 100_00 }

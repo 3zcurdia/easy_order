@@ -7,20 +7,6 @@
 <div class="columns">
   <div class="column">
     <%= render @merchant %>
-    <hr/>
-    <div class="level">
-      <div class="level-left">
-        <h1 class="title">Secciones</h1>
-      </div>
-      <div class="level-right">
-        <%= link_to "#", class: 'button is-success' do %>
-        <span class="icon">
-          <i class="fa fa-plus"></i>
-        </span>
-        <span> Agregar seccion</span>
-        <% end %>
-      </div>
-    </div>
   </div>
   <div class="column">
     <div class="level">
@@ -36,7 +22,7 @@
         <% end %>
       </div>
     </div>
-    <ul data-controller="sortable">
+    <ul data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(merchant)%>">
       <%= render merchant.menu_items, merchant: merchant %>
     </ul>
   </div>

@@ -5,36 +5,49 @@ export default class extends Controller {
   static targets = ["item"]
 
   connect() {
+    let that = this
     var sortable = Sortable.create(
       this.element,
       {
         handle: '.handle',
-        onEnd: this.update,
+        onEnd: function (event) { that.update(event); },
       }
-    );
+    )
   }
 
   update(event) {
-    let token = document.head.querySelector(`meta[name="csrf-token"]`).getAttribute("content")
-    let url = event.item.getAttribute('data-url')
-    let data = { position: event.newIndex }
-    let headers = {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      "X-CSRF-Token": token
-    }
-    fetch(url, {
-      body: JSON.stringify(data),
+    fetch(this.url, {
+      body: JSON.stringify(this.newPositions()),
       method: 'PUT',
       credentials: "same-origin",
-      headers: headers
+      headers: this.headers
     })
-    .then(response => response.json())
-    .then(result => {
-      console.log('Success:', result)
+  }
+
+  newPositions() {
+    var list = []
+    this.itemTargets.forEach((item, i) => {
+      list.push({
+        id: item.getAttribute('data-item-id'),
+        position: i
+      })
     })
-    .catch((error) => {
-      console.error('Error:', error)
-    })
+    return { sorted: { menu_items: list } }
+  }
+
+  get url() {
+    return this.data.get('url')
+  }
+
+  get headers() {
+    return {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      "X-CSRF-Token": this.token
+    }
+  }
+
+  get token() {
+    return document.head.querySelector(`meta[name="csrf-token"]`).getAttribute("content")
   }
 }
