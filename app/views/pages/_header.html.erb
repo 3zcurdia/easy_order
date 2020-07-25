@@ -1,5 +1,29 @@
 <header class="header">
   <div class="hero is-dark px-5">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-burger burger" data-target="navbarMenuSections">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuSections" class="navbar-menu">
+            <div class="navbar-end">
+              <% cache merchant.menu do %>
+                <% merchant.menu.sections.each do |section| %>
+                  <a onclick="window.location.hash='#section<%= section.id %>';" class="navbar-item is-capitalized" data-turbolinks-eval=false>
+                    <%= section.name %>
+                  </a>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
     <div class="hero-body">
       <article class="media columns is-vcentered">
         <% if merchant.logo.attached? %>

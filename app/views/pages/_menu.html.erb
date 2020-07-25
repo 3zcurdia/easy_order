@@ -4,7 +4,7 @@
       <% @merchant.menu.sections.each do |section| %>
         <%- section_items = menu_items.where(section: section) %>
         <% if section_items.any? %>
-          <h1 class="title is-4 is-capitalized"><%= section.name %></h1>
+          <h1 class="title is-4 is-capitalized" id="section<%= section.id%>"><%= section.name %></h1>
           <% cache section_items do %>
             <%= render partial: 'pages/menu_item', collection: section_items, as: :item, locals: { merchant: merchant } %>
           <% end %>
