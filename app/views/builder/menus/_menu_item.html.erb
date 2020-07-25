@@ -2,6 +2,7 @@
   <div class="column is-two-thirds">
     <%= f.hidden_field(:id) if f.object.persisted? %>
     <%= f.hidden_field :position %>
+    <%= f.hidden_field :section_id %>
     <%= f.hidden_field :available, value: true %>
     <div class="field">
       <div class="control">

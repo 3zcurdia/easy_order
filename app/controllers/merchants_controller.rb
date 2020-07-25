@@ -9,6 +9,8 @@ class MerchantsController < ApplicationController
 
   def show
     authorize @merchant
+    @section_filter = params[:section].present? ? params[:section].to_i : @merchant.menu.sections.first.id
+    @menu_items = @merchant.menu_items.where(section_id: @section_filter)
   end
 
   def new
