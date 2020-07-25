@@ -38,6 +38,13 @@
         </div>
       </div>
 
+      <div class="field">
+        <%= f.label :section_id, 'Sección', class: 'label' %>
+        <div class="select">
+          <%= f.collection_select :section_id, merchant.menu.sections, :id, :name, prompt: 'Select' %>
+        </div>
+      </div>
+
     </div>
 
     <div class="column">

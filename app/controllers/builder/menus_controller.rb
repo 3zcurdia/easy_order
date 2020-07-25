@@ -4,7 +4,7 @@ module Builder
 
     def new
       @menu = merchant.menu
-      @menu.init_items(4) if @menu.empty?
+      @menu.build_items if @menu.empty?
     end
 
     def show
@@ -23,7 +23,7 @@ module Builder
     private
 
     def menu_attributes
-      params.require(:menu).permit(items_attributes: %i[id name price available])
+      params.require(:menu).permit(items_attributes: %i[id position section_id name price available])
     end
   end
 end

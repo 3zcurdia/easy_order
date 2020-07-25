@@ -1,5 +1,5 @@
-if ENV["REDISCLOUD_URL"].present?
-  $redis = Redis.new(url: ENV["REDISCLOUD_URL"])
-else
-  $redis = Redis.new
-end
+$redis = if ENV['REDISCLOUD_URL'].present?
+           Redis.new(url: ENV['REDISCLOUD_URL'])
+         else
+           Redis.new
+         end

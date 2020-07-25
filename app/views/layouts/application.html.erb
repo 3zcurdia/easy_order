@@ -31,15 +31,23 @@
     </div>
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-end">
+        <% if user_signed_in? %>
+
+      <div class="navbar-item has-dropdown" data-controller="dropdown">
+        <a class="navbar-link" data-action="dropdown#toggle">
+          <span><%= current_user.email %></span>
+        </a>
+        <div class="navbar-dropdown is-boxed">
+          <!-- <hr class="navbar-divider"> -->
+          <%= link_to "Cerrar session", destroy_user_session_path, class: 'navbar-item', method: :delete %>
+        </div>
+        <% else %>
         <div class="navbar-item">
           <div class="buttons">
-            <% if user_signed_in? %>
-              <%= link_to "Salir", destroy_user_session_path, class: 'button is-primary', method: :delete %>
-            <% else %>
-              <%= link_to 'Ya tengo una cuenta', new_session_path(:user), class: 'button' %>
-            <% end %>
+            <%= link_to 'Ya tengo una cuenta', new_session_path(:user), class: 'button' %>
           </div>
         </div>
+        <% end %>
       </div>
     </div>
   </nav>

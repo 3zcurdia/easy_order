@@ -2,9 +2,7 @@ class CodesController < ApplicationController
   layout nil
 
   def show
-    unless Merchant.where(slug: params[:merchant_id]).exists?
-      head 404, content_type: "text/html" and return
-    end
+    head 404, content_type: 'text/html' and return unless Merchant.where(slug: params[:merchant_id]).exists?
 
     respond_to do |format|
       format.svg  { render inline: svg_file }

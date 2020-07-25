@@ -1,11 +1,5 @@
-<nav class="breadcrumb" aria-label="breadcrumbs">
-  <ul>
-    <li class="is-active"><%= link_to merchant.name, '#' %></li>
-    <li><%= link_to 'Edita tu negocio', edit_merchant_path(merchant) %></li>
-  </ul>
-</nav>
 <div class="columns">
-  <div class="column">
+  <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
     <%= render @merchant %>
   </div>
   <div class="column">
@@ -14,45 +8,31 @@
         <h1 class="title">Menú</h1>
       </div>
       <div class="level-right">
-        <%= link_to new_merchant_menu_item_path(merchant), class: 'button is-success' do %>
-        <span class="icon">
-          <i class="fa fa-plus"></i>
-        </span>
-        <span> Agregar producto</span>
-        <% end %>
+        <div class="dropdown is-right" data-controller="dropdown">
+          <div class="dropdown-trigger">
+            <button class="button is-success" data-action="dropdown#toggle" aria-haspopup="true" aria-controls="dropdown-add">
+              <span>Agregar</span>
+              <span class="icon is-small"><i class="fa fa-plus" aria-hidden="true"></i></span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-add" role="menu">
+            <div class="dropdown-content">
+              <%= link_to 'Producto', new_merchant_menu_item_path(merchant), class: 'dropdown-item' %>
+              <%= link_to 'Sección', new_merchant_section_path(merchant), class: 'dropdown-item' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <% merchant.menu_items.each do |item| %>
-      <article class="media">
-        <div class="media-left">
-          <% if item.photo.attached? %>
-            <p class="image is-64x64">
-              <%= image_tag item.photo.variant(resize_to_fit: [128, 128]) %>
-            </p>
-          <% end %>
-        </div>
-        <div class="media-content">
-          <div class="content">
-            <h5><%= item.name %></h5>
-            <p><%= item.description %></p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <%= link_to edit_merchant_menu_item_path(merchant, item), class: 'level-item' do %>
-                <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
-              <% end %>
-              <%= link_to merchant_menu_item_path(merchant, item), class: 'level-item has-text-danger', method: :delete do %>
-                <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
-              <% end %>
-            </div>
-          </nav>
-        </div>
-        <div class="media-right">
-          <div class="content">
-            <p><%= item.price.format %></p>
-          </div>
-        </div>
-      </article>
-    <% end %>
+    <div class="tabs">
+      <ul>
+        <% merchant.menu.sections.each do |section| %>
+          <li class="<%= 'is-active' if @section_filter == section.id %>"><%= link_to section.name, merchant_path(merchant, section: section.id) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(merchant)%>">
+      <%= render @menu_items, merchant: merchant %>
+    </div>
   </div>
 </div>
