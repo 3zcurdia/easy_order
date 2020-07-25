@@ -11,7 +11,7 @@
           <hr/>
         <% end %>
       <% end %>
-      <% if delivery?(merchant) %>
+      <% if merchant.ready_to_deliver? %>
         <div class="container has-text-right">
           <h1 class='title'>Total</h1>
           <h2 class='subtitle is-2' data-target="checkout.totalValue">$0.00</h2>
@@ -22,7 +22,7 @@
 
   <div class="columns">
     <div class="column">
-      <% if delivery?(merchant) %>
+      <% if merchant.ready_to_deliver? %>
         <%= link_to whatsapp_url("52#{merchant.phone}"), class: 'button is-success is-fullwidth is-large', data: { target: 'checkout.whatsappOrder' } do %>
           Ordenar por &nbsp; <span class='icon'><i class="fab fa-whatsapp"></i></span>
         <% end %>

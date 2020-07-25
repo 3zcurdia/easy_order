@@ -14,7 +14,7 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
-  store :info, accessors: %i[category address payment_methods], coder: JSON
+  store :info, accessors: %i[description address payment_methods], coder: JSON
   geocoded_by :address
 
   after_validation :geocode
@@ -40,6 +40,10 @@ class Merchant < ApplicationRecord
 
   def delivery
     info['delivery']
+  end
+
+  def ready_to_deliver?
+    delivery && phone
   end
 
   private

@@ -1,6 +1,4 @@
-<% content_for(:keywords, @merchant.keyword_list.to_s) %>
-<% content_for(:title, @merchant.name) %>
-
+<%- merchant_meta_tags(@merchant) %>
 <% cache @merchant do %>
   <%= render 'pages/header', merchant: @merchant %>
   <% cache @merchant.menu do %>

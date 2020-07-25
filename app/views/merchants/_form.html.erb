@@ -59,6 +59,13 @@
   </div>
 
   <div class="field">
+    <%= f.label :description, 'Que te gustaria decir de negocio', class: 'label' %>
+    <div class="control">
+      <%= f.text_field :description, class: 'input', placeholder: 'ej. Sabores caseros con un toque gourment' %>
+    </div>
+  </div>
+
+  <div class="field">
     <div class="control">
       <%= f.submit class: 'button is-primary' %>
     </div>

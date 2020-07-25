@@ -1,7 +1,34 @@
-<h1 class="title">Comercios</h1>
+<h1 class="title">Negocios</h1>
 
 <div class="columns">
   <div class="column is-one-third">
-    <%= render @merchants %>
+    <% @merchants.each do |merchant| %>
+      <article class="media">
+        <figure class="media-left">
+          <% if merchant.logo.attached? %>
+          <figure class="image is-128x128">
+            <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
+          </figure>
+          <% end %>
+        </figure>
+        <div class="media-content">
+          <h1 class="title"><%= link_to merchant.name, merchant_path(merchant) %></h1>
+          <div class="content">
+            <ul>
+              <% if merchant.delivery %>
+              <li>
+                <span class="icon"><i class="fas fa-truck"></i></span>
+                Entregas a domicilio
+              </li>
+              <% end %>
+              <li>
+                <span class="icon"><i class="fa fa-phone"></i></span>
+                <%= merchant.phone %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    <% end %>
   </div>
 </div>
