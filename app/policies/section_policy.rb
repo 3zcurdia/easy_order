@@ -18,6 +18,6 @@ class SectionPolicy < ApplicationPolicy
   end
 
   def owner?
-    user.merchant? && record.merchant.user_id == user.id
+    user.merchant? && record.menu.merchant.user_id == user.id
   end
 end
