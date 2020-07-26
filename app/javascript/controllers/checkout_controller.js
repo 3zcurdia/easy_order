@@ -11,6 +11,7 @@ export default class extends Controller {
     this.cart = []
     this.menuItemTargets.forEach((item) => { this.appendItem(item)})
     this.calculateTotal()
+    console.log(this.merchantPhone);
     this.updateWhatsappMessage()
   }
 
@@ -36,7 +37,7 @@ export default class extends Controller {
   }
 
   get merchantPhone() {
-    this.data.get('merchantPhone')
+    return this.data.get('merchantPhone')
   }
 
   appendItem(item) {
