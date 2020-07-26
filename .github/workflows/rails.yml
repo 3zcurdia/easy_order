@@ -23,6 +23,10 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: yarn install
     - uses: actions/cache@v2
       with:
         path: vendor/bundle
@@ -52,4 +56,4 @@ jobs:
         POSTGRES_PASSWORD: postgres
         POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
-        bundle exec rails test:models
+        bundle exec rails test
