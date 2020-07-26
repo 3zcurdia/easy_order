@@ -1,3 +1,4 @@
+<%= cache item do %>
 <article class="media">
   <div class="media-left">
     <% if item.photo.attached? %>
@@ -30,3 +31,4 @@
     <h2 class="subtitle"><%= item.price.format %></h2>
   </div>
 </article>
+<% end %>
