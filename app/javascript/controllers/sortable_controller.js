@@ -9,6 +9,7 @@ export default class extends Controller {
     var sortable = Sortable.create(
       this.element,
       {
+        handle: '.handle',
         onEnd: function (event) { that.update(event); },
       }
     )
