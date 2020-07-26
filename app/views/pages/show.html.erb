@@ -1,9 +1,9 @@
 <%- merchant_meta_tags(@merchant) %>
 <% cache @merchant do %>
   <%= render 'pages/header', merchant: @merchant %>
-  <% cache @merchant.menu do %>
-    <%= render 'pages/menu', merchant: @merchant, menu_items: @menu_items %>
-  <% end %>
+<% end %>
+<% cache @merchant.menu do %>
+  <%= render 'pages/menu', merchant: @merchant, menu_items: @menu_items %>
 <% end %>
 
 <%= render 'footer' %>

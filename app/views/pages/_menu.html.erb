@@ -1,7 +1,7 @@
 <section class="section" data-controller="checkout", data-checkout-merchant-phone="52<%= merchant.phone %>" >
   <div class="columns">
     <div class="column">
-      <% @merchant.menu.sections.with_items.each do |section| %>
+      <% merchant.menu.sections.with_items.each do |section| %>
         <%- section_items = menu_items.where(section: section) %>
         <h1 class="title is-4 is-capitalized" id="section<%= section.id%>"><%= section.name %></h1>
           <%= render partial: 'pages/menu_item', collection: section_items, as: :item, locals: { merchant: merchant } %>
