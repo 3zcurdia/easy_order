@@ -1,7 +1,4 @@
 <article class="media has-background-grey-light" data-target="sortable.item" data-item-id="<%= menu_item.id %>">
-  <div class="handle">
-    <i class="fas fa-ellipsis-v"></i>
-  </div>
   <div class="media-left">
     <% if menu_item.photo.attached? %>
     <p class="image is-64x64">
@@ -11,7 +8,10 @@
   </div>
   <div class="media-content">
     <div class="content">
-      <h5><%= menu_item.name %></h5>
+      <h5>
+        <span class="handle icon is-small"><i class="fas fa-ellipsis-v"></i></span>
+        <%= menu_item.name %>
+      </h5>
       <p><%= menu_item.description %></p>
     </div>
     <nav class="level is-mobile">
