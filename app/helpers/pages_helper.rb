@@ -7,6 +7,6 @@ module PagesHelper
   def merchant_meta_tags(merchant)
     content_for(:title, merchant.name)
     content_for(:description, merchant.description)
-    content_for(:keywords, merchant.keyword_list.to_s) if merchant.keywords.exists?
+    content_for(:keywords, merchant.keywords) if merchant.keywords.present?
   end
 end

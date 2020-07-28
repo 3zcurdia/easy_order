@@ -14,13 +14,11 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
-  store :info, accessors: %i[description address payment_methods], coder: JSON
+  store :info, accessors: %i[keywords description address payment_methods], coder: JSON
   geocoded_by :address
 
   after_validation :geocode
   after_create :create_menu
-
-  acts_as_taggable_on :keywords
 
   def menu_items
     menu&.items&.includes(photo_attachment: :blob)
