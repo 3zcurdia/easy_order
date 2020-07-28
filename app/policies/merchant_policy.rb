@@ -2,9 +2,9 @@ class MerchantPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if admin?
-        scope.includes(:keywords).all
+        scope.all
       else
-        user.merchants.includes(:keywords)
+        user.merchants
       end
     end
   end

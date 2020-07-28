@@ -58,7 +58,7 @@ class MenuItemsController < ApplicationController
   private
 
   def set_merchant
-    @merchant = Merchant.includes(:keywords).friendly.find(params[:merchant_id])
+    @merchant = Merchant.friendly.find(params[:merchant_id])
   end
 
   def menu

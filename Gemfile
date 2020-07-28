@@ -17,7 +17,6 @@ gem 'omniauth-google-oauth2'
 gem 'pundit'
 # gem 'omniauth-apple'
 
-gem 'acts-as-taggable-on', '~> 6.0'
 gem 'aws-sdk-s3', require: false
 gem 'friendly_id'
 gem 'geocoder'
