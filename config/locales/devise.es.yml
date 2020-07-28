@@ -110,7 +110,7 @@ es:
         we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar los cambios
       new:
         sign_up: Registrarse
-      signed_up: Bienvenido. Tu cuenta ha sido creada.
+      signed_up: Tu cuenta ha sido creada.
       signed_up_but_inactive: Tu cuenta ha sido creada exitosamente. Sin embargo, no puedes iniciar sesión ya que tu cuenta aún no está activada.
       signed_up_but_locked: Tu cuenta ha sido creada correctamente. Sin embargo, no es posible iniciar la sesión porque que tu cuenta se encuentra bloqueada.
       signed_up_but_unconfirmed: Se ha enviado un mensaje con un enlace de confirmación a tu correo electrónico. Ingresa al enlace para activar tu cuenta.
