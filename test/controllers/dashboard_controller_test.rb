@@ -5,10 +5,10 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     @user ||= create(:user, :merchant)
   end
 
-  test 'should get show' do
+  test 'should render show' do
     create(:merchant, user: user)
     sign_in(user)
     get user_root_url
-    assert_response :success
+    assert_response :redirect
   end
 end
