@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     end
     resource :cards, only: :show
     resource :code, only: :show
-    resources :sections
+    resources :sections do
+      put :sort, on: :collection
+    end
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   resources :pages, only: :show
