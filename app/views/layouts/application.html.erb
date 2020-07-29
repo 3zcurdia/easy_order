@@ -31,7 +31,10 @@
     </div>
     <div class="navbar-menu" id="navMenu">
       <div class="navbar-start">
-        <%= link_to("Secciones", merchant_sections_path(@merchant), class: 'navbar-item') if @merchant.present? %>
+        <% if @merchant.present? %>
+          <%= link_to("Productos", merchant_path(@merchant), class: 'navbar-item') %>
+          <%= link_to("Secciones", merchant_sections_path(@merchant), class: 'navbar-item') %>
+        <% end %>
       </div>
       <div class="navbar-end">
         <% if user_signed_in? %>

@@ -1,11 +1,11 @@
 <div class="columns">
   <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
-    <%= render @merchant %>
+    <%= render @merchant, cached: true %>
   </div>
   <div class="column">
     <div class="level">
       <div class="level-left">
-        <h1 class="title">Menú</h1>
+        <h1 class="title">Productos</h1>
       </div>
       <div class="level-right">
         <div class="dropdown is-pulled-right is-right" data-controller="dropdown">
