@@ -44,6 +44,10 @@ class Merchant < ApplicationRecord
     delivery && phone
   end
 
+  def demo?
+    user.guest?
+  end
+
   private
 
   def slug_candidates
