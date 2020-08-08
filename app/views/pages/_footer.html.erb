@@ -9,7 +9,7 @@
     document.addEventListener("turbolinks:load", function() {
       var user_id = Math.random; // TODO: fetch from server
       mixpanel.identify(user_id);
-      mixpanel.track("Menu", {"merchant": "<%= @merchant.slug %>"});
+      mixpanel.track("Load Menu", {"merchant": "<%= @merchant.slug %>"});
     })
   </script>
   <% end %>
