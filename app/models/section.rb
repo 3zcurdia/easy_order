@@ -6,4 +6,8 @@ class Section < ApplicationRecord
   validates :name, presence: true
 
   scope :with_items, -> { where('sections.menu_items_count > ?', 0) }
+
+  def as_json(_opts)
+    {id: id, position: position, name: name}.as_json
+  end
 end
