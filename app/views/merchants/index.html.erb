@@ -1,39 +1,60 @@
+<% if current_user.admin? %>
+  <h1 class="title">Estadisticas</h1>
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Negocios</p>
+        <p class="title"><%= @merchant_count %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Productos</p>
+        <p class="title"><%= @product_count %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Ordenes</p>
+        <p class="title"><%= @order_count %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Transacciones</p>
+        <p class="title"><%= number_to_currency @money_count %></p>
+      </div>
+    </div>
+  </nav>
+<% end %>
 <h1 class="title">Negocios</h1>
-
-<div class="columns">
-  <div class="column is-fullwidth">
+<div class="columns is-centered">
+  <div class="column is-half">
     <% @merchants.each do |merchant| %>
-      <article class="media">
-        <figure class="media-left">
-          <% if merchant.logo.attached? %>
-          <figure class="image is-64x64">
-            <%= image_tag merchant.logo.variant(resize_to_fit: [256, 256]) %>
-          </figure>
+    <div class="columns">
+      <div class="column">
+        <p class="content"><span class="icon"><i class="fas fa-store"></i></span> <%=merchant.name %></p>
+      </div>
+      <div class="column">
+        <p class="content"><%= merchant.orders_count %> Ordenes</p>
+      </div>
+      <div class="column">
+        <p class="content">
+          <% if merchant.delivery %>
+          <span class="icon"><i class="fas fa-truck"></i></span>
           <% end %>
-        </figure>
-        <div class="media-content">
-          <nav class="level">
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title"><span class="icon"><i class="fas fa-store"></i></span></p>
-                <p class="heading"><%= link_to merchant.name, merchant_path(merchant) %></p>
-              </div>
-            </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title"><span class="icon"><i class="fas <%= merchant.delivery ? 'fa-truck' : 'fa-cash-register' %>"></i></span></p>
-                <p class="heading"><%= merchant.phone %></p>
-              </div>
-            </div>
-            <div class="level-item has-text-centered">
-              <div>
-                <p class="title"><%= merchant.orders_count %></p>
-                <p class="heading">Orders</p>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </article>
+          <% if merchant.phone.present? %>
+          <span class="icon"><i class="fas fa-phone"></i></span>
+          <% end %>
+          <%= link_to page_path(merchant) do %>
+          <span class="icon"><i class="fa fa-link"></i></span>
+          <% end %>
+          <%= link_to merchant_path(merchant) do %>
+          <span class="icon"><i class="fa fa-edit"></i></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
