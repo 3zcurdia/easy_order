@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["menuItem", "whatsappOrder", "totalValue"]
+  static targets = ["menuItem", "totalValue"]
 
   connect() {
     var cart = []
@@ -11,7 +11,6 @@ export default class extends Controller {
     this.cart = []
     this.menuItemTargets.forEach((item) => { this.appendItem(item)})
     this.calculateTotal()
-    this.updateWhatsappMessage()
   }
 
   calculateTotal() {
@@ -20,23 +19,6 @@ export default class extends Controller {
       valueCents += item.price * item.quantity
     })
     this.totalValueTarget.innerHTML = `$ ${(valueCents/100.0).toFixed(2)}`
-  }
-
-  updateWhatsappMessage() {
-    let url = `https://wa.me/${this.merchantPhone}?text=${encodeURIComponent(this.orderMessage)}`
-    this.whatsappOrderTarget.setAttribute("href", url)
-  }
-
-  get orderMessage() {
-    var textOutput = "Hola vi su menu en linea y me gustaria ordenar:\n"
-    this.cart.forEach((item) => {
-      textOutput += `${item.quantity} x ${item.name}\n`
-    })
-    return textOutput
-  }
-
-  get merchantPhone() {
-    return this.data.get('merchantPhone')
   }
 
   appendItem(item) {

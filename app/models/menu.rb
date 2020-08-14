@@ -13,7 +13,7 @@ class Menu < ApplicationRecord
     !items.exists?
   end
 
-  def build_items(number = 4)
+  def build_items(number = 3)
     number.times { |i| items.build(position: i, section: sections.first) }
   end
 

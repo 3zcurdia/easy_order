@@ -3,7 +3,7 @@
   <%= render 'pages/header', merchant: @merchant %>
 <% end %>
 <% cache @merchant.menu do %>
-  <%= render 'pages/menu', merchant: @merchant, menu_items: @menu_items %>
+  <%= render 'pages/menu', merchant: @merchant, order: @order, menu_items: @menu_items %>
 <% end %>
 
 <%= render 'footer' %>

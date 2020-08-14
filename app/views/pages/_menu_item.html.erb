@@ -19,7 +19,8 @@
         <a class="button is-small is-light" data-action="numeric-input#sub checkout#updateCart"><i class="fa fa-minus"></i></a>
       </div>
       <div class="control">
-        <input class="input is-small" type="text" value="0" data-target='numeric-input.number' readonly>
+        <%= hidden_field_tag "order[items_attributes][#{item.id}][menu_item_id]", item.id %>
+        <%= text_field_tag "order[items_attributes][#{item.id}][quantity]", 0, class: 'input is-small', readonly: true, data: {target: 'numeric-input.number' } %>
       </div>
       <div class="control">
         <a class="button is-small is-light" data-action="numeric-input#add checkout#updateCart"><i class="fa fa-plus"></i></a>

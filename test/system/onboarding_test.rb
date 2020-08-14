@@ -10,7 +10,7 @@ class OnboardingTest < ApplicationSystemTestCase
 
     assert_text 'La tazita de té'
 
-    4.times do |idx|
+    3.times do |idx|
       fill_in "menu[items_attributes][#{idx}][name]", with: "Expresso #{idx}"
       fill_in "menu[items_attributes][#{idx}][price]", with: (20 + idx).to_s
     end
@@ -19,7 +19,7 @@ class OnboardingTest < ApplicationSystemTestCase
 
     assert_text '¡Ya casi terminas!'
     assert_text 'Expresso 1'
-    assert_text '23.00'
+    assert_text '22.00'
 
     fill_in 'user[email]', with: 'test@example.com'
     fill_in 'user[password]', with: 'secret123'
@@ -31,6 +31,5 @@ class OnboardingTest < ApplicationSystemTestCase
     assert_text 'Expresso 0'
     assert_text 'Expresso 1'
     assert_text 'Expresso 2'
-    assert_text 'Expresso 3'
   end
 end

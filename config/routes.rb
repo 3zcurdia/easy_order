@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :sections do
       put :sort, on: :collection
     end
+    resources :orders, only: %i[index show create]
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   resources :pages, only: :show

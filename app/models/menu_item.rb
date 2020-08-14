@@ -4,7 +4,7 @@ class MenuItem < ApplicationRecord
   belongs_to :section, counter_cache: true, touch: true
   has_one_attached :photo
 
-  validates :name, :price_cents, :price_currency, presence: true
+  validates :name, presence: true
 
   monetize :price_cents
 

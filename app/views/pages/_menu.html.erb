@@ -1,4 +1,5 @@
-<section class="section" data-controller="checkout", data-checkout-merchant-phone="52<%= merchant.phone %>" >
+<section class="section" data-controller="checkout">
+  <%= form_for [merchant, order] do |f| %>
   <div class="columns">
     <div class="column">
       <% merchant.menu.sections.with_items.each do |section| %>
@@ -19,10 +20,11 @@
   <div class="columns">
     <div class="column">
       <% if merchant.ready_to_deliver? %>
-        <%= link_to whatsapp_url("52#{merchant.phone}"), class: 'button is-success is-fullwidth is-large', data: { target: 'checkout.whatsappOrder' } do %>
+        <%= f.button class: 'button is-success is-fullwidth is-large' do %>
           Ordenar por &nbsp; <span class='icon'><i class="fab fa-whatsapp"></i></span>
         <% end %>
       <% end %>
     </div>
   </div>
+  <% end %>
 </section>

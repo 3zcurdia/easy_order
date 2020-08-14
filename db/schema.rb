@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_28_162415) do
+ActiveRecord::Schema.define(version: 2020_08_13_215629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -83,6 +83,27 @@ ActiveRecord::Schema.define(version: 2020_07_28_162415) do
     t.index ['user_id'], name: 'index_merchants_on_user_id'
   end
 
+  create_table 'order_items', force: :cascade do |t|
+    t.bigint 'order_id', null: false
+    t.bigint 'menu_item_id', null: false
+    t.integer 'quantity', default: 0
+    t.integer 'price_cents', default: 0
+    t.string 'price_currency', default: 'MXN', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['menu_item_id'], name: 'index_order_items_on_menu_item_id'
+    t.index ['order_id'], name: 'index_order_items_on_order_id'
+  end
+
+  create_table 'orders', force: :cascade do |t|
+    t.bigint 'merchant_id', null: false
+    t.integer 'total_cents', default: 0
+    t.string 'total_currency', default: 'MXN', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['merchant_id'], name: 'index_orders_on_merchant_id'
+  end
+
   create_table 'sections', force: :cascade do |t|
     t.bigint 'menu_id', null: false
     t.string 'name'
@@ -119,5 +140,8 @@ ActiveRecord::Schema.define(version: 2020_07_28_162415) do
   add_foreign_key 'menu_items', 'sections'
   add_foreign_key 'menus', 'merchants'
   add_foreign_key 'merchants', 'users'
+  add_foreign_key 'order_items', 'menu_items'
+  add_foreign_key 'order_items', 'orders'
+  add_foreign_key 'orders', 'merchants'
   add_foreign_key 'sections', 'menus'
 end
