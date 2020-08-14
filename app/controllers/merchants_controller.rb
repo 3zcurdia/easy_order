@@ -3,7 +3,7 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[show edit update destroy]
 
   def index
-    @merchants = policy_scope(Merchant)
+    @merchants = policy_scope(Merchant).active
     authorize @merchants
   end
 

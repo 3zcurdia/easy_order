@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_215629) do
+ActiveRecord::Schema.define(version: 2020_08_14_214241) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_215629) do
     t.float 'latitude'
     t.float 'longitude'
     t.jsonb 'info', default: {}
+    t.integer 'orders_count', default: 0
     t.index %w[latitude longitude], name: 'index_merchants_on_latitude_and_longitude'
     t.index ['slug'], name: 'index_merchants_on_slug', unique: true
     t.index ['user_id'], name: 'index_merchants_on_user_id'

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :merchant
+  belongs_to :merchant, counter_cache: true
   monetize :total_cents
   has_many :items, class_name: 'OrderItem', dependent: :destroy
 
