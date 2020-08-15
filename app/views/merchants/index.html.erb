@@ -9,6 +9,12 @@
     </div>
     <div class="level-item has-text-centered">
       <div>
+        <p class="heading">Secciones</p>
+        <p class="title"><%= @section_count %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
         <p class="heading">Productos</p>
         <p class="title"><%= @product_count %></p>
       </div>
@@ -36,7 +42,9 @@
         <p class="content"><span class="icon"><i class="fas fa-store"></i></span> <%=merchant.name %></p>
       </div>
       <div class="column">
-        <p class="content"><%= merchant.orders_count %> Ordenes</p>
+        <p class="content">
+          <strong><%= merchant.orders_count %></strong> Ordenes <br>
+        </p>
       </div>
       <div class="column">
         <p class="content">
