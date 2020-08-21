@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("notifications")
 require("nav_menu")
+require("colorpicker")
 require.context('../images', true)
 
 // Uncomment to copy all static images under ../images to the output folder and reference
