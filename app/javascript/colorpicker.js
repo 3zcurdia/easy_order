@@ -1,5 +1,6 @@
 import { Piklor } from "piklor.js"
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("turbolinks:load", () => {
+  if (document.querySelector('.color-picker') == null) { return; }
   let colors = [
     "#1abc9c",
     "#2ecc71",
