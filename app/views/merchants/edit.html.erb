@@ -1,7 +1,16 @@
-<div class="columns">
+<div class="columns" data-controller="edit-merchant">
   <div class="column">
     <%= render 'form', merchant: @merchant %>
   </div>
-  <div class="column">
+    <div class="column">
+      <div class="columns is-mobile is-centered preview">
+      <%= image_pack_tag "iphone.png", class: 'phone-face' %>
+      <div class="screen">
+        <%= render 'pages/header', merchant: @merchant %>
+        <div class="menu">
+          <%= render partial: 'pages/menu_item', collection: @merchant.items.take(2), as: :item, locals: { merchant: @merchant } %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

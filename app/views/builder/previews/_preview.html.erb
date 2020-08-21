@@ -1,13 +1,15 @@
-<div class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        <span class="icon"><i class="fas fa-utensils"></i></span> <%= merchant.name %>
-      </h1>
+<header>
+  <div class="hero is-primary">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          <span class="icon"><i class="fas fa-utensils"></i></span> <%= merchant.name %>
+        </h1>
+      </div>
     </div>
   </div>
-</div>
-<section class="section">
+</header>
+<div class="menu">
 <% merchant.menu_items.each do |item| %>
   <article class="media">
     <div class="media-left">
@@ -27,4 +29,4 @@
     </div>
   </article>
 <% end %>
-</section>
+</div>

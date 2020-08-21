@@ -4,6 +4,10 @@ module PagesHelper
     URI.parse("https://wa.me/#{phone}?#{query}").to_s
   end
 
+  def header_style(theme)
+    "background-color: #{theme.header_background || '#363636' };"
+  end
+
   def merchant_meta_tags(merchant)
     content_for(:title, merchant.name)
     content_for(:description, merchant.description)

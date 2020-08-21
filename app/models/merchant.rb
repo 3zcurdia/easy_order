@@ -16,10 +16,16 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
+  delegate :header_background,
+           :header_background=,
+           :header_text_color,
+           :header_text_color=, to: :theme, prefix: true
+
   store :info, accessors: %i[keywords description address payment_methods], coder: JSON
   geocoded_by :address
 
   after_validation :geocode
+  before_save :serialize_theme
   after_create :create_menu
 
   def menu_items
@@ -50,6 +56,10 @@ class Merchant < ApplicationRecord
     user.guest?
   end
 
+  def theme
+    @theme ||= Theme.parse(info['theme'])
+  end
+
   private
 
   def slug_candidates
@@ -58,5 +68,9 @@ class Merchant < ApplicationRecord
       [:name, SecureRandom.hex[0..6]],
       [:name, SecureRandom.uuid]
     ]
+  end
+
+  def serialize_theme
+    info['theme'] = theme.to_h
   end
 end

@@ -4,8 +4,13 @@
       <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
       <%= render 'shared/steps', step: 3 %>
       <div class="columns">
-        <div class="column mx-6">
-          <%= render 'preview', merchant: @merchant %>
+        <div class="column">
+          <div class="columns is-mobile is-centered preview">
+            <%= image_pack_tag "iphone.png", class: 'phone-face' %>
+            <div class="screen">
+              <%= render 'preview', merchant: @merchant %>
+            </div>
+          </div>
         </div>
         <div class="column">
           <p class="title">¡Ya casi terminas!</p>

@@ -28,7 +28,7 @@
   <div class="field">
     <%= f.label :name, 'Nombre de tu negocio', class: 'label' %>
     <div class="control">
-      <%= f.text_field :name, class: 'input', placeholder: 'ej. La cocina de mamá' %>
+      <%= f.text_field :name, class: 'input', placeholder: 'ej. La cocina de mamá', data: {action: 'keyup->edit-merchant#updateName'} %>
     </div>
   </div>
 
@@ -47,7 +47,6 @@
   </div>
 
   <hr/>
-
   <h1 class="title">Search Engine Optimization</h1>
   <h2 class="subtitle">Ayuda a que Google te encuentre mas rapido</h2>
   <div class="field">
