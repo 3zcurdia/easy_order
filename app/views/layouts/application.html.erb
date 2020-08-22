@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +13,6 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -58,8 +56,7 @@
       </div>
     </div>
   </nav>
-  <section class="section">
-    <div class="container">
+  <section class="section main">
       <% if flash[:notice].present? %>
       <div class="notification is-primary is-light">
         <button class="delete"></button>
@@ -73,8 +70,14 @@
       </div>
       <% end %>
       <%= yield %>
-    </div>
   </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Hecho con amor a <strong>México</strong>
+      </p>
+    </div>
+  </footer>
   <script src="https://kit.fontawesome.com/238d584d83.js" crossorigin="anonymous"></script>
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
