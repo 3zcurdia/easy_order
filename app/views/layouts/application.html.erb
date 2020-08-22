@@ -56,7 +56,7 @@
       </div>
     </div>
   </nav>
-  <section class="section main">
+  <section class="section main <%= controller_name %>">
       <% if flash[:notice].present? %>
       <div class="notification is-primary is-light">
         <button class="delete"></button>
@@ -78,7 +78,7 @@
       </p>
     </div>
   </footer>
-  <script src="https://kit.fontawesome.com/238d584d83.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </body>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173157976-1"></script>

@@ -32,6 +32,7 @@ $body-background-color: $light-gray;
 
 @import '~bulma/bulma';
 // @import '~bulma-divider';
-.section.main {
-  min-height: 600px
+.section.main { min-height: 600px; }
+@media print {
+  .no-print { display: none; }
 }

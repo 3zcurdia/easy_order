@@ -5,9 +5,16 @@
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  opacity: 0.5;
+  opacity: 0.7;
+  overflow: hidden;
+  z-index: -100;
 }
 
-@media print {
-  .no-print { display: none; }
+.section.main.home {
+  padding: 0;
+  section {
+    background: $body-background-color;
+    padding: 3rem 1.5rem;
+    &.hero { background: transparent !important; }
+  }
 }
