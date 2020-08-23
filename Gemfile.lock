@@ -333,6 +333,7 @@ DEPENDENCIES
   geocoder
   image_processing
   jbuilder (~> 2.7)
+  jwt
   letter_opener
   listen (~> 3.2)
   money-rails
