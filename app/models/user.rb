@@ -14,4 +14,8 @@ class User < ApplicationRecord
     user.save!(validate: false)
     user
   end
+
+  def token
+    JwtWrapper.encode({sub: id})
+  end
 end
