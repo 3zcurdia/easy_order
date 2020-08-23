@@ -1,68 +1,72 @@
 <% if current_user.admin? %>
+<div class="section" data-controller="merchant-stats" data-merchant-stats-url="<%= api_merchants_stats_path %>" >
   <h1 class="title">Estadisticas</h1>
   <nav class="level">
     <div class="level-item has-text-centered">
       <div>
-        <p class="heading">Negocios</p>
-        <p class="title"><%= @merchant_count %></p>
+        <p class="heading">Comercios</p>
+        <p class="title" data-target="merchant-stats.merchants"></p>
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Secciones</p>
-        <p class="title"><%= @section_count %></p>
+        <p class="title" data-target="merchant-stats.sections"></p>
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Productos</p>
-        <p class="title"><%= @product_count %></p>
+        <p class="title" data-target="merchant-stats.products"></p>
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Ordenes</p>
-        <p class="title"><%= @order_count %></p>
+        <p class="title" data-target="merchant-stats.orders"></p>
       </div>
     </div>
     <div class="level-item has-text-centered">
       <div>
         <p class="heading">Transacciones</p>
-        <p class="title"><%= number_to_currency @money_count %></p>
+        <p class="title" data-target="merchant-stats.transactions"></p>
       </div>
     </div>
   </nav>
+</div>
 <% end %>
-<h1 class="title">Negocios</h1>
-<div class="columns is-centered">
-  <div class="column is-half">
-    <% @merchants.each do |merchant| %>
-    <div class="columns">
-      <div class="column">
-        <p class="content"><span class="icon"><i class="fas fa-store"></i></span> <%=merchant.name %></p>
+<div class="section">
+  <h1 class="title">Negocios</h1>
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <% @merchants.each do |merchant| %>
+      <div class="columns">
+        <div class="column">
+          <p class="content"><span class="icon"><i class="fas fa-store"></i></span> <%=merchant.name %></p>
+        </div>
+        <div class="column">
+          <p class="content">
+            <strong><%= merchant.orders_count %></strong> Ordenes <br>
+          </p>
+        </div>
+        <div class="column">
+          <p class="content">
+            <% if merchant.delivery %>
+            <span class="icon"><i class="fas fa-truck"></i></span>
+            <% end %>
+            <% if merchant.phone.present? %>
+            <span class="icon"><i class="fas fa-phone"></i></span>
+            <% end %>
+            <%= link_to page_path(merchant) do %>
+            <span class="icon"><i class="fa fa-link"></i></span>
+            <% end %>
+            <%= link_to merchant_path(merchant) do %>
+            <span class="icon"><i class="fa fa-edit"></i></span>
+            <% end %>
+          </p>
+        </div>
       </div>
-      <div class="column">
-        <p class="content">
-          <strong><%= merchant.orders_count %></strong> Ordenes <br>
-        </p>
-      </div>
-      <div class="column">
-        <p class="content">
-          <% if merchant.delivery %>
-          <span class="icon"><i class="fas fa-truck"></i></span>
-          <% end %>
-          <% if merchant.phone.present? %>
-          <span class="icon"><i class="fas fa-phone"></i></span>
-          <% end %>
-          <%= link_to page_path(merchant) do %>
-          <span class="icon"><i class="fa fa-link"></i></span>
-          <% end %>
-          <%= link_to merchant_path(merchant) do %>
-          <span class="icon"><i class="fa fa-edit"></i></span>
-          <% end %>
-        </p>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>

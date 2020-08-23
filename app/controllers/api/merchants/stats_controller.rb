@@ -17,7 +17,7 @@ module Api
           sections: Section.count,
           products: MenuItem.count,
           orders: Order.count,
-          total_orders: Order.total_sum
+          transactions: Order.total_sum
         }
       end
 
@@ -26,7 +26,7 @@ module Api
           sections: merchant.sections.count,
           products: merchant.items.count,
           orders: merchant.orders_count,
-          total_orders: merchant.orders.total_sum
+          transactions: merchant.orders.total_sum
         }
       end
 

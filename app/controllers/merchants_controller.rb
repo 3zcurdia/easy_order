@@ -3,7 +3,6 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[show edit update destroy]
 
   def index
-    load_metrics if current_user.admin?
     @merchants = policy_scope(Merchant).active.order(orders_count: :desc)
     authorize @merchants
   end
@@ -51,14 +50,6 @@ class MerchantsController < ApplicationController
   end
 
   private
-
-  def load_metrics
-    @merchant_count = Merchant.count
-    @section_count = Section.count
-    @product_count = MenuItem.count
-    @order_count = Order.count
-    @money_count = Order.select(:total_cents, :total_currency).all.sum(&:total)
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_merchant

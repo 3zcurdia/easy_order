@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["helpText", "name", "icon" ]
+  static targets = ["helpText", "name", "icon"]
 
   connect() {
     this.helpTextTarget.textContent = ''
