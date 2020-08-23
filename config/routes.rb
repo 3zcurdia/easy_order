@@ -6,9 +6,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   namespace :api do
-    resources :search_merchants, only: :index
+    namespace :merchants do
+      resources :stats, only: :index
+      resources :search, only: :index
+    end
     resources :merchants, only: %i[index show] do
       resources :menu, only: :index
+      resources :stats, controller: "merchants/stats", only: :index
     end
   end
   get '/builder', to: redirect('/builder/merchant/new'), as: :builder

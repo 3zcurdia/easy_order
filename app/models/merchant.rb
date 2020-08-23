@@ -5,6 +5,7 @@ class Merchant < ApplicationRecord
   belongs_to :user
   has_one :menu, dependent: :destroy
   has_many :items, through: :menu
+  has_many :sections, through: :menu
   has_many :orders, dependent: :destroy
   has_one_attached :logo
 
