@@ -18,9 +18,7 @@ class Merchant < ApplicationRecord
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
   delegate :header_background,
-           :header_background=,
-           :header_text_color,
-           :header_text_color=, to: :theme, prefix: true
+           :header_background=, to: :theme, prefix: true
 
   store :info, accessors: %i[keywords description address payment_methods], coder: JSON
   geocoded_by :address
