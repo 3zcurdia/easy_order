@@ -11,7 +11,6 @@ class MerchantTest < ActiveSupport::TestCase
 
   context 'validations' do
     should validate_presence_of(:name)
-    # should validate_numericality_of(:phone)
   end
 
   test 'must generate a valid slug' do
