@@ -1,37 +1,36 @@
-<div class="section" data-controller="merchant-stats" data-merchant-stats-url="<%= api_merchant_stats_path(@merchant) %>" >
-  <nav class="level">
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Secciones</p>
-        <p class="title" data-target="merchant-stats.sections"></p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Productos</p>
-        <p class="title" data-target="merchant-stats.products"></p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Ordenes</p>
-        <p class="title" data-target="merchant-stats.orders"></p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Transacciones</p>
-        <p class="title" data-target="merchant-stats.transactions"></p>
-      </div>
-    </div>
-  </nav>
-</div>
-
 <div class="columns">
   <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
     <%= render @merchant, cached: true %>
   </div>
   <div class="column">
+    <div class="section" data-controller="merchant-stats" data-merchant-stats-url="<%= api_merchant_stats_path(@merchant) %>" >
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Secciones</p>
+            <p class="title" data-target="merchant-stats.sections"></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Productos</p>
+            <p class="title" data-target="merchant-stats.products"></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Ordenes</p>
+            <p class="title" data-target="merchant-stats.orders"></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">Transacciones</p>
+            <p class="title" data-target="merchant-stats.transactions"></p>
+          </div>
+        </div>
+      </nav>
+    </div>
     <div class="level">
       <div class="level-left">
         <h1 class="title">Productos</h1>
