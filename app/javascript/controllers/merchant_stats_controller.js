@@ -11,11 +11,17 @@ export default class extends Controller {
     fetch(this.data.get("url"))
     .then(response => response.json())
     .then(json => {
-      this.merchantsTarget.textContent = json.merchants
+      if (json.merchants != null) {
+        this.merchantsTarget.textContent = json.merchants
+      }
       this.sectionsTarget.textContent = json.sections
       this.productsTarget.textContent = json.products
       this.ordersTarget.textContent = json.orders
-      this.transactionsTarget.textContent = `$ ${(json.transactions.cents/100.0).toFixed(2)}`
+      var ammount = 0.0
+      if (json.transactions != null && json.transactions.cents != null) {
+        ammount = json.transactions.cents / 100.0
+      }
+      this.transactionsTarget.textContent = `$ ${ammount.toFixed(2)}`
     })
   }
 }
