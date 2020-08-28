@@ -20,6 +20,7 @@ class OnboardingTest < ApplicationSystemTestCase
     assert_text '¡Ya casi terminas!'
     assert_text 'Expresso 1'
     assert_text '22.00'
+    assert_text 'politica de privacidad'
 
     fill_in 'user[email]', with: 'test@example.com'
     fill_in 'user[password]', with: 'secret123'

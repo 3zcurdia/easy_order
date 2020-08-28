@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
   get '/dashboard', to: 'dashboard#show', as: :user_root
   resources :pages, only: :show
-  get '/privacy', to: 'privacy#show'
+  get '/privacy', to: 'privacy#show', as: :privacy
   authenticate :user, ->(user) { user.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
