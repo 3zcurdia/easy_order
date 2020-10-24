@@ -36,3 +36,7 @@ $body-background-color: $light-gray;
 @media print {
   .no-print { display: none; }
 }
+.image.disabled img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}

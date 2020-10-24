@@ -1,7 +1,7 @@
 class MenuItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_merchant
-  before_action :set_menu_item, only: %i[show edit update destroy]
+  before_action :set_menu_item, except: %i[new create sort]
 
   def new
     @menu_item = menu.items.build
@@ -47,6 +47,12 @@ class MenuItemsController < ApplicationController
       end
     end
     render json: {}, status: :ok
+  end
+
+  def toggle_availability
+    @menu_item.toggle_availability
+    state = @menu_item.available ? 'habilito' : 'deshabilito'
+    redirect_to @merchant, notice: "El producto se #{state} correctamente."
   end
 
   def destroy

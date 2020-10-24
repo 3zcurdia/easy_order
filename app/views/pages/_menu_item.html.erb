@@ -2,7 +2,7 @@
 <article class="media">
   <div class="media-left">
     <% if item.photo.attached? %>
-    <p class="image is-128x128">
+    <p class="image is-128x128 <%= 'disabled' unless item.available %>">
       <%= image_tag item.photo.variant(resize_to_fill: [256, 256]) %>
     </p>
     <% end %>
@@ -14,16 +14,16 @@
       <h2 class="subtitle is-5 is-hidden-desktop"><%= item.price.format %></h2>
     </div>
     <% if merchant.ready_to_deliver? %>
-    <div class="field has-addons" data-controller="numeric-input" data-target="checkout.menuItem" data-name="<%= item.name %>" data-price="<%= item.price_cents %>">
+    <div class="field has-addons" data-controller="<%= 'numeric-input' if item.available %>" data-target="checkout.menuItem" data-name="<%= item.name %>" data-price="<%= item.price_cents %>">
       <div class="control">
-        <a class="button is-small is-light" data-action="numeric-input#sub checkout#updateCart"><i class="fa fa-minus"></i></a>
+        <a class="button is-small is-light" data-action="numeric-input#sub checkout#updateCart" <%= 'disabled' unless item.available %>><i class="fa fa-minus"></i></a>
       </div>
       <div class="control">
         <%= hidden_field_tag "order[items_attributes][#{item.id}][menu_item_id]", item.id %>
         <%= text_field_tag "order[items_attributes][#{item.id}][quantity]", 0, class: 'input is-small', readonly: true, data: {target: 'numeric-input.number' } %>
       </div>
       <div class="control">
-        <a class="button is-small is-light" data-action="numeric-input#add checkout#updateCart"><i class="fa fa-plus"></i></a>
+        <a class="button is-small is-light" data-action="numeric-input#add checkout#updateCart" <%= 'disabled' unless item.available %>><i class="fa fa-plus"></i></a>
       </div>
     </div>
     <% end %>

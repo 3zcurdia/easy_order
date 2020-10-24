@@ -14,6 +14,11 @@ class MenuItem < ApplicationRecord
     menu.merchant
   end
 
+  def toggle_availability
+    self.available = !available
+    save!
+  end
+
   def available=(value)
     meta['available'] = !!value
   end

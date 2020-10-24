@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :merchants do
     resources :menu_items, except: %i[index show] do
       put :sort, on: :collection
+      put :toggle_availability, on: :member
     end
     resource :cards, only: :show
     resource :code, only: :show

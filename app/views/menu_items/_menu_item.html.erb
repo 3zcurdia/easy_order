@@ -16,6 +16,13 @@
     </div>
     <nav class="level is-mobile">
       <div class="level-left">
+        <%= link_to toggle_availability_merchant_menu_item_path(merchant, menu_item), method: :put, class: 'level-item' do %>
+          <% if menu_item.available %>
+            <span class="icon is-small"><i class="fas fa-check-square"></i></span><span>&nbsp;Disponible</span>
+          <% else %>
+            <span class="icon is-small"><i class="far fa-square"></i></span><span>&nbsp;Disponible</span>
+          <% end %>
+        <% end %>
         <%= link_to edit_merchant_menu_item_path(merchant, menu_item), class: 'level-item' do %>
         <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
         <% end %>
