@@ -56,6 +56,7 @@ jobs:
         cp config/database.ci.yml config/database.yml
         bundle exec rails db:schema:load
     - name: Run tests
+      env:
         POSTGRES_HOST: 127.0.0.1
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
