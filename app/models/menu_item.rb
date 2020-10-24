@@ -1,4 +1,5 @@
 class MenuItem < ApplicationRecord
+  acts_as_paranoid
   self.implicit_order_column = 'position'
   belongs_to :menu, touch: true
   belongs_to :section, counter_cache: true, touch: true

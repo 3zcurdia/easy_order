@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_214241) do
+ActiveRecord::Schema.define(version: 2020_10_24_171548) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_214241) do
     t.integer 'price_cents', default: 0, null: false
     t.bigint 'section_id'
     t.integer 'position', default: 0
+    t.datetime 'deleted_at'
+    t.index ['deleted_at'], name: 'index_menu_items_on_deleted_at'
     t.index ['menu_id'], name: 'index_menu_items_on_menu_id'
     t.index ['section_id'], name: 'index_menu_items_on_section_id'
   end
@@ -92,6 +94,8 @@ ActiveRecord::Schema.define(version: 2020_08_14_214241) do
     t.string 'price_currency', default: 'MXN', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.datetime 'deleted_at'
+    t.index ['deleted_at'], name: 'index_order_items_on_deleted_at'
     t.index ['menu_item_id'], name: 'index_order_items_on_menu_item_id'
     t.index ['order_id'], name: 'index_order_items_on_order_id'
   end
