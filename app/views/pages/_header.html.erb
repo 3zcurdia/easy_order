@@ -10,7 +10,7 @@
               <span></span>
             </span>
           </div>
-          <div id="navbarMenuSections" class="navbar-menu">
+          <div id="navbarMenuSections" class="navbar-menu" style="<%= header_style(merchant.theme) %>">
             <div class="navbar-end">
               <% cache merchant.menu do %>
                 <% merchant.menu.sections.with_items.each do |section| %>
