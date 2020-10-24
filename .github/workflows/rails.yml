@@ -31,6 +31,7 @@ jobs:
         node-version: 10.x
     - name: Install dependencies
       run: |
+         sudo apt-get update
          sudo apt-get -yqq install chromium-chromedriver
     - uses: actions/cache@v2
       with:
