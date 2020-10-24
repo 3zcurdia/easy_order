@@ -7,9 +7,9 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("notifications")
-require("nav_menu")
-require("colorpicker")
+require("../src/notifications")
+require("../src/nav_menu")
+require("../src/colorpicker")
 require.context('../images', true)
 
 // Uncomment to copy all static images under ../images to the output folder and reference
