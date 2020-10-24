@@ -29,6 +29,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 10.x
+    - name: Install dependencies
+      run: |
+         sudo apt-get -yqq install chromium-chromedriver
     - uses: actions/cache@v2
       with:
         path: vendor/bundle
