@@ -10,7 +10,7 @@ module JwtWrapper
     decoded_token = JWT.decode(token, Rails.application.secrets.secret_key_base)
 
     decoded_token.first
-  rescue
+  rescue StandardError
     nil
   end
 end

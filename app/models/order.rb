@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   after_create :set_total
 
   def message
-    "Hola, me gustaria ordenar: \n" + items.map(&:to_s).join(",\n")
+    "Hola, me gustaria ordenar: \n#{items.map(&:to_s).join(",\n")}"
   end
 
   def set_total

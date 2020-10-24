@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
     resources :merchants, only: %i[index show] do
       resources :menu, only: :index
-      resources :stats, controller: "merchants/stats", only: :index
+      resources :stats, controller: 'merchants/stats', only: :index
     end
   end
   get '/builder', to: redirect('/builder/merchant/new'), as: :builder

@@ -5,7 +5,7 @@ module PagesHelper
   end
 
   def header_style(theme)
-    "background-color: #{theme.header_background || '#363636' };"
+    "background-color: #{theme.header_background || '#363636'};"
   end
 
   def merchant_meta_tags(merchant)

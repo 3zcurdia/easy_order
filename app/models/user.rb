@@ -16,6 +16,6 @@ class User < ApplicationRecord
   end
 
   def token
-    JwtWrapper.encode({sub: id})
+    JwtWrapper.encode({ sub: id })
   end
 end
