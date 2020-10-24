@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: ruby:2.7.1
+      image: ruby:2.7.2
     services:
       postgres:
         image: postgres:12
