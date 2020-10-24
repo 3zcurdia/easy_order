@@ -5,10 +5,8 @@ class DashboardController < ApplicationController
     redirect_to merchants_path and return if current_user.admin?
 
     @merchant = current_user.merchants.first
-    if @merchant.nil?
-      redirect_to new_merchant_path and return
-    else
-      redirect_to @merchant
-    end
+    redirect_to new_merchant_path and return unless @merchant
+
+    redirect_to @merchant
   end
 end

@@ -1,7 +1,13 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'
 
 Metrics/AbcSize:
   Max: 17
@@ -24,7 +30,9 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
     - db/schema.rb
+    - config/routes.rb
+    - config/environments/*
 
-Style/NumericLiterals:
-  Exclude: 
-    - db/schema.rb
+Style/AsciiComments:
+  Exclude:
+    - config/initializers/money.rb
