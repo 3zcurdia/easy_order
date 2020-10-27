@@ -49,6 +49,18 @@ class MerchantsController < ApplicationController
     redirect_to merchants_url, notice: 'El Comercio fue eliminado con éxito.'
   end
 
+  protected
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    elsif params[:id].present?
+      redirect_to page_url(params[:id])
+    else
+      redirect_to user_session_path, alert: t('devise.failure.unauthenticated')
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
