@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label :logo, 'Logo', class: 'label' %>
-    <% if merchant.logo.attached? %>
+    <% if merchant.logo_attached? %>
     <p class="image is-128x128">
       <%= image_tag merchant.logo %>
     </p>

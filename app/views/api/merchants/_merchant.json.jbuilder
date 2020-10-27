@@ -1,6 +1,6 @@
 json.id merchant.slug
 json.name merchant.name
-json.logo_url merchant.logo.attached? ? rails_blob_url(merchant.logo) : nil
+json.logo_url merchant.logo_attached? ? rails_blob_url(merchant.logo) : nil
 json.description merchant.description
 json.keywords merchant.keywords
 json.phone merchant.phone

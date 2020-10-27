@@ -20,7 +20,7 @@
           </div>
           <div class="card-content">
             <div class="media columns is-vcentered">
-              <% if @merchant.logo.attached? %>
+              <% if @merchant.logo_attached? %>
               <div class="media-left">
                 <figure class="image is-128x128">
                   <%= image_tag @merchant.logo.variant(resize_to_fit: [256, 256]) %>

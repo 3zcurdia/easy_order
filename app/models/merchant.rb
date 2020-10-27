@@ -55,6 +55,10 @@ class Merchant < ApplicationRecord
     user.guest?
   end
 
+  def logo_attached?
+    logo.attached?
+  end
+
   def theme
     @theme ||= Theme.parse(info['theme'])
   end
