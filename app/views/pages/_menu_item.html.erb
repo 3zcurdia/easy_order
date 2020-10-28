@@ -3,7 +3,7 @@
   <div class="media-left">
     <% if item.photo.attached? %>
     <p class="image is-128x128 <%= 'disabled' unless item.available %>">
-      <%= image_tag item.photo.variant(resize_to_fill: [256, 256]) %>
+      <%= image_tag safe_variant(item.photo, resize_to_fill: [256, 256]) %>
     </p>
     <% end %>
   </div>
