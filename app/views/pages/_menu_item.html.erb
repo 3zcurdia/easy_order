@@ -27,6 +27,9 @@
         <a class="button is-small is-light" data-action="numeric-input#add checkout#updateCart" <%= 'disabled' unless item.available %>><i class="fa fa-plus"></i></a>
       </div>
     </div>
+    <% unless item.available %>
+      <p class="help is-danger"><i>Por el momento el producto esta agotado</i></p>
+    <% end %>
     <% end %>
   </div>
   <div class="media-right has-text-right is-hidden-mobile is-hidden-tablet-only">
