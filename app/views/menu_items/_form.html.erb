@@ -25,26 +25,23 @@
         </div>
       </div>
       <div class="field">
+        <%= f.label :section_id, 'Sección', class: 'label' %>
+        <div class="select">
+          <%= f.collection_select :section_id, merchant.menu.sections, :id, :name, prompt: 'Select' %>
+        </div>
+      </div>
+      <div class="field">
         <%= f.label :name, 'Nombre', class: 'label' %>
         <div class="control">
           <%= f.text_field :name, class: 'input', placeholder: 'ej. Chilaquiles con pollo' %>
         </div>
       </div>
-
       <div class="field">
         <%= f.label :description, 'Descripcion', class: 'label' %>
         <div class="control">
           <%= f.text_area :description, class: 'textarea', rows: 2, placeholder: 'ej. Los tradicionales chilaquiles verdes con pechuga de pollo, crema y queso' %>
         </div>
       </div>
-
-      <div class="field">
-        <%= f.label :section_id, 'Sección', class: 'label' %>
-        <div class="select">
-          <%= f.collection_select :section_id, merchant.menu.sections, :id, :name, prompt: 'Select' %>
-        </div>
-      </div>
-
     </div>
 
     <div class="column">
@@ -55,6 +52,12 @@
         </p>
         <div class="control">
           <%= f.text_field :price, class: 'input',  placeholder: '100.0' %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :unit, 'Unidad', class: 'label' %>
+        <div class="control">
+          <%= f.text_field :unit, class: 'input', placeholder: 'ej. Kg' %>
         </div>
       </div>
     </div>

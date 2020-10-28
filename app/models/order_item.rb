@@ -14,7 +14,7 @@ class OrderItem < ApplicationRecord
   end
 
   def to_s
-    "#{quantity} #{name}"
+    "#{quantity} #{unit} de #{name}"
   end
 
   def fetch_current_prices

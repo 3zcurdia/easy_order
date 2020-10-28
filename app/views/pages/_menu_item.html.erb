@@ -20,6 +20,7 @@
       </div>
       <div class="control">
         <%= hidden_field_tag "order[items_attributes][#{item.id}][menu_item_id]", item.id %>
+        <%= hidden_field_tag "order[items_attributes][#{item.id}][unit]", item.unit %>
         <%= text_field_tag "order[items_attributes][#{item.id}][quantity]", 0, class: 'input is-small', readonly: true, data: {target: 'numeric-input.number' } %>
       </div>
       <div class="control">

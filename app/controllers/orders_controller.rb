@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(items_attributes: %i[menu_item_id quantity])
+    params.require(:order).permit(items_attributes: %i[menu_item_id quantity unit])
   end
 
   def whatsapp_url(merchant, order)

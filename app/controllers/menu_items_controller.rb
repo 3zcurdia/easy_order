@@ -76,7 +76,7 @@ class MenuItemsController < ApplicationController
   end
 
   def menu_item_params
-    params.require(:menu_item).permit(:position, :name, :description, :price, :photo, :section_id)
+    params.require(:menu_item).permit(:position, :name, :description, :price, :photo, :section_id, :unit)
   end
 
   def sorted_params
