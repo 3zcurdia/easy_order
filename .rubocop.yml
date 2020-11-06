@@ -1,6 +1,7 @@
 inherit_from: .rubocop_todo.yml
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.7
   Exclude:
     - 'bin/**/*'
@@ -29,7 +30,6 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Exclude:
-    - db/schema.rb
     - config/routes.rb
     - config/environments/*
 
