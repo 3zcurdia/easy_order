@@ -28,7 +28,7 @@ module Api
           sections: merchant.sections.count,
           products: merchant.items.count,
           orders: merchant.orders_count,
-          transactions: merchant.orders.total_sum
+          transactions: merchant.orders.current_month.total_sum
         }
       end
 
