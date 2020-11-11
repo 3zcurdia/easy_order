@@ -29,7 +29,7 @@ module EasyOrder
 
     config.eager_load_paths << Rails.root.join('lib')
 
-    config.active_storage.web_image_content_types = %w(image/jpeg image/png image/webp image/jpg)
+    config.active_storage.web_image_content_types = %w[image/jpeg image/png image/webp image/jpg]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
