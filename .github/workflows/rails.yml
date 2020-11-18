@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-     services:
     services:
       hub:
         image: selenium/hub:3.141.59-gold
