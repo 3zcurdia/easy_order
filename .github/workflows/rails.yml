@@ -8,7 +8,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+     services:
     services:
+      hub:
+        image: selenium/hub:3.141.59-gold
+      firefox:
+        image: selenium/node-firefox:3.141.59-gold
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 4444
       postgres:
         image: postgres:12
         env:
@@ -59,12 +67,19 @@ jobs:
       run: |
         cp config/database.ci.yml config/database.yml
         bundle exec rails db:schema:load
-    - name: Run tests
+    - name: Tests
       env:
         POSTGRES_HOST: 127.0.0.1
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
         POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
-      run: |
-        bundle exec rails test
-        bundle exec rails test:system
+      run: bundle exec rails test
+    - name: System tests
+      env:
+        POSTGRES_HOST: 127.0.0.1
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+        SELENIUM_HUB_HOST: hub
+        TEST_HOST: testHost
+      run: bundle exec rails test:system
