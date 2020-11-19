@@ -65,7 +65,7 @@ jobs:
         cp config/database.ci.yml config/database.yml
         bundle exec rails db:schema:load
     - name: Compile assets
-      run: bundle exec rails webpacker:compile
+      run: bundle exec rake webpacker:compile
     - name: Run tests
       env:
         POSTGRES_HOST: 127.0.0.1
