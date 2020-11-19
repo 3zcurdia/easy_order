@@ -61,6 +61,8 @@ jobs:
         run: |
           cp config/database.ci.yml config/database.yml
           bundle exec rails db:schema:load
+      - name: Compile assets
+        run: bundle exec rails webpacker:compile
       - name: Run system tests
         env:
           RAILS_ENV: test
