@@ -53,9 +53,9 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install packages
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: |
-        yarn install --check-files
-        rake webpacker:compile
+      run: yarn install --check-files
+    - name: Compile assets
+      run: rake webpacker:compile
     - name: Setup Database
       env:
         RAILS_ENV: test
