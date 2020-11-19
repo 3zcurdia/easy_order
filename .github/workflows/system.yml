@@ -1,5 +1,7 @@
 name: System tests
-on: [push]
+on:
+  push:
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,10 +22,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-      - name: Install libraries
-        run: |
-          sudo apt-get update
-          sudo apt-get -yqq install imagemagick libpq-dev
       - name: Install bundler
         run: |
           gem install bundler
@@ -41,7 +39,7 @@ jobs:
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: JS package cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir.outputs.dir }}
@@ -69,4 +67,5 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
-          RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test:system
+          bundle exec rake assets:precompile
+          bundle exec rails test:system
