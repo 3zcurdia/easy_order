@@ -26,8 +26,8 @@ jobs:
         ruby-version: 2.7.2
     - name: Install bundler
       run: |
-      gem install bundler
-      bundle config path vendor/bundle
+        gem install bundler
+        bundle config path vendor/bundle
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -64,7 +64,7 @@ jobs:
       run: |
         cp config/database.ci.yml config/database.yml
         bundle exec rails db:schema:load
-    - name: Tests
+    - name: Run tests
       env:
         POSTGRES_HOST: 127.0.0.1
         POSTGRES_USER: postgres
