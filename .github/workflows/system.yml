@@ -24,10 +24,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get -yqq install imagemagick libpq-dev
-      - name: Install bundler
-        run: |
-          gem install bundler
-          bundle config path vendor/bundle
       - uses: actions/cache@v2
         with:
           path: vendor/bundle
@@ -36,7 +32,10 @@ jobs:
             ${{ runner.os }}-gems-
       - name: Install gems
         if: steps.bundler-cache.outputs.cache-hit != 'true'
-        run: bundle install --jobs 4 --retry 3
+        run: |
+          gem install bundler
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
       - name: Find yarn cache location
         id: yarn-cache-dir
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -69,4 +68,9 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
+          bundle exec rails assets:precompile
           RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test:system
+      - name: Remove assets
+        run: |
+          bundle exec rails assets:clobber
+          bundle exec rails assets:clean
