@@ -72,5 +72,4 @@ jobs:
           RUBYOPT='-W:no-deprecated -W:no-experimental' bundle exec rails test:system
       - name: Remove assets
         run: |
-          bundle exec rails assets:clobber
           bundle exec rails assets:clean
