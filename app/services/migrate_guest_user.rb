@@ -2,6 +2,7 @@ class MigrateGuestUser < ApplicationService
   def initialize(id, merchant_id)
     @guest = User.guest.find(id)
     @merchant = Merchant.find_by(id: merchant_id)
+    super()
   end
 
   def call(user)
