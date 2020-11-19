@@ -53,7 +53,9 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install packages
       if: steps.yarn-cache.outputs.cache-hit != 'true'
-      run: yarn install --check-files
+      run: |
+        yarn install --check-files
+        rake webpacker:compile
     - name: Setup Database
       env:
         RAILS_ENV: test
@@ -64,8 +66,6 @@ jobs:
       run: |
         cp config/database.ci.yml config/database.yml
         bundle exec rails db:schema:load
-    - name: Compile assets
-      run: bundle exec rake webpacker:compile
     - name: Run tests
       env:
         POSTGRES_HOST: 127.0.0.1
