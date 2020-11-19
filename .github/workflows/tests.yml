@@ -47,6 +47,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
     - name: Install packages
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install --check-files
     - name: Setup Database
       env:
@@ -60,6 +61,7 @@ jobs:
         bundle exec rails db:schema:load
     - name: Tests
       env:
+        RAILS_ENV: test
         POSTGRES_HOST: 127.0.0.1
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
