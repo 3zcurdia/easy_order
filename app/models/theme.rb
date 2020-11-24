@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Theme = Struct.new(:header_background, keyword_init: true) do
   extend ActiveModel::Naming
   def self.parse(hash)

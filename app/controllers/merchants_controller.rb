@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MerchantsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_merchant, only: %i[show edit update destroy]

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Section < ApplicationRecord
   self.implicit_order_column = 'position'
   belongs_to :menu

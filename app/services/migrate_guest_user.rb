@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateGuestUser < ApplicationService
   def initialize(id, merchant_id)
     @guest = User.guest.find(id)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PagesHelper
   def whatsapp_url(phone, message = 'Hola vi su menu en linea y me gustaria ordenar:')
     query = URI.encode_www_form(text: message)

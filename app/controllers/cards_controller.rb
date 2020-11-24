@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CardsController < ApplicationController
   before_action :authenticate_user!
   layout 'page'

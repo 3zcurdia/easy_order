@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Merchant < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged

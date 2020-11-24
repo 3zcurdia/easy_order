@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.id merchant.slug
 json.name merchant.name
 json.logo_url merchant.logo_attached? ? rails_blob_url(merchant.logo) : nil

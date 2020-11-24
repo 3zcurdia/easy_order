@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MenuItem < ApplicationRecord
   acts_as_paranoid
   self.implicit_order_column = 'position'

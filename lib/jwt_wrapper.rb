@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module JwtWrapper
   def self.encode(payload, expiration = 360)
     payload = payload.dup

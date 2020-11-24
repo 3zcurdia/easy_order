@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Builder
   class MerchantsController < BaseController
     def new

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Menu < ApplicationRecord
   belongs_to :merchant
   has_many :sections, dependent: :destroy

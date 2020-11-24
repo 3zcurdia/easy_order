@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def safe_variant(photo, **options)
     if photo.variable?

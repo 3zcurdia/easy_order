@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Builder
   class MenusController < BaseController
     before_action :authorize_step!

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :guests do
   desc 'Deletes all guest accounts from the last 24 hours'
   task clear: :environment do
