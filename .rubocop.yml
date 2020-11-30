@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
@@ -10,17 +8,13 @@ AllCops:
     - 'vendor/**/*'
     - 'log/**/*'
 
-Metrics/AbcSize:
-  Max: 17
-
-Metrics/CyclomaticComplexity:
-  Max: 9
-
 Metrics/MethodLength:
   Max: 15
 
-Metrics/PerceivedComplexity:
-  Max: 8
+Metrics/BlockLength:
+  Exclude:
+  - config/routes.rb
+  - config/environments/*
 
 Layout/LineLength:
   Max: 198
@@ -28,10 +22,9 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
-Metrics/BlockLength:
+Style/ClassAndModuleChildren:
   Exclude:
-    - config/routes.rb
-    - config/environments/*
+    - test/**/*
 
 Style/AsciiComments:
   Exclude:
