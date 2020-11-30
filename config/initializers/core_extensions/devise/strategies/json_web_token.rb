@@ -26,7 +26,7 @@ module Devise
       private
 
       def claims
-        strategy, token = bearer_header.split(' ')
+        strategy, token = bearer_header.split
         return nil if (strategy || '').downcase != 'bearer'
 
         JwtWrapper.decode(token)
