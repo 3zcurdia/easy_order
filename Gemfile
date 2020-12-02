@@ -63,6 +63,5 @@ end
 
 group :production do
   gem 'dalli'
-  gem 'scout_apm'
   gem 'sentry-raven'
 end
