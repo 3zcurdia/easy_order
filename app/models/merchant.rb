@@ -70,7 +70,7 @@ class Merchant < ApplicationRecord
   def slug_candidates
     [
       :name,
-      [:name, SecureRandom.hex[0..6]],
+      [:name, SecureRandom.hex(4)],
       [:name, SecureRandom.uuid]
     ]
   end
