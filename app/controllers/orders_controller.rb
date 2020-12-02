@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :set_merchant
 
   def index
-    @orders = policy_scope(Order).order(created_at: :desc)
+    @orders = policy_scope(Order).order(created_at: :desc).page(params[:page])
     authorize @orders
   end
 

@@ -24,6 +24,7 @@ gem 'aws-sdk-s3', require: false
 gem 'friendly_id'
 gem 'geocoder'
 gem 'image_processing'
+gem 'kaminari'
 gem 'money-rails'
 gem 'paranoia', '~> 2.2'
 gem 'redis'
