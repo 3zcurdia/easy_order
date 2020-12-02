@@ -1,0 +1,35 @@
+<div class="columns">
+  <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
+    <%= render @merchant, cached: true %>
+  </div>
+  <div class="column">
+    <div class="level">
+      <div class="level-left">
+        <h1 class="title">Ordenes</h1>
+      </div>
+    </div>
+    <%= render 'merchants/stats', merchant: @merchant %>
+    <div class="table-container">
+      <table class="table is-striped is-fullwidth">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th> - </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= link_to order.id, merchant_order_path(@merchant, order) %></td>
+            <td><%= order.items.count %> items</td>
+            <td><%= number_to_currency(order.total) %></td>
+            <td><%= l order.created_at, format: :long %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

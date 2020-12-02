@@ -3,7 +3,11 @@
 class OrderPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user.merchant.orders
+      if admin?
+        scope.all
+      else
+        user.merchants.first.orders
+      end
     end
   end
 

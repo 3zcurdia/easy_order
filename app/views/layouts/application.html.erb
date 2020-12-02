@@ -32,6 +32,7 @@
         <% if @merchant.present? %>
           <%= link_to("Productos", merchant_path(@merchant), class: 'navbar-item') %>
           <%= link_to("Secciones", merchant_sections_path(@merchant), class: 'navbar-item') %>
+          <%= link_to("Ordenes", merchant_orders_path(@merchant), class: 'navbar-item') %>
         <% end %>
       </div>
       <div class="navbar-end">
