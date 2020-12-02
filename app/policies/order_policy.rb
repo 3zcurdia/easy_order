@@ -8,7 +8,7 @@ class OrderPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    admin_or_merchant?
   end
 
   def show?

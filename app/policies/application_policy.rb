@@ -44,8 +44,16 @@ class ApplicationPolicy
     user.admin?
   end
 
+  def merchant?
+    user.merchant?
+  end
+
   def admin_or_owner?
     admin? || owner?
+  end
+
+  def admin_or_merchant?
+    admin? || merchant?
   end
 
   class Scope
