@@ -2,6 +2,8 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = ["helpText", "name", "icon"]
+  static values = { url: String }
+  static classes = [ "success", "hidden" ]
 
   connect() {
     this.helpTextTarget.textContent = ''
@@ -27,16 +29,16 @@ export default class extends Controller {
   }
 
   setUniq() {
-    this.helpTextTarget.classList.add('is-success')
-    this.nameTarget.classList.add('is-success')
-    this.iconTarget.classList.remove('is-hidden')
+    this.helpTextTarget.classList.add(this.successClass)
+    this.nameTarget.classList.add(this.successClass)
+    this.iconTarget.classList.remove(this.hiddenClass)
     this.helpTextTarget.textContent = '¡Felicidades! eres el primero que se regista con este nombre'
   }
 
   clear(){
-    this.helpTextTarget.classList.remove('is-success')
-    this.nameTarget.classList.remove('is-success')
-    this.iconTarget.classList.add('is-hidden')
+    this.helpTextTarget.classList.remove(this.successClass)
+    this.nameTarget.classList.remove(this.successClass)
+    this.iconTarget.classList.add(this.hiddenClass)
     this.helpTextTarget.textContent = ``
   }
 
@@ -45,6 +47,6 @@ export default class extends Controller {
   }
 
   get url() {
-    return `${this.data.get("url")}?name=${encodeURI(this.name)}`
+    return `${this.urlValue}?name=${encodeURI(this.name)}`
   }
 }

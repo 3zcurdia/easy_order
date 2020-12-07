@@ -1,8 +1,8 @@
 <%= form_with(model: merchant, url: builder_merchant_path(merchant), class: 'columns') do |f| %>
   <%= f.hidden_field :user_id %>
   <div class="field column is-three-quarters">
-    <div class="control has-icons-left has-icons-right" data-controller="merchant-name" data-merchant-name-url="<%= api_merchants_search_index_path %>" >
-      <%= f.text_field :name, class: 'input is-medium', placeholder: "el nombre de tu negocio", data: { action: 'keyup->merchant-name#change', target: 'merchant-name.name'} %>
+    <div class="control has-icons-left has-icons-right" data-controller="merchant-name" data-merchant-name-url-value="<%= api_merchants_search_index_path %>" data-merchant-name-success-class='is-success' data-merchant-name-hidden-class='is-hidden' >
+      <%= f.text_field :name, class: 'input is-medium', placeholder: "el nombre de tu negocio", data: { action: 'keyup->merchant-name#change', merchant_name_target: 'name'} %>
       <span class="icon is-small is-left">
         <i class="fas fa-briefcase fa-xs"></i>
       </span>
