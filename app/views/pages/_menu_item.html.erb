@@ -14,7 +14,7 @@
       <h2 class="subtitle is-5 is-hidden-desktop"><%= item.price.format %> <span><i><%= item.unit %></i></span></h2>
     </div>
     <% if merchant.ready_to_deliver? %>
-    <div class="field has-addons" data-controller="<%= 'numeric-input' if item.available %>" data-target="checkout.menuItem" data-name="<%= item.name %>" data-price="<%= item.price_cents %>">
+    <div class="field has-addons" data-controller="<%= 'numeric-input' if item.available %>" data-checkout-target="menuItem" data-name="<%= item.name %>" data-price="<%= item.price_cents %>">
       <div class="control">
         <a class="button is-small is-light" data-action="numeric-input#sub checkout#updateCart" <%= 'disabled' unless item.available %>><i class="fa fa-minus"></i></a>
       </div>
