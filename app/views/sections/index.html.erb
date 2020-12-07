@@ -14,7 +14,7 @@
         <% end %>
       </div>
     </div>
-    <div data-controller="sortable" data-sortable-url="<%= sort_merchant_sections_path(@merchant)%>">
+    <div data-controller="sortable" data-sortable-url-value="<%= sort_merchant_sections_path(@merchant)%>">
       <% @sections.each do |section| %>
       <article class="media">
         <div class="media-content">

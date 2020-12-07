@@ -31,7 +31,7 @@
         <% end %>
       </ul>
     </div>
-    <div data-controller="sortable" data-sortable-url="<%= sort_merchant_menu_items_path(@merchant)%>">
+    <div data-controller="sortable" data-sortable-url-value="<%= sort_merchant_menu_items_path(@merchant)%>">
       <%= render @menu_items, merchant: @merchant %>
     </div>
   </div>

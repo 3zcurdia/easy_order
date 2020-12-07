@@ -2,13 +2,14 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = ["merchants", "sections", "products", "orders", "transactions"]
+  static values = { url: String }
 
   connect() {
     this.load()
   }
 
   load() {
-    fetch(this.data.get("url"))
+    fetch(this.urlValue)
     .then(response => response.json())
     .then(json => {
       if (json.merchants != null) {

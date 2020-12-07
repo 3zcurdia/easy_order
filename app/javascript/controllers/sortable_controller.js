@@ -3,6 +3,7 @@ import { Sortable } from "sortablejs"
 
 export default class extends Controller {
   static targets = ["item"]
+  static values = { url: String }
 
   connect() {
     let that = this
@@ -16,7 +17,7 @@ export default class extends Controller {
   }
 
   update(event) {
-    fetch(this.url, {
+    fetch(this.urlValue, {
       body: JSON.stringify(this.newPositions()),
       method: 'PUT',
       credentials: "same-origin",
@@ -33,10 +34,6 @@ export default class extends Controller {
       })
     })
     return { sorted: { menu_items: list } }
-  }
-
-  get url() {
-    return this.data.get('url')
   }
 
   get headers() {

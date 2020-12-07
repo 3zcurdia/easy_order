@@ -38,7 +38,7 @@
       <div class="navbar-end">
         <% if user_signed_in? %>
 
-      <div class="navbar-item has-dropdown" data-controller="dropdown">
+      <div class="navbar-item has-dropdown" data-controller="dropdown" data-dropdown-active-class="is-active">
         <a class="navbar-link" data-action="dropdown#toggle">
           <span><%= current_user.email %></span>
         </a>
