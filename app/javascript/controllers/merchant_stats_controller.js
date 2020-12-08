@@ -5,10 +5,10 @@ export default class extends Controller {
   static values = { url: String }
 
   connect() {
-    this.load()
+    this.load();
   }
 
-  load() {
+  async load() {
     fetch(this.urlValue)
     .then(response => response.json())
     .then(json => {
