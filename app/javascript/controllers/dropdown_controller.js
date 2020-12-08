@@ -4,6 +4,6 @@ export default class extends Controller {
   static classes = [ "active" ]
 
   toggle() {
-    this.element.classList.toggle(this.activeClass)
+    this.element.classList.toggle(this.activeClass);
   }
 }
