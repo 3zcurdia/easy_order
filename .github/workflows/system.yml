@@ -17,11 +17,15 @@ jobs:
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
+      - name: Increase the amount of inotify watchers
+      run: |
+        sudo sh -c "echo fs.inotify.max_user_watches=524288 >> /etc/sysctl.conf"
+        sudo sysctl -p
       - uses: actions/checkout@v2
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 3.0.0
       - name: Install bundler
         run: |
           gem install bundler
