@@ -19,6 +19,7 @@ class Merchant < ApplicationRecord
   validates :name, presence: true
   validates :phone, numericality: { only_integer: true }, allow_nil: true
 
+  delegate :attached?, to: :logo, prefix: true
   delegate :header_background,
            :header_background=, to: :theme, prefix: true
 
@@ -55,10 +56,6 @@ class Merchant < ApplicationRecord
 
   def demo?
     user.guest?
-  end
-
-  def logo_attached?
-    logo.attached?
   end
 
   def theme

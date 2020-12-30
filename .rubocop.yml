@@ -1,7 +1,11 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-minitest
+  - rubocop-rails
 AllCops:
   NewCops: enable
-  SuggestExtensions: false
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   Exclude:
     - 'bin/**/*'
     - 'db/**/*.rb'
@@ -30,3 +34,9 @@ Style/ClassAndModuleChildren:
 Style/AsciiComments:
   Exclude:
     - config/initializers/money.rb
+
+Minitest/TestMethodName:
+  Enabled: false
+
+Rails/FilePath:
+  EnforcedStyle: arguments

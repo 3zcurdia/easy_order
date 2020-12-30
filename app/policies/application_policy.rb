@@ -40,13 +40,7 @@ class ApplicationPolicy
     record.user == user
   end
 
-  def admin?
-    user.admin?
-  end
-
-  def merchant?
-    user.merchant?
-  end
+  delegate :admin?, :merchant?, to: :user
 
   def admin_or_owner?
     admin? || owner?
@@ -68,8 +62,6 @@ class ApplicationPolicy
       scope.all
     end
 
-    def admin?
-      user.admin?
-    end
+    delegate :admin?, to: :user
   end
 end

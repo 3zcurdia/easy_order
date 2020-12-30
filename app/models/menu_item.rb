@@ -12,9 +12,7 @@ class MenuItem < ApplicationRecord
 
   monetize :price_cents
 
-  def merchant
-    menu.merchant
-  end
+  delegate :merchant, to: :menu
 
   def toggle_availability
     self.available = !available

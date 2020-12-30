@@ -20,7 +20,7 @@ class MerchantTest < ActiveSupport::TestCase
   end
 
   test 'must create menu after create' do
-    assert Menu.where(merchant_id: merchant.id).exists?
+    assert Menu.exists?(merchant_id: merchant.id)
   end
 
   test 'must cast to boolean string on delivery' do
@@ -30,6 +30,6 @@ class MerchantTest < ActiveSupport::TestCase
 
   test 'must pass false on delivery' do
     merchant.delivery = false
-    refute merchant.delivery
+    assert_not merchant.delivery
   end
 end

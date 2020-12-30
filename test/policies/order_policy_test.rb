@@ -32,10 +32,10 @@ class OrderPolicyTest < ActiveSupport::TestCase
   end
 
   def test_update
-    refute policy.update?
+    assert_not policy.update?
   end
 
   def test_destroy
-    refute policy.destroy?
+    assert_not policy.destroy?
   end
 end

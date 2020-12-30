@@ -18,7 +18,7 @@ class MigrateGuestUser < ApplicationService
   def update_role(user)
     return unless user.guest?
 
-    role = Merchant.where(user_id: user.id).exists? ? :merchant : :user
+    role = Merchant.exists?(user_id: user.id) ? :merchant : :user
     user.update(role: role)
   end
 
