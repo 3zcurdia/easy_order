@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :trackable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  enum role: %i[guest user merchant admin]
+  enum role: { guest: 0, user: 1, merchant: 2, admin: 3 }
   has_many :merchants, dependent: :destroy
 
   scope :guests_without_demo, -> { guest.where.not(id: Merchant.owned_by(guest).select(:user_id)) }

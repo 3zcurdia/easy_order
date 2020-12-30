@@ -7,9 +7,7 @@ class OrderItem < ApplicationRecord
   monetize :price_cents
   before_save :fetch_current_prices
 
-  def name
-    menu_item.name
-  end
+  delegate :name, to: :menu_item
 
   def subtotal
     price * quantity

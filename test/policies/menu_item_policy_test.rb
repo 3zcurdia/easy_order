@@ -24,7 +24,7 @@ class MenuItemPolicyTest < ActiveSupport::TestCase
   end
 
   def test_show
-    refute policy.show?
+    assert_not policy.show?
   end
 
   def test_create
