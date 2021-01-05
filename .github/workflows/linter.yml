@@ -28,7 +28,7 @@ jobs:
     - name: RuboCop
       run: bundle exec rubocop --parallel
     - name: Skunk
-      run: bunlde exec skunk -b master | grep Score: > skunk.txt
+      run: bundle exec skunk -b master | grep Score: > skunk.txt
     - uses: actions/upload-artifact@v2
       with:
         path: skunk.txt
