@@ -1,17 +1,3 @@
-GIT
-  remote: https://github.com/FlowerWrong/rqrcode.git
-  revision: c6eeb8f1ccfec8b47b1a9484ff93eae53bec8023
-  specs:
-    rqrcode (1.1.2)
-      chunky_png (~> 1.0)
-      rqrcode_core (~> 0.1)
-
-GIT
-  remote: https://github.com/FlowerWrong/rqrcode_core.git
-  revision: e32d4f2785b4563d6a15ed31a8463586ff7cadaf
-  specs:
-    rqrcode_core (0.1.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -108,7 +94,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     childprocess (3.0.0)
-    chunky_png (1.3.15)
+    chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
@@ -276,6 +262,10 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    rqrcode (1.2.0)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 0.2)
+    rqrcode_core (0.2.0)
     rubocop (1.7.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -387,8 +377,7 @@ DEPENDENCIES
   pundit
   rails (~> 6.1.0)
   redis
-  rqrcode!
-  rqrcode_core!
+  rqrcode
   rubocop
   rubocop-minitest
   rubocop-performance
