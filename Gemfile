@@ -28,8 +28,7 @@ gem 'kaminari'
 gem 'money-rails'
 gem 'paranoia', '~> 2.2'
 gem 'redis'
-gem 'rqrcode', github: 'FlowerWrong/rqrcode'
-gem 'rqrcode_core', github: 'FlowerWrong/rqrcode_core'
+gem 'rqrcode'
 gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
