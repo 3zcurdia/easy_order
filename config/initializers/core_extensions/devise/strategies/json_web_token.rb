@@ -27,7 +27,7 @@ module Devise
 
       def claims
         strategy, token = bearer_header.split
-        return nil if (strategy || '').downcase != 'bearer'
+        return unless strategy.to_s.casecmp('bearer').zero?
 
         JwtWrapper.decode(token)
       end
