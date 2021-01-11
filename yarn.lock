@@ -1665,17 +1665,17 @@ bulma-divider@^0.2.0:
   resolved "https://registry.yarnpkg.com/bulma-divider/-/bulma-divider-0.2.0.tgz#a9b4d9fe8b270c7cb7573023c575062bc62616f3"
   integrity sha512-REe3k56GECRfDaqFjC8cwLhV4RxXmV0RubuzDJqwior9wlJcdHlN0qfW0tvUX+qphikaTQegIeRuhjRIAqkjkw==
 
-bulma-o-steps@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/bulma-o-steps/-/bulma-o-steps-1.0.9.tgz#0a1309d58a72164f2f6eb94efd5a4722b6e4c13a"
-  integrity sha512-T5qywE4MPCt6t0YTaZg2LEnzw0QoeYuob+dTB5WmYY8FtSOyEbNZnQ2kkrqzRwtAocvvzUTb+erAAc47QnkWoQ==
+bulma-o-steps@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/bulma-o-steps/-/bulma-o-steps-1.1.0.tgz#55ea73169e0f2a6bf502a23b485a012319512a7e"
+  integrity sha512-RelajORQ+tIY+CruowsEUzE6T5W5cbPp8Vskvu6Vgx5W45PcYhoP066Ls7kwMZl8M8djkxg+BcUswkX1a20hzg==
   dependencies:
-    bulma "^0.7.1"
+    bulma "^0.8.2"
 
-bulma@^0.7.1:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.5.tgz#35066c37f82c088b68f94450be758fc00a967208"
-  integrity sha512-cX98TIn0I6sKba/DhW0FBjtaDpxTelU166pf7ICXpCCuplHWyu6C9LYZmL5PEsnePIeJaiorsTEzzNk3Tsm1hw==
+bulma@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.2.tgz#5d928f16ed4a84549c2873f95c92c38c69c631a7"
+  integrity sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA==
 
 bulma@^0.9.1:
   version "0.9.1"
