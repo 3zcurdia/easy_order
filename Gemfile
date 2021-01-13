@@ -15,10 +15,10 @@ gem 'webpacker', '~> 5.2'
 
 gem 'devise'
 gem 'jwt'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem 'pundit'
 # gem 'omniauth-apple'
+# gem 'omniauth-facebook'
+# gem 'omniauth-google-oauth2'
+gem 'pundit'
 
 gem 'aws-sdk-s3', require: false
 gem 'friendly_id'
