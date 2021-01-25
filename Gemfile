@@ -9,7 +9,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.1'
 gem 'rails', '~> 6.1.0'
 
-gem 'jbuilder', '~> 2.10'
+gem 'jbuilder', '~> 2.11'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 5.2'
 
