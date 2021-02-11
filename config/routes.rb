@@ -4,7 +4,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   get '/p/:id', to: 'pages#show', as: :page
-  root 'home#index'
+  root to: 'home#index'
   devise_for :users, controllers: { registrations: 'registrations' }
 
   namespace :api do
