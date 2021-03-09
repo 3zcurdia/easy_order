@@ -33,9 +33,9 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          key: ${{ runner.os }}-gems--${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-gems-
+            ${{ runner.os }}-gems--
       - name: Install gems
         if: steps.bundler-cache.outputs.cache-hit != 'true'
         run: bundle install --jobs 4 --retry 3
