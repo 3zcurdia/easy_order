@@ -11,7 +11,7 @@ gem 'rails', '~> 6.1.3'
 
 gem 'jbuilder', '~> 2.11'
 gem 'turbolinks', '~> 5'
-gem 'webpacker', '~> 5.2'
+gem 'webpacker', '~> 5.3'
 
 gem 'devise'
 gem 'jwt'
