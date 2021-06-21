@@ -15,3 +15,7 @@ Rails/OutputSafety:
 Rails/RenderInline:
   Exclude:
     - 'app/controllers/codes_controller.rb'
+
+Minitest/MultipleAssertions:
+  Exclude:
+    - 'test/system/onboarding_test.rb'
