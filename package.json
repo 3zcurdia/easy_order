@@ -10,7 +10,7 @@
     "bulma-divider": "^0.2.0",
     "bulma-o-steps": "^1.1.0",
     "piklor.js": "^1.2.0",
-    "sortablejs": "^1.13.0",
+    "sortablejs": "^1.14.0",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0"
   },
