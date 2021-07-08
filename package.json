@@ -2,6 +2,7 @@
   "name": "easy_order",
   "private": true,
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.0.0-beta.8",
     "@rails/actioncable": "^6.1.4",
     "@rails/activestorage": "^6.1.4",
     "@rails/ujs": "^6.1.4",
@@ -11,8 +12,7 @@
     "bulma-o-steps": "^1.1.0",
     "piklor.js": "^1.2.0",
     "sortablejs": "^1.14.0",
-    "stimulus": "^2.0.0",
-    "turbolinks": "^5.2.0"
+    "stimulus": "^2.0.0"
   },
   "version": "0.1.0",
   "devDependencies": {
