@@ -30,6 +30,7 @@ module EasyOrder
     config.eager_load_paths << Rails.root.join('lib')
     config.active_storage.web_image_content_types = %w[image/jpeg image/png image/webp image/jpg]
     config.active_job.queue_adapter = :sidekiq
+    config.action_view.form_with_generates_remote_forms = false
 
     # Configuration for the application, engines, and railties goes here.
     #

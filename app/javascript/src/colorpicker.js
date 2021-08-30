@@ -1,5 +1,5 @@
 import { Piklor } from "piklor.js"
-window.addEventListener("turbolinks:load", () => {
+window.addEventListener("turbo:load", () => {
   if (document.querySelector('.color-picker') == null) { return; }
   let colors = [
     "#1abc9c",

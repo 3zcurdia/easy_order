@@ -14,7 +14,7 @@
             <div class="navbar-end">
               <% cache merchant.menu do %>
                 <% merchant.menu.sections.with_items.each do |section| %>
-                  <a onclick="window.location.hash='#section<%= section.id %>';" class="navbar-item is-capitalized" data-turbolinks-eval=false>
+                  <a onclick="window.location.hash='#section<%= section.id %>';" class="navbar-item is-capitalized" data-turbo-eval=false>
                     <%= section.name %>
                   </a>
                 <% end %>

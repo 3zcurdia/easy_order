@@ -10,7 +10,7 @@ gem 'puma', '~> 5.4'
 gem 'rails', '~> 6.1.4'
 
 gem 'jbuilder', '~> 2.11'
-gem 'turbolinks', '~> 5'
+gem 'turbo-rails'
 gem 'webpacker', '~> 5.4'
 
 gem 'devise'

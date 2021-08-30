@@ -3,9 +3,9 @@
 class RegistrationsController < Devise::RegistrationsController
   protected
 
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     migrate_guest
-    super
+    dashboard_path
   end
 
   def migrate_guest

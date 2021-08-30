@@ -13,7 +13,7 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
 
   test 'should redirect to show' do
     create(:merchant, user: user)
-    get user_root_url
+    get dashboard_url
     assert_response :redirect
   end
 

@@ -5,7 +5,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '/p/:id', to: 'pages#show', as: :page
   root to: 'home#index'
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: :registrations }
 
   namespace :api do
     namespace :merchants do
@@ -35,7 +35,8 @@ Rails.application.routes.draw do
     end
     resources :orders, only: %i[index show create]
   end
-  get '/dashboard', to: 'dashboard#show', as: :user_root
+
+  get '/dashboard', to: 'dashboard#show', as: :dashboard
   resources :pages, only: :show
   get '/privacy', to: 'privacy#show', as: :privacy
   authenticate :user, ->(user) { user.admin? } do
