@@ -11,6 +11,7 @@ gem 'rails', '~> 6.1.4'
 
 gem 'jbuilder', '~> 2.11'
 gem 'turbo-rails'
+# gem "sass-rails", ">= 6" # TODO: restore before remove webpacker
 gem 'webpacker', '~> 5.4'
 
 gem 'devise'
@@ -35,33 +36,29 @@ gem 'sidekiq'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'letter_opener'
   gem 'listen', '~> 3.7'
-  gem 'web-console', '>= 3.3.0'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rack-mini-profiler', '~> 2.0'
   gem 'rubocop', require: false
   gem 'rubocop-minitest', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
-  gem 'shoulda'
-  gem 'shoulda-matchers'
-  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'shoulda', '>= 4.0'
+  gem 'shoulda-matchers', '>= 4.0'
   gem 'webdrivers'
 end
 

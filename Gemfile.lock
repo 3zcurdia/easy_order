@@ -213,6 +213,8 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.5.2)
     rack (2.2.3)
+    rack-mini-profiler (2.3.2)
+      rack (>= 1.2.0)
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -350,7 +352,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.2)
-  capybara (>= 2.15)
+  capybara (>= 3.26)
   dalli
   devise
   factory_bot_rails
@@ -369,6 +371,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.4)
   pundit
+  rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4)
   redis
   rqrcode
@@ -378,8 +381,8 @@ DEPENDENCIES
   rubocop-rails
   selenium-webdriver
   sentry-ruby
-  shoulda
-  shoulda-matchers
+  shoulda (>= 4.0)
+  shoulda-matchers (>= 4.0)
   sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
