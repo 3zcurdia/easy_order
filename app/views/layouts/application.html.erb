@@ -15,7 +15,7 @@
 <body>
   <nav class="navbar is-light" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <%= link_to user_root_path, class: 'navbar-item' do %>
+      <%= link_to dashboard_path, class: 'navbar-item' do %>
         <p class="title is-4">
           <span class="icon"><i class="fas fa-utensils"></i></span> MenúFacilito
         </p>
@@ -42,7 +42,7 @@
           <span><%= current_user.email %></span>
         </a>
         <div class="navbar-dropdown is-boxed">
-          <%= link_to "Panel de control", user_root_path, class: 'navbar-item' %>
+          <%= link_to "Panel de control", dashboard_path, class: 'navbar-item' %>
           <hr class="navbar-divider">
           <%= link_to "Cerrar session", destroy_user_session_path, class: 'navbar-item', method: :delete %>
         </div>
