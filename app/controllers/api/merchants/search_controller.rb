@@ -4,11 +4,7 @@ module Api
   module Merchants
     class SearchController < BaseController
       def index
-        render json: { available: available?(name) }
-      end
-
-      def available?(name)
-        !Merchant.with_slug(name).exists?
+        render json: { exists: Merchant.slug_exists?(name) }
       end
 
       private

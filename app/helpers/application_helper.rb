@@ -3,7 +3,8 @@
 module ApplicationHelper
   def safe_variant(photo, **options)
     if photo.variable?
-      photo.variant(**(options).merge(convert: { format: 'webp' }))
+      opts = { **options, convert: { format: 'webp' } }
+      photo.variant(**opts)
     else
       photo
     end

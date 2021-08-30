@@ -20,10 +20,10 @@ export default class extends Controller {
     fetch(this.url)
       .then(response => response.json())
       .then(json => {
-        if (json.available) {
-          this.setUniq()
-        } else {
+        if (json.exists) {
           this.clear()
+        } else {
+          this.setUniq()
         }
       })
   }

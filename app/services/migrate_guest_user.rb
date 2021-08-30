@@ -1,36 +1,22 @@
 # frozen_string_literal: true
 
 class MigrateGuestUser < ApplicationService
-  def initialize(id, merchant_id)
-    @guest = User.guest.find(id)
-    @merchant = Merchant.find_by(id: merchant_id)
+  def initialize(current_user, **args)
+    @current_user = current_user
+    @guest_user = User.guest.find(args['guest_user_id'])
+    @merchant = Merchant.find(args['guest_merchant_id'])
     super()
   end
 
-  def call(user)
-    move_merchant_to(user)
-    update_role(user)
-    destroy
+  def call
+    User.transaction do
+      merchant.update!(user_id: current_user.id)
+      current_user.update!(role: :merchant)
+      guest_user.destroy!
+    end
   end
 
   private
 
-  def update_role(user)
-    return unless user.guest?
-
-    role = Merchant.exists?(user_id: user.id) ? :merchant : :user
-    user.update(role: role)
-  end
-
-  def move_merchant_to(user)
-    return unless merchant
-
-    merchant.update(user_id: user.id)
-  end
-
-  def destroy
-    guest.reload.destroy
-  end
-
-  attr_reader :guest, :merchant
+  attr_reader :current_user, :guest_user, :merchant
 end

@@ -30,6 +30,10 @@ class Merchant < ApplicationRecord
   before_save :serialize_theme
   after_create :create_menu
 
+  def self.slug_exists?(name)
+    with_slug(name).exists?
+  end
+
   def menu_items
     menu&.items&.includes(photo_attachment: :blob)
   end

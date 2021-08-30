@@ -17,12 +17,14 @@ Rails.application.routes.draw do
       resources :stats, controller: 'merchants/stats', only: :index
     end
   end
+
   get '/builder', to: redirect('/builder/merchant/new'), as: :builder
   namespace :builder do
     resource :merchant, only: %i[new create show]
     resource :menu, only: %i[new update show]
     resource :preview, only: :show
   end
+
   resources :merchants do
     resources :menu_items, except: %i[index show] do
       put :sort, on: :collection
