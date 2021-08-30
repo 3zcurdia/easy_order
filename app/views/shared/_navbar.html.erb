@@ -1,0 +1,43 @@
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to dashboard_path, class: 'navbar-item' do %>
+      <p class="title is-4">
+        <span class="icon"><i class="fas fa-utensils"></i></span> MenúFacilito
+      </p>
+    <% end %>
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-start">
+      <% if merchant.present? %>
+        <%= link_to("Productos", merchant_path(merchant), class: 'navbar-item') %>
+        <%= link_to("Secciones", merchant_sections_path(merchant), class: 'navbar-item') %>
+        <%= link_to("Ordenes", merchant_orders_path(merchant), class: 'navbar-item') %>
+      <% end %>
+    </div>
+    <div class="navbar-end">
+      <% if user_signed_in? %>
+
+    <div class="navbar-item has-dropdown" data-controller="dropdown" data-dropdown-active-class="is-active">
+      <a class="navbar-link" data-action="dropdown#toggle">
+        <span><%= current_user.email %></span>
+      </a>
+      <div class="navbar-dropdown is-boxed">
+        <%= link_to "Panel de control", dashboard_path, class: 'navbar-item' %>
+        <hr class="navbar-divider">
+        <%= link_to "Cerrar session", destroy_user_session_path, class: 'navbar-item', method: :delete %>
+      </div>
+      <% else %>
+      <div class="navbar-item">
+        <div class="buttons">
+          <%= link_to 'Ya tengo una cuenta', new_session_path(:user), class: 'button' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
