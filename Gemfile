@@ -10,8 +10,8 @@ gem 'puma', '~> 5.4'
 gem 'rails', '~> 6.1.4'
 
 gem 'jbuilder', '~> 2.11'
+gem 'sass-rails', '>= 6'
 gem 'turbo-rails'
-gem "sass-rails", ">= 6"
 gem 'webpacker', '~> 5.4'
 
 gem 'devise'
