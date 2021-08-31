@@ -1,3 +1,3 @@
 [submodule "vendor/assets/stylesheets/bulma"]
 	path = vendor/assets/stylesheets/bulma
-	url = git@github.com:jgthms/bulma.git
+	url = https://github.com/jgthms/bulma.git
