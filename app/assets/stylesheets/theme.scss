@@ -1,0 +1,15 @@
+@charset "utf-8";
+@import "variables";
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import "bulma/bulma.sass";
+@import "steps";
+
+// @import '~bulma-divider';
+.section.main { min-height: 600px; }
+@media print {
+  .no-print { display: none; }
+}
+.image.disabled img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}

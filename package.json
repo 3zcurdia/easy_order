@@ -7,9 +7,6 @@
     "@rails/activestorage": "^6.1.4",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "5.4.2",
-    "bulma": "^0.9.3",
-    "bulma-divider": "^0.2.0",
-    "bulma-o-steps": "^1.1.0",
     "piklor.js": "^1.2.0",
     "sortablejs": "^1.14.0",
     "stimulus": "^2.0.0"
