@@ -213,7 +213,7 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-mini-profiler (2.3.2)
+    rack-mini-profiler (2.3.3)
       rack (>= 1.2.0)
     rack-proxy (0.7.0)
       rack
@@ -371,7 +371,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.4)
   pundit
-  rack-mini-profiler (~> 2.0)
+  rack-mini-profiler (~> 2.3)
   rails (~> 6.1.4)
   redis
   rqrcode
