@@ -1,7 +1,3 @@
-@charset "utf-8";
-// Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-
 // Color palette from https://coolors.co/f52f57-5da95e-fdcd08-9c6bad
 $red-crayola: #DF2B4F;
 $bud-green: #5DA95E;
@@ -29,14 +25,3 @@ $grey-dark: $gray;
 
 // Update some of Bulma's component variables
 $body-background-color: $light-gray;
-
-@import '~bulma/bulma';
-// @import '~bulma-divider';
-.section.main { min-height: 600px; }
-@media print {
-  .no-print { display: none; }
-}
-.image.disabled img {
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-}

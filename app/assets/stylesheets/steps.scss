@@ -1,10 +1,9 @@
-@import "~bulma-o-steps/styles/utilities/initial-variables.sass";
-@import "~bulma-o-steps/styles/utilities/functions.sass";
-@import "~bulma-o-steps/styles/utilities/derived-variables.sass";
-@import "~bulma-o-steps/styles/utilities/animations.sass";
-@import "~bulma-o-steps/styles/utilities/mixins.sass";
-// @import "~bulma-o-steps/styles/utilities/controls.sass";
-
+@import "bulma-o-steps/initial-variables.sass";
+@import "bulma-o-steps/functions.sass";
+@import "bulma-o-steps/derived-variables.sass";
+@import "bulma-o-steps/animations.sass";
+@import "bulma-o-steps/mixins.sass";
+// @import "bulma-o-steps/controls.sass";
 
 $steps-default-color: $grey-lighter !default;
 $steps-completed-color: $primary !default;
