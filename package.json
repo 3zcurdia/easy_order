@@ -9,7 +9,7 @@
     "@rails/webpacker": "5.4.3",
     "piklor.js": "^1.2.0",
     "sortablejs": "^1.14.0",
-    "stimulus": "^3.0.0"
+    "stimulus": "^3.0.1"
   },
   "version": "0.1.0",
   "devDependencies": {
