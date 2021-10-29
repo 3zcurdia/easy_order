@@ -2,17 +2,12 @@
   "name": "easy_order",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.0.1",
-    "@rails/actioncable": "^6.1.4",
-    "@rails/activestorage": "^6.1.4",
-    "@rails/ujs": "^6.1.4",
-    "@rails/webpacker": "5.4.3",
-    "piklor.js": "^1.2.0",
-    "sortablejs": "^1.14.0",
-    "stimulus": "^3.0.1"
+    "bulma": "^0.9.3",
+    "bulma-o-steps": "^1.1.0",
+    "esbuild": "^0.13.10",
+    "sass": "^1.43.4"
   },
-  "version": "0.1.0",
-  "devDependencies": {
-    "webpack-dev-server": "^4.4.0"
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   }
 }

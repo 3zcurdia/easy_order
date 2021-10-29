@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+// Color palette from https://coolors.co/f52f57-5da95e-fdcd08-9c6bad
+$red-crayola: #DF2B4F;
+$bud-green: #5DA95E;
+$jonquil: #FDCD08;
+
+$true-blue: #3C68B9;
+$purple-mountain: #B65BD7;
+$light-gray: #FAFAFA;
+$gray: #ADADAD;
+$grey-dark: #474747;
+$grey-darker: #393940;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $true-blue; // $turquoise;
+$link: $true-blue; // $blue;
+$info: $purple-mountain;
+$success: $bud-green;
+$warning: $jonquil;
+$danger: $red-crayola;
+$dark: $grey-darker;
+$text: $grey-dark;
+$grey-light: $light-gray;
+$grey-dark: $gray;
+
+// Update some of Bulma's component variables
+$body-background-color: $light-gray;
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import "bulma/bulma";
+// @import "steps";
+
+// @import '~bulma-divider';
+.section.main { min-height: 600px; }
+@media print {
+  .no-print { display: none; }
+}
+.image.disabled img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+#landingVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.8;
+  overflow: hidden;
+  z-index: -100;
+}
+
+.section.main.home {
+  padding: 0;
+  section {
+    background: $body-background-color;
+    padding: 3rem 1.5rem;
+    &.hero { background: transparent !important; }
+  }
+}
+
+@import 'preview';
+@import 'colorpicker';
