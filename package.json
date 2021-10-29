@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.9.3",
-    "bulma-o-steps": "^1.1.0",
     "esbuild": "^0.13.10",
     "sass": "^1.43.4"
   },

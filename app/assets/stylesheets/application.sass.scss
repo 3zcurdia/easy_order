@@ -30,9 +30,8 @@ $body-background-color: $light-gray;
 
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import "bulma/bulma";
-// @import "steps";
+@import "bulma-o-steps/bulma-steps";
 
-// @import '~bulma-divider';
 .section.main { min-height: 600px; }
 @media print {
   .no-print { display: none; }
