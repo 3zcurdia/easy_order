@@ -9,17 +9,26 @@ application.register("async-video", AsyncVideoController)
 import CheckoutController from "./checkout_controller.js"
 application.register("checkout", CheckoutController)
 
+import ColorPickerController from "./color_picker_controller.js"
+application.register("color-picker", ColorPickerController)
+
 import DropdownController from "./dropdown_controller.js"
 application.register("dropdown", DropdownController)
 
-import EditMerchantController from "./edit_merchant_controller.js"
-application.register("edit-merchant", EditMerchantController)
+import MerchantEditController from "./merchant_edit_controller.js"
+application.register("merchant-edit", MerchantEditController)
 
 import MerchantNameController from "./merchant_name_controller.js"
 application.register("merchant-name", MerchantNameController)
 
 import MerchantStatsController from "./merchant_stats_controller.js"
 application.register("merchant-stats", MerchantStatsController)
+
+import NavbarController from "./navbar_controller.js"
+application.register("navbar", NavbarController)
+
+import NotificationController from "./notification_controller.js"
+application.register("notification", NotificationController)
 
 import NumericInputController from "./numeric_input_controller.js"
 application.register("numeric-input", NumericInputController)

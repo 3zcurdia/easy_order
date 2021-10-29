@@ -6,7 +6,3 @@ import "controllers"
 
 Rails.start()
 ActiveStorage.start()
-//
-// require("../src/notifications")
-// require("../src/nav_menu")
-// require("../src/colorpicker")

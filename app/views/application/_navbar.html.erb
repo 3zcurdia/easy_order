@@ -1,17 +1,17 @@
-<nav class="navbar is-light" role="navigation" aria-label="main navigation">
+<nav class="navbar is-light" role="navigation" aria-label="main navigation" data-controller="navbar">
   <div class="navbar-brand">
     <%= link_to dashboard_path, class: 'navbar-item' do %>
       <p class="title is-4">
         <span class="icon"><i class="fas fa-utensils"></i></span> MenúFacilito
       </p>
     <% end %>
-    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <a role="button" class="navbar-burger" data-action="navbar#toggleMenu" aria-label="menu" aria-expanded="false">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu" id="navMenu">
+  <div class="navbar-menu" data-navbar-target="menu">
     <div class="navbar-start">
       <% if merchant.present? %>
         <%= link_to("Productos", merchant_path(merchant), class: 'navbar-item') %>
