@@ -9,10 +9,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.5'
 gem 'rails', '~> 6.1.4'
 
-gem 'jbuilder', '~> 2.11'
-gem 'sass-rails', '>= 6'
-gem 'turbo-rails'
-gem 'webpacker', '~> 5.4'
+gem 'cssbundling-rails'
+gem 'hotwire-rails'
+gem 'importmap-rails'
 
 gem 'devise'
 gem 'jwt'
@@ -25,6 +24,7 @@ gem 'aws-sdk-s3', require: false
 gem 'friendly_id'
 gem 'geocoder'
 gem 'image_processing'
+gem 'jbuilder', '~> 2.11'
 gem 'kaminari'
 gem 'money-rails'
 gem 'paranoia', '~> 2.2'
@@ -33,12 +33,11 @@ gem 'rqrcode'
 gem 'sidekiq'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'debug', '>= 1.0.0', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'pry-byebug'
-  gem 'pry-rails'
 end
 
 group :development do
@@ -49,8 +48,6 @@ group :development do
   gem 'rubocop-minitest', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 

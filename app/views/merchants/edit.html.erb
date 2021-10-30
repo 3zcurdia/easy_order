@@ -1,10 +1,10 @@
-<div class="columns" data-controller="edit-merchant">
+<div class="columns" data-controller="merchant-edit">
   <div class="column">
     <%= render 'form', merchant: @merchant %>
   </div>
-    <div class="column">
-      <div class="columns is-mobile is-centered preview">
-      <%= image_pack_tag "iphone.png", class: 'phone-face' %>
+  <div class="column">
+    <div class="columns is-mobile is-centered preview">
+      <%= image_tag "iphone.png", class: 'phone-face' %>
       <div class="screen">
         <%= render 'pages/header', merchant: @merchant %>
         <div class="menu">

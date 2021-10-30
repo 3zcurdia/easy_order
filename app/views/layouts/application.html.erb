@@ -9,25 +9,25 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
 </head>
 <body>
-  <%= render 'shared/navbar', merchant: @merchant %>
+  <%= render 'navbar', merchant: @merchant %>
   <section class="section main <%= controller_name %>">
-      <% if flash[:notice].present? %>
-      <div class="notification is-primary is-light">
-        <button class="delete"></button>
+    <% if flash[:notice].present? %>
+      <div class="notification is-primary is-light" data-controller="notification">
+        <button class="delete" data-action="click->notification#dismiss"></button>
         <%= notice %>
       </div>
-      <% end %>
-      <% if flash[:alert].present? %>
-      <div class="notification is-warning is-light">
-        <button class="delete"></button>
+    <% end %>
+    <% if flash[:alert].present? %>
+      <div class="notification is-warning is-light" data-controller="notification">
+        <button class="delete" data-action="click->notification#dismiss"></button>
         <%= alert %>
       </div>
-      <% end %>
-      <%= yield %>
+    <% end %>
+    <%= yield %>
   </section>
   <footer class="footer">
     <div class="content has-text-centered">

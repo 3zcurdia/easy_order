@@ -2,11 +2,11 @@
   <div class="columns is-centered">
     <div class="column is-two-thirds">
       <h1 class="title"><span class="icon"><i class="fas fa-store"></i></span>&nbsp; Crea tu menú</h1>
-      <%= render 'shared/steps', step: 3 %>
+      <%= render 'steps', step: 3 %>
       <div class="columns">
         <div class="column">
           <div class="columns is-mobile is-centered preview">
-            <%= image_pack_tag "iphone.png", class: 'phone-face' %>
+            <%= image_tag "iphone.png", class: 'phone-face' %>
             <div class="screen">
               <%= render 'preview', merchant: @merchant %>
             </div>
