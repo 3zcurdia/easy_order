@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.9.3",
-    "esbuild": "^0.13.10",
+    "esbuild": "^0.13.11",
     "sass": "^1.43.4"
   },
   "scripts": {
