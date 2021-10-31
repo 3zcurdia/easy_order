@@ -1,16 +1,16 @@
 <header class="header">
   <div class="hero is-dark px-5" style="<%= header_style(merchant.theme) %>" data-merchant-edit-target="header">
     <div class="hero-head">
-      <nav class="navbar">
+      <nav class="navbar" role="navigation" aria-label="main navigation" data-controller="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <span class="navbar-burger burger" data-target="navbarMenuSections">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+            <a role="button" class="navbar-burger" data-action="navbar#toggleMenu" aria-label="menu" aria-expanded="false">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
           </div>
-          <div id="navbarMenuSections" class="navbar-menu" style="<%= header_style(merchant.theme) %>">
+          <div class="navbar-menu" data-navbar-target="menu" style="<%= header_style(merchant.theme) %>">
             <div class="navbar-end">
               <% cache merchant.menu do %>
                 <% merchant.menu.sections.with_items.each do |section| %>
