@@ -3,6 +3,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  get '', to: 'pages#show', as: :merchant_page, constraints: SubdomainConstraint
   get '/p/:id', to: 'pages#show', as: :page
   root to: 'home#index'
   devise_for :users, controllers: { registrations: :registrations }
