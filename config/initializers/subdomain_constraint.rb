@@ -2,6 +2,6 @@
 
 class SubdomainConstraint
   def self.matches?(request)
-    request.subdomain.present? && (request.subdomain != 'www' || request.subdomain != 'menufacilito')
+    request.domain == ENV['HOST'] && request.subdomain.present? && request.subdomain != 'www'
   end
 end
