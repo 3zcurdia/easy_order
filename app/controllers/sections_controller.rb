@@ -6,37 +6,46 @@ class SectionsController < ApplicationController
   before_action :set_section, only: %i[edit update destroy]
 
   def index
+    authorize(Section)
     @sections = @merchant.menu.sections
-    authorize @sections
   end
 
   def new
-    @section = Section.new
-    authorize @section
+    @section = authorize(Section.new)
   end
 
-  def edit
-    authorize @section
-  end
+  def edit; end
 
   def create
-    @section = Section.new(section_params)
+    @section = authorize(Section.new(section_params))
     @section.menu = @merchant.menu
-    authorize @section
 
-    if @section.save
-      redirect_to @merchant, notice: 'La sección se creó correctamente.'
-    else
-      render :new
+    respond_to do |format|
+      if @section.save
+        format.turbo_stream
+        format.html { redirect_to @section, notice: 'La sección se creó correctamente.' }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
   def update
-    authorize @section
-    if @section.update(section_params)
-      redirect_to @merchant, notice: 'La sección se actualizó correctamente.'
-    else
-      render :edit
+    respond_to do |format|
+      if @section.update(section_params)
+        format.turbo_stream
+        format.html { redirect_to @section, notice: 'La sección se actualizó correctamente.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @section.destroy
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to merchant_section_path(@merchant), notice: 'La sección se eliminó correctamente.' }
     end
   end
 
@@ -49,12 +58,6 @@ class SectionsController < ApplicationController
     render json: {}, status: :ok
   end
 
-  def destroy
-    authorize @section
-    @section.destroy
-    redirect_to @merchant, notice: 'La sección se eliminó correctamente.'
-  end
-
   private
 
   def set_merchant
@@ -62,11 +65,11 @@ class SectionsController < ApplicationController
   end
 
   def set_section
-    @section = @merchant.menu.sections.find(params[:id])
+    @section = authorize(@merchant.menu.sections.find(params[:id]))
   end
 
   def section_params
-    params.require(:section).permit(:name, :position)
+    permitted_attributes(Section)
   end
 
   def sorted_params

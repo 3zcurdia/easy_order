@@ -33,5 +33,8 @@ application.register("notification", NotificationController)
 import NumericInputController from "./numeric_input_controller.js"
 application.register("numeric-input", NumericInputController)
 
+import ResetFormController from "./reset_form_controller.js"
+application.register("reset-form", ResetFormController)
+
 import SortableController from "./sortable_controller.js"
 application.register("sortable", SortableController)
