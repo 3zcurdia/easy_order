@@ -8,35 +8,17 @@
         <h1 class="title">Secciones</h1>
       </div>
       <div class="level-right">
-        <%= link_to new_merchant_section_path(@merchant), class: 'button is-primary is-outlined is-pulled-right' do %>
-          <span>Agregar</span>
-          <span class="icon is-small"><i class="fa fa-plus" aria-hidden="true"></i></span>
-        <% end %>
       </div>
     </div>
-    <div data-controller="sortable" data-sortable-url-value="<%= sort_merchant_sections_path(@merchant)%>">
-      <% @sections.each do |section| %>
+    <div id="sections" data-controller="sortable" data-sortable-url-value="<%= sort_merchant_sections_path(@merchant)%>">
       <article class="media">
         <div class="media-content">
-          <div class="content">
-            <h4 class="is-capitalized">
-              <span class="handle icon is-small"><i class="fas fa-ellipsis-v"></i></span>
-              <%= section.name %>
-            </h4>
+          <div class="is-pulled-left">
+            <%= turbo_frame_tag :new_section, src: new_merchant_section_path(@merchant) %>
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <%= link_to edit_merchant_section_path(@merchant, section), class: 'level-item' do %>
-              <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
-              <% end %>
-              <%= link_to merchant_section_path(@merchant, section), class: 'level-item has-text-danger', method: :delete do %>
-              <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
-              <% end %>
-            </div>
-          </nav>
         </div>
       </article>
-      <% end %>
+      <%= render @sections %>
     </div>
   </div>
 </div>

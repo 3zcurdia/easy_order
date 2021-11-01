@@ -1,6 +1,21 @@
 # frozen_string_literal: true
 
 class ApplicationPolicy
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope.all
+    end
+
+    delegate :admin?, to: :user
+  end
+
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -36,11 +51,17 @@ class ApplicationPolicy
     false
   end
 
+  def permitted_attributes
+    []
+  end
+
+  protected
+
+  delegate :admin?, :merchant?, to: :user
+
   def owner?
     record.user == user
   end
-
-  delegate :admin?, :merchant?, to: :user
 
   def admin_or_owner?
     admin? || owner?
@@ -48,20 +69,5 @@ class ApplicationPolicy
 
   def admin_or_merchant?
     admin? || merchant?
-  end
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
-
-    delegate :admin?, to: :user
   end
 end

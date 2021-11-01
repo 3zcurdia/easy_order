@@ -23,6 +23,10 @@ class SectionPolicy < ApplicationPolicy
     admin_or_owner?
   end
 
+  def permitted_attributes
+    %i[name position]
+  end
+
   def owner?
     user.merchant? && record.menu.merchant.user_id == user.id
   end

@@ -7,6 +7,8 @@
 <h1 class="title">Crear sección</h1>
 <div class="columns">
   <div class="column is-half">
-    <%= render 'form', section: @section, merchant: @merchant %>
+    <%=  turbo_frame_tag :new_section do %>
+      <%= render 'form', section: @section, merchant: @merchant %>
+    <% end %>
   </div>
 </div>
