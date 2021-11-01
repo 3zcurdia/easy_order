@@ -5,29 +5,20 @@ class MerchantsController < ApplicationController
   before_action :set_merchant, only: %i[show edit update destroy]
 
   def index
-    @merchants = policy_scope(Merchant).active.order(orders_count: :desc)
-    authorize @merchants
+    @merchants = authorize(policy_scope(Merchant).active.order(orders_count: :desc))
   end
 
-  def show
-    authorize @merchant
-    @section_filter = params[:section].present? ? params[:section].to_i : @merchant.menu.sections.first.id
-    @menu_items = @merchant.menu_items.where(section_id: @section_filter)
-  end
+  def show; end
 
   def new
-    @merchant = Merchant.new
-    authorize @merchant
+    @merchant = authorize(Merchant.new)
   end
 
-  def edit
-    authorize @merchant
-  end
+  def edit; end
 
   def create
-    @merchant = Merchant.new(merchant_params)
+    @merchant = authorize(Merchant.new(merchant_params))
     @merchant.user = current_user
-    authorize @merchant
 
     if @merchant.save
       redirect_to @merchant, notice: 'El Comercio fue creado con éxito.'
@@ -37,7 +28,6 @@ class MerchantsController < ApplicationController
   end
 
   def update
-    authorize @merchant
     if @merchant.update(merchant_params)
       redirect_to @merchant, notice: 'El Comercio fue actualizado con éxito.'
     else
@@ -46,7 +36,6 @@ class MerchantsController < ApplicationController
   end
 
   def destroy
-    authorize @merchant
     @merchant.destroy
     redirect_to merchants_url, notice: 'El Comercio fue eliminado con éxito.'
   end
@@ -65,13 +54,11 @@ class MerchantsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_merchant
-    @merchant = Merchant.friendly.find(params[:id])
+    @merchant = authorize(Merchant.friendly.find(params[:id]))
   end
 
-  # Only allow a list of trusted parameters through.
   def merchant_params
-    params.require(:merchant).permit(:name, :phone, :delivery, :keywords, :logo, :description, :theme_header_background)
+    permitted_attributes(Merchant)
   end
 end

@@ -3,18 +3,12 @@
     <%= render @merchant, cached: true %>
   </div>
   <div class="column">
-    <div class="level">
-      <div class="level-left">
-        <h1 class="title">Secciones</h1>
-      </div>
-      <div class="level-right">
-      </div>
-    </div>
+    <h1 class="title">Secciones</h1>
     <div id="sections" data-controller="sortable" data-sortable-url-value="<%= sort_merchant_sections_path(@merchant)%>">
       <article class="media">
         <div class="media-content">
           <div class="is-pulled-left">
-            <%= turbo_frame_tag :new_section, src: new_merchant_section_path(@merchant) %>
+            <%= turbo_frame_tag :section, src: new_merchant_section_path(@merchant) %>
           </div>
         </div>
       </article>

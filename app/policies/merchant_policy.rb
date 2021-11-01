@@ -30,4 +30,8 @@ class MerchantPolicy < ApplicationPolicy
   def destroy?
     admin_or_owner?
   end
+
+  def permitted_attributes
+    %i[name phone delivery keywords logo description theme_header_background]
+  end
 end

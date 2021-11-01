@@ -1,12 +1,6 @@
 # frozen_string_literal: true
 
 class MenuItemPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
-  end
-
   def index?
     true
   end
@@ -23,7 +17,11 @@ class MenuItemPolicy < ApplicationPolicy
     admin_or_owner?
   end
 
+  def permitted_attributes
+    %i[position name description price photo section_id unit]
+  end
+
   def owner?
-    user.merchant? && record.merchant.user_id == user.id
+    merchant? && record.merchant.user_id == user.id
   end
 end

@@ -5,6 +5,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   get '', to: 'pages#show', as: :merchant_page, constraints: SubdomainConstraint
   get '/p/:id', to: 'pages#show', as: :page
+  get '/dashboard', to: 'dashboard#show', as: :dashboard
   root to: 'home#index'
   devise_for :users, controllers: { registrations: :registrations }
 
@@ -27,19 +28,18 @@ Rails.application.routes.draw do
   end
 
   resources :merchants do
-    resources :menu_items, except: %i[index show] do
+    resources :menu_items do
       put :sort, on: :collection
       put :toggle_availability, on: :member
     end
-    resource :cards, only: :show
-    resource :code, only: :show
     resources :sections do
       put :sort, on: :collection
     end
+    resource :cards, only: :show
+    resource :code, only: :show
     resources :orders, only: %i[index show create]
   end
 
-  get '/dashboard', to: 'dashboard#show', as: :dashboard
   resources :pages, only: :show
   get '/privacy', to: 'privacy#show', as: :privacy
   authenticate :user, ->(user) { user.admin? } do

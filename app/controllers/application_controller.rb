@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   def current_merchant
     return if request.subdomain.blank?
 
-    @current_merchant ||= Merchant.friendly.find(request.subdomain)
+    @current_merchant ||= Merchant.find_by(slug: request.subdomain)
   end
 
   def user_not_authorized

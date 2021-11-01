@@ -1,0 +1,30 @@
+<div class="columns">
+  <div class="column is-one-fifth-widescreen is-one-fourth-desktop is-one-third-tablet">
+    <%= render @merchant, cached: true %>
+  </div>
+  <div class="column">
+    <%= turbo_frame_tag :menu_items do %>
+      <h1 class="title">Productos</h1>
+      <div class="tabs">
+        <ul>
+          <li class="is-capitalized">
+            <a href="#"><span class="icon is-small"><i class="fa fa-plus" aria-hidden="true"></i></span>&nbsp;</a>
+          </li>
+          <% @merchant.menu.sections.each do |section| %>
+          <li class="is-capitalized <%= 'is-active' if @section_id == section.id %>">
+            <%= link_to section.name, merchant_menu_items_path(@merchant, section_id: section.id) %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div id="menu_items" data-controller="sortable" data-sortable-url-value="<%= sort_merchant_menu_items_path(@merchant)%>">
+        <article class="media">
+          <div class="media-content">
+            <%= turbo_frame_tag :new_menu_item, src: new_merchant_menu_item_path(@merchant, section_id: @section_id) %>
+          </div>
+        </article>
+        <%= render @menu_items %>
+      </div>
+    <% end %>
+  </div>
+</div>

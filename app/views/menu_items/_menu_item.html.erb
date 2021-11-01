@@ -1,4 +1,5 @@
-<article class="media has-background-grey-light" data-sortable-target="item" data-item-id="<%= menu_item.id %>">
+<article id="<%= dom_id(menu_item) %>" class="media" data-sortable-target="item" data-item-id="<%= menu_item.id %>">
+  <%= turbo_frame_tag :menu_item do %>
   <div class="media-left">
     <% if menu_item.photo.attached? %>
     <p class="image is-64x64">
@@ -16,17 +17,17 @@
     </div>
     <nav class="level is-mobile">
       <div class="level-left">
-        <%= link_to toggle_availability_merchant_menu_item_path(merchant, menu_item), method: :put, class: 'level-item' do %>
+        <%= link_to toggle_availability_merchant_menu_item_path(menu_item.merchant, menu_item), method: :put, class: 'level-item' do %>
           <% if menu_item.available %>
             <span class="icon is-small"><i class="fas fa-check-square"></i></span><span>&nbsp;Disponible</span>
           <% else %>
             <span class="icon is-small"><i class="far fa-square"></i></span><span>&nbsp;Disponible</span>
           <% end %>
         <% end %>
-        <%= link_to edit_merchant_menu_item_path(merchant, menu_item), class: 'level-item' do %>
+        <%= link_to edit_merchant_menu_item_path(menu_item.merchant, menu_item, section_id: menu_item.section_id), class: 'level-item' do %>
         <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
         <% end %>
-        <%= link_to merchant_menu_item_path(merchant, menu_item), class: 'level-item has-text-danger', method: :delete do %>
+        <%= link_to merchant_menu_item_path(menu_item.merchant, menu_item), class: 'level-item has-text-danger', method: :delete do %>
         <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
         <% end %>
       </div>
@@ -37,4 +38,5 @@
       <p><%= menu_item.price.format %><br/><%= menu_item.unit %></p>
     </div>
   </div>
+  <% end %>
 </article>

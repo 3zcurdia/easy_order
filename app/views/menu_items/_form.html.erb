@@ -1,18 +1,6 @@
 <%= form_with(model: [merchant, menu_item], local: true) do |f| %>
   <div class="columns">
-    <% if menu_item.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
-
-        <ul>
-          <% menu_item.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="column is-two-thirds">
+    <div class="column is-one-fifth">
       <div class="field">
         <%= f.label :photo, 'Fotografia', class: 'label' %>
         <% if menu_item.photo.attached? %>
@@ -24,12 +12,19 @@
           <%= f.file_field :photo %>
         </div>
       </div>
+    </div>
+
+    <div class="column">
+      <% if params[:section_id].blank? %>
       <div class="field">
         <%= f.label :section_id, 'Sección', class: 'label' %>
         <div class="select">
           <%= f.collection_select :section_id, merchant.menu.sections, :id, :name, prompt: 'Select' %>
         </div>
       </div>
+      <% else %>
+        <%= f.hidden_field :section_id, value: params[:section_id] %>
+      <% end %>
       <div class="field">
         <%= f.label :name, 'Nombre', class: 'label' %>
         <div class="control">
@@ -44,7 +39,7 @@
       </div>
     </div>
 
-    <div class="column">
+    <div class="column is-one-fifth">
       <%= f.label :price, 'Precio', class: 'label' %>
       <div class="field has-addons">
         <p class="control">
