@@ -23,7 +23,7 @@
               <% if @merchant.logo_attached? %>
               <div class="media-left">
                 <figure class="image is-128x128">
-                  <%= image_tag safe_variant(@merchant.logo, resize_to_fit: [256, 256]) %>
+                  <%= image_tag safe_variant(@merchant.logo, resize_to_fill: [256, 256]) %>
                 </figure>
               </div>
               <% end %>

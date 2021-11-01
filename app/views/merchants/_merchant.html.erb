@@ -2,7 +2,7 @@
   <div class="card-image">
     <figure class="image is-4by4 is-hidden-mobile">
       <% if merchant.logo_attached? %>
-        <%= image_tag safe_variant(merchant.logo, resize_to_fit: [256, 256]) %>
+        <%= image_tag safe_variant(merchant.logo, resize_to_fill: [256, 256]) %>
       <% else %>
         <%= image_tag merchant_code_url(merchant, format: :png) %>
       <% end %>
@@ -13,7 +13,7 @@
       <div class="media-left">
         <figure class="image is-128x128 is-hidden-tablet">
           <% if merchant.logo_attached? %>
-            <%= image_tag safe_variant(merchant.logo, resize_to_fit: [256, 256]) %>
+            <%= image_tag safe_variant(merchant.logo, resize_to_fill: [256, 256]) %>
           <% else %>
             <%= image_tag merchant_code_url(merchant, format: :png) %>
           <% end %>
