@@ -1,6 +1,6 @@
-<%= form_with(model: [merchant, menu_item], local: true) do |f| %>
+<%= form_with(model: [merchant, menu_item], data: { controller: "reset-form", action: "turbo:submit-start->reset-form#reset" }) do |f| %>
   <div class="columns">
-    <div class="column is-one-fifth">
+    <div class="column is-2">
       <div class="field">
         <%= f.label :photo, 'Fotografia', class: 'label' %>
         <% if menu_item.photo.attached? %>
@@ -59,13 +59,11 @@
   </div>
   <div class="columns">
     <div class="column">
-
       <div class="field">
         <div class="control">
           <%= f.submit class: 'button is-primary' %>
         </div>
       </div>
-
     </div>
   </div>
 <% end %>

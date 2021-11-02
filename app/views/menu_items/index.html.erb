@@ -18,11 +18,11 @@
         </ul>
       </div>
       <div id="menu_items" data-controller="sortable" data-sortable-url-value="<%= sort_merchant_menu_items_path(@merchant)%>">
-        <article class="media">
-          <div class="media-content">
+        <div class="columns media">
+          <div class="column">
             <%= turbo_frame_tag :new_menu_item, src: new_merchant_menu_item_path(@merchant, section_id: @section_id) %>
           </div>
-        </article>
+        </div>
         <%= render @menu_items %>
       </div>
     <% end %>

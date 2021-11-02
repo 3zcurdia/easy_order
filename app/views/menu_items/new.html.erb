@@ -7,7 +7,7 @@
 <h1 class="title">Crear producto</h1>
 <div class="columns">
   <div class="column">
-    <%= turbo_frame_tag :new_menu_item do %>
+    <%= turbo_frame_tag "new_menu_item" do %>
       <%= render 'form', menu_item: @menu_item, merchant: @merchant %>
     <% end %>
   </div>
