@@ -3,42 +3,58 @@
 class MenuItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_merchant
-  before_action :set_menu_item, except: %i[new create sort]
+  before_action :set_menu_item, only: %i[edit update destroy toggle_availability]
+
+  def index
+    authorize(MenuItem)
+    @menu_items = MenuQuery.new(scope: @merchant.menu).items_by_section(params[:section_id])
+    @section_id = (params[:section_id].presence || @merchant.menu.sections.first&.id).to_i
+  end
+
+  def show; end
 
   def new
-    @menu_item = menu.items.build
-    authorize @menu_item
+    @menu_item = authorize(@merchant.menu.items.build(section_id: params[:section_id]))
   end
 
-  def edit
-    authorize @menu_item
-  end
+  def edit; end
 
   def create
-    @menu_item = MenuItem.new(menu_item_params)
-    @menu_item.menu = menu
+    @menu_item = authorize(MenuItem.new(menu_item_params))
+    @menu_item.menu = @merchant.menu
     @menu_item.available = true
-    authorize @menu_item
 
-    if @menu_item.save
-      redirect_to @merchant, notice: 'El producto se creó correctamente.'
-    else
-      render :new
+    respond_to do |format|
+      if @menu_item.save
+        format.turbo_stream
+        format.html { redirect_to merchant_menu_items_path, notice: 'El producto se creó correctamente.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 
   def update
-    authorize @menu_item
     if @menu_item.update(menu_item_params)
       respond_to do |format|
-        format.html { redirect_to @merchant, notice: 'El producto se actualizó correctamente.' }
+        format.turbo_stream
+        format.html { redirect_to merchant_menu_items_path, notice: 'El producto se actualizó correctamente.' }
         format.json { render json: @menu_item }
       end
     else
       respond_to do |format|
+        format.turbo_stream
         format.html { render :edit }
         format.json { render json: @menu_item.errors, status: :bad_request }
       end
+    end
+  end
+
+  def destroy
+    @menu_item.destroy
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to merchant_menu_items_path, notice: 'El producto se eliminó correctamente.' }
     end
   end
 
@@ -57,28 +73,18 @@ class MenuItemsController < ApplicationController
     redirect_to @merchant, notice: "El producto se #{state} correctamente."
   end
 
-  def destroy
-    authorize @menu_item
-    @menu_item.destroy
-    redirect_to @merchant, notice: 'El producto se eliminó correctamente.'
-  end
-
   private
 
   def set_merchant
     @merchant = Merchant.friendly.find(params[:merchant_id])
   end
 
-  def menu
-    @merchant.menu
-  end
-
   def set_menu_item
-    @menu_item = menu.items.find(params[:id])
+    @menu_item = authorize(@merchant.menu.items.find(params[:id]))
   end
 
   def menu_item_params
-    params.require(:menu_item).permit(:position, :name, :description, :price, :photo, :section_id, :unit)
+    permitted_attributes(MenuItem)
   end
 
   def sorted_params

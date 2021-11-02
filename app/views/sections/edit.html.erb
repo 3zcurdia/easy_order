@@ -7,7 +7,7 @@
 <h1 class="title">Editar sección</h1>
 <div class="columns">
   <div class="column is-half">
-    <%= turbo_frame_tag :section do %>
+    <%= turbo_frame_tag "section" do %>
       <%= render 'form', section: @section, merchant: @merchant %>
     <% end %>
   </div>

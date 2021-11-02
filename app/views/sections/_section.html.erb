@@ -1,26 +1,24 @@
-<article class="media" id="<%= dom_id(section) %>">
-  <%= turbo_frame_tag :section do %>
-    <div class="media-content">
-      <div class="content">
-        <h4 class="is-capitalized">
+<div id="<%= dom_id(section) %>" class="columns media">
+    <div class="column is-half">
+      <%= turbo_frame_tag "section" do %>
+        <h4 class="title is-5 is-capitalized">
           <span class="handle icon is-small"><i class="fas fa-ellipsis-v"></i></span>
           <%= section.name %>
         </h4>
-      </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <%= link_to edit_merchant_section_path(section.merchant, section), class: 'level-item' do %>
-          <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
-          <% end %>
-          <% if section.menu_items.count.zero? %>
-            <%= link_to merchant_section_path(section.merchant, section), class: 'level-item has-text-danger', method: :delete do %>
-            <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <%= link_to edit_merchant_section_path(section.merchant, section), class: 'level-item' do %>
+            <span class="icon is-small"><i class="fas fa-edit"></i></span><span>&nbsp;Editar</span>
             <% end %>
-          <% else %>
-            <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
-          <% end %>
-        </div>
+            <% if section.menu_items.empty? %>
+              <%= link_to merchant_section_path(section.merchant, section), class: 'level-item has-text-danger', method: :delete do %>
+              <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
+              <% end %>
+            <% else %>
+              <span class="icon is-small"><i class="fas fa-trash"></i></span><span>&nbsp;Eliminar</span>
+            <% end %>
+          </div>
       </nav>
+      <% end %>
     </div>
-  <% end %>
-</article>
+</div>
