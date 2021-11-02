@@ -38,3 +38,6 @@ application.register("reset-form", ResetFormController)
 
 import SortableController from "./sortable_controller.js"
 application.register("sortable", SortableController)
+
+import ToggleDisplayController from "./toggle_display_controller.js"
+application.register("toggle-display", ToggleDisplayController)
