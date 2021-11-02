@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Section < ApplicationRecord
+  acts_as_paranoid
   self.implicit_order_column = 'position'
   belongs_to :menu
   has_one :merchant, through: :menu

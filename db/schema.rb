@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_170313) do
+ActiveRecord::Schema.define(version: 2021_11_02_031842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_170313) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "position", default: 0
     t.integer "menu_items_count", default: 0
+    t.datetime "deleted_at"
     t.index ["menu_id"], name: "index_sections_on_menu_id"
   end
 
