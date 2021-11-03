@@ -3,7 +3,11 @@
 require 'test_helper'
 
 class SectionTest < ActiveSupport::TestCase
-  context 'validations' do
-    should validate_presence_of(:name)
+  def subject
+    @subject ||= build_stubbed(:menu)
+  end
+
+  test "must be valid" do
+    assert subject.valid?
   end
 end

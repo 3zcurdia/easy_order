@@ -3,4 +3,11 @@
 require 'test_helper'
 
 class MenuTest < ActiveSupport::TestCase
+  def subject
+    @subject ||= build_stubbed(:menu)
+  end
+
+  test "must be valid" do
+    assert subject.valid?
+  end
 end

@@ -3,7 +3,11 @@
 require 'test_helper'
 
 class OrderItemTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def subject
+    @subject ||= build_stubbed(:order_item)
+  end
+
+  test "must be valid" do
+    assert subject.valid?
+  end
 end

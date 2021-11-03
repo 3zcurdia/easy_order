@@ -3,9 +3,13 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # context 'validations' do
-  #   should validate_presence_of(:name)
-  # end
+  def subject
+    @subject ||= build_stubbed(:user)
+  end
+
+  test "must be valid" do
+    assert subject.valid?
+  end
 
   test 'should create guest user' do
     user = User.create_guest
@@ -14,6 +18,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'should be guest as default role' do
-    assert_equal 'guest', build(:user).role
+    assert_equal 'guest', subject.role
   end
 end

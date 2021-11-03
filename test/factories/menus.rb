@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :menu do
-    merchant { nil }
+    merchant
   end
 end
