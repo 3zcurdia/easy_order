@@ -26,9 +26,10 @@ jobs:
         with:
           submodules: recursive
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.90.0
         with:
           ruby-version: 3.0.3
+          bundler-cache: true
       - name: Install bundler
         run: |
           gem install bundler
