@@ -7,7 +7,7 @@ class UserTest < ActiveSupport::TestCase
     @subject ||= build_stubbed(:user)
   end
 
-  test "must be valid" do
+  test 'must be valid' do
     assert subject.valid?
   end
 

@@ -7,7 +7,7 @@ class OrderItemTest < ActiveSupport::TestCase
     @subject ||= build_stubbed(:order_item)
   end
 
-  test "must be valid" do
+  test 'must be valid' do
     assert subject.valid?
   end
 end
