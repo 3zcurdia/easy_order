@@ -255,7 +255,7 @@ GEM
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
-    rainbow (3.0.0)
+    rainbow (3.1.1)
     rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -285,7 +285,7 @@ GEM
       parser (>= 3.0.1.1)
     rubocop-minitest (0.17.0)
       rubocop (>= 0.90, < 2.0)
-    rubocop-performance (1.13.1)
+    rubocop-performance (1.13.2)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
     rubocop-rails (2.13.1)
