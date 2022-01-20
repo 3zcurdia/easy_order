@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:12
+        image: postgres:13
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -75,5 +75,5 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
-          yarn build:css
+          bundle exec rails assets:precompile
           bundle exec rails test:system
