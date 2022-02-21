@@ -98,7 +98,7 @@ GEM
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crass (1.0.6)
-    cssbundling-rails (1.0.0)
+    cssbundling-rails (1.1.0)
       railties (>= 6.0.0)
     dalli (3.2.1)
     debug (1.4.0)
