@@ -4,7 +4,7 @@
   "dependencies": {
     "bulma": "^0.9.4",
     "esbuild": "^0.14.53",
-    "sass": "^1.54.2"
+    "sass": "^1.54.3"
   },
   "scripts": {
     "build:css": "sass ./app/assets/stylesheets/application.sass.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
