@@ -7,7 +7,7 @@ ruby '3.0.3'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.6'
-gem 'rails', '~> 6.1.6'
+gem 'rails', '~> 6.1.7'
 
 gem 'cssbundling-rails'
 gem 'hotwire-rails'
