@@ -19,3 +19,6 @@ Rails/RenderInline:
 Minitest/MultipleAssertions:
   Exclude:
     - 'test/system/onboarding_test.rb'
+
+Rails/I18nLocaleTexts:
+  Enabled: false

@@ -3,8 +3,8 @@
 class MigrateGuestUser < ApplicationService
   def initialize(current_user, **args)
     @current_user = current_user
-    @guest_user = User.guest.find(args['guest_user_id'])
-    @merchant = Merchant.find(args['guest_merchant_id'])
+    @guest_user = User.guest.find(args["guest_user_id"])
+    @merchant = Merchant.find(args["guest_merchant_id"])
     super()
   end
 

@@ -39,19 +39,19 @@ class Merchant < ApplicationRecord
   end
 
   def delivery=(value)
-    info['delivery'] =
+    info["delivery"] =
       case value
       when TrueClass
         value
       when String
-        value == '1'
+        value == "1"
       else
         false
       end
   end
 
   def delivery
-    info['delivery']
+    info["delivery"]
   end
 
   def ready_to_deliver?
@@ -63,7 +63,7 @@ class Merchant < ApplicationRecord
   end
 
   def theme
-    @theme ||= Theme.parse(info['theme'])
+    @theme ||= Theme.parse(info["theme"])
   end
 
   private
@@ -77,6 +77,6 @@ class Merchant < ApplicationRecord
   end
 
   def serialize_theme
-    info['theme'] = theme.to_h
+    info["theme"] = theme.to_h
   end
 end

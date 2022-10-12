@@ -21,7 +21,7 @@ class MerchantsController < ApplicationController
     @merchant.user = current_user
 
     if @merchant.save
-      redirect_to @merchant, notice: 'El Comercio fue creado con éxito.'
+      redirect_to @merchant, notice: "El Comercio fue creado con éxito."
     else
       render :new
     end
@@ -29,7 +29,7 @@ class MerchantsController < ApplicationController
 
   def update
     if @merchant.update(merchant_params)
-      redirect_to @merchant, notice: 'El Comercio fue actualizado con éxito.'
+      redirect_to @merchant, notice: "El Comercio fue actualizado con éxito."
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class MerchantsController < ApplicationController
 
   def destroy
     @merchant.destroy
-    redirect_to merchants_url, notice: 'El Comercio fue eliminado con éxito.'
+    redirect_to merchants_url, notice: "El Comercio fue eliminado con éxito."
   end
 
   protected
@@ -48,7 +48,7 @@ class MerchantsController < ApplicationController
     elsif params[:id].present?
       redirect_to page_url(params[:id])
     else
-      redirect_to user_session_path, alert: t('devise.failure.unauthenticated')
+      redirect_to user_session_path, alert: t("devise.failure.unauthenticated")
     end
   end
 

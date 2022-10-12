@@ -23,7 +23,7 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.save
         format.turbo_stream
-        format.html { redirect_to @section, notice: 'La sección se creó correctamente.' }
+        format.html { redirect_to @section, notice: "La sección se creó correctamente." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -34,7 +34,7 @@ class SectionsController < ApplicationController
     respond_to do |format|
       if @section.update(section_params)
         format.turbo_stream
-        format.html { redirect_to @section, notice: 'La sección se actualizó correctamente.' }
+        format.html { redirect_to @section, notice: "La sección se actualizó correctamente." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class SectionsController < ApplicationController
     @section.destroy
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to merchant_section_path(@merchant), notice: 'La sección se eliminó correctamente.' }
+      format.html { redirect_to merchant_section_path(@merchant), notice: "La sección se eliminó correctamente." }
     end
   end
 

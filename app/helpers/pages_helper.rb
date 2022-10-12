@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module PagesHelper
-  def whatsapp_url(phone, message = 'Hola vi su menu en linea y me gustaria ordenar:')
+  def whatsapp_url(phone, message = "Hola vi su menu en linea y me gustaria ordenar:")
     query = URI.encode_www_form(text: message)
     URI.parse("https://wa.me/#{phone}?#{query}").to_s
   end
 
   def header_style(theme)
-    "background-color: #{theme.header_background || '#363636'};"
+    "background-color: #{theme.header_background || "#363636"};"
   end
 
   def merchant_meta_tags(merchant)

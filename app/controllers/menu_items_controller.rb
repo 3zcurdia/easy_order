@@ -27,7 +27,7 @@ class MenuItemsController < ApplicationController
     respond_to do |format|
       if @menu_item.save
         format.turbo_stream
-        format.html { redirect_to merchant_menu_items_path, notice: 'El producto se creó correctamente.' }
+        format.html { redirect_to merchant_menu_items_path, notice: "El producto se creó correctamente." }
       else
         format.html { render :new }
       end
@@ -38,7 +38,7 @@ class MenuItemsController < ApplicationController
     if @menu_item.update(menu_item_params)
       respond_to do |format|
         format.turbo_stream
-        format.html { redirect_to merchant_menu_items_path, notice: 'El producto se actualizó correctamente.' }
+        format.html { redirect_to merchant_menu_items_path, notice: "El producto se actualizó correctamente." }
         format.json { render json: @menu_item }
       end
     else
@@ -54,7 +54,7 @@ class MenuItemsController < ApplicationController
     @menu_item.destroy
     respond_to do |format|
       format.turbo_stream
-      format.html { redirect_to merchant_menu_items_path, notice: 'El producto se eliminó correctamente.' }
+      format.html { redirect_to merchant_menu_items_path, notice: "El producto se eliminó correctamente." }
     end
   end
 
@@ -69,7 +69,7 @@ class MenuItemsController < ApplicationController
 
   def toggle_availability
     @menu_item.toggle_availability
-    state = @menu_item.available ? 'habilito' : 'deshabilito'
+    state = @menu_item.available ? "habilito" : "deshabilito"
     redirect_to @merchant, notice: "El producto se #{state} correctamente."
   end
 

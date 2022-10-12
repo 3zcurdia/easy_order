@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class MerchantsControllerTest < ActionDispatch::IntegrationTest
   def user
@@ -15,7 +15,7 @@ class MerchantsControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
   end
 
-  test 'should get index' do
+  test "should get index" do
     get merchants_url
     assert_response :success
   end

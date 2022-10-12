@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  layout 'page'
+  layout "page"
 
   def show
     @merchant = Merchant.friendly.find(params[:id] || request.subdomain)

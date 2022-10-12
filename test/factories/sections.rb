@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :section do
     menu
-    name { 'General' }
+    name { "General" }
   end
 end

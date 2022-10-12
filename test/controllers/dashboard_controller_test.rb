@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class DashboardControllerTest < ActionDispatch::IntegrationTest
   def user
@@ -11,13 +11,13 @@ class DashboardControllerTest < ActionDispatch::IntegrationTest
     sign_in(user)
   end
 
-  test 'should redirect to show' do
+  test "should redirect to show" do
     create(:merchant, user: user)
     get dashboard_url
     assert_response :redirect
   end
 
-  test 'should render a succesfull response' do
+  test "should render a succesfull response" do
     merchant = create(:merchant, user: user)
     get merchant_path(merchant)
     assert_response :success

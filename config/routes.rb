@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
-  get '', to: 'pages#show', as: :merchant_page, constraints: SubdomainConstraint
-  get '/p/:id', to: 'pages#show', as: :page
-  get '/dashboard', to: 'dashboard#show', as: :dashboard
-  root to: 'home#index'
+  get "", to: "pages#show", as: :merchant_page, constraints: SubdomainConstraint
+  get "/p/:id", to: "pages#show", as: :page
+  get "/dashboard", to: "dashboard#show", as: :dashboard
+  root to: "home#index"
   devise_for :users, controllers: { registrations: :registrations }
 
   namespace :api do
@@ -16,11 +16,11 @@ Rails.application.routes.draw do
     end
     resources :merchants, only: %i[index show] do
       resources :menu, only: :index
-      resources :stats, controller: 'merchants/stats', only: :index
+      resources :stats, controller: "merchants/stats", only: :index
     end
   end
 
-  get '/builder', to: redirect('/builder/merchant/new'), as: :builder
+  get "/builder", to: redirect("/builder/merchant/new"), as: :builder
   namespace :builder do
     resource :merchant, only: %i[new create show]
     resource :menu, only: %i[new update show]
@@ -41,8 +41,8 @@ Rails.application.routes.draw do
   end
 
   resources :pages, only: :show
-  get '/privacy', to: 'privacy#show', as: :privacy
+  get "/privacy", to: "privacy#show", as: :privacy
   authenticate :user, ->(user) { user.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+    mount Sidekiq::Web => "/sidekiq"
   end
 end

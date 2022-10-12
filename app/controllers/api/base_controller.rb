@@ -6,7 +6,7 @@ module Api
     before_action :default_format_json
 
     def default_format_json
-      request.format = 'json'
+      request.format = "json"
     end
   end
 end

@@ -10,24 +10,24 @@ module Devise
       def authenticate!
         return if no_claims_or_no_claimed_sub
 
-        success! User.find_by(id: claims['sub'])
+        success! User.find_by(id: claims["sub"])
       end
 
       protected
 
       def bearer_header
-        request.headers['Authorization']&.to_s
+        request.headers["Authorization"]&.to_s
       end
 
       def no_claims_or_no_claimed_sub
-        !claims || !claims.key?('sub')
+        !claims || !claims.key?("sub")
       end
 
       private
 
       def claims
         strategy, token = bearer_header.split
-        return unless strategy.to_s.casecmp('bearer').zero?
+        return unless strategy.to_s.casecmp("bearer").zero?
 
         JwtWrapper.decode(token)
       end
