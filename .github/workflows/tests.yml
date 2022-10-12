@@ -29,7 +29,7 @@ jobs:
       with:
         submodules: recursive
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.90.0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.1.2
         bundler-cache: true
@@ -84,7 +84,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1.90.0
+      uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.1.2
         bundler-cache: true
