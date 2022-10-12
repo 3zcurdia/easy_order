@@ -2,7 +2,7 @@
 
 module Api
   class BaseController < ActionController::API
-    include Pundit
+    include Pundit::Authorization
     before_action :default_format_json
 
     def default_format_json

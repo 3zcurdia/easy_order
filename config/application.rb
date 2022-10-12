@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 module EasyOrder
   class Application < Rails::Application
     config.middleware.use Rack::Deflater
-    config.load_defaults 6.0
+    config.load_defaults 7.0
 
     config.i18n.default_locale = :es
     config.eager_load_paths << Rails.root.join('lib')
