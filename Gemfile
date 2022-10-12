@@ -3,15 +3,16 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.2'
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.6'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 7.0.4'
 
 gem 'cssbundling-rails'
 gem 'hotwire-rails'
 gem 'importmap-rails'
+gem 'sprockets-rails'
 
 gem 'devise'
 gem 'jwt'
