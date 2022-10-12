@@ -8,12 +8,12 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'must be valid' do
-    assert subject.valid?
+    assert_predicate subject, :valid?
   end
 
   test 'should create guest user' do
     user = User.create_guest
-    assert user.persisted?
+    assert_predicate user, :persisted?
     assert_equal 'guest', user.role
   end
 

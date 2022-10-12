@@ -28,14 +28,14 @@ class MenuItemPolicyTest < ActiveSupport::TestCase
   end
 
   def test_create
-    assert policy.create?
+    assert_predicate policy, :create?
   end
 
   def test_update
-    assert policy.update?
+    assert_predicate policy, :update?
   end
 
   def test_destroy
-    assert policy.destroy?
+    assert_predicate policy, :destroy?
   end
 end

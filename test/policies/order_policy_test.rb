@@ -20,15 +20,15 @@ class OrderPolicyTest < ActiveSupport::TestCase
   end
 
   def test_index
-    assert policy.index?
+    assert_predicate policy, :index?
   end
 
   def test_show
-    assert policy.show?
+    assert_predicate policy, :show?
   end
 
   def test_create
-    assert policy.create?
+    assert_predicate policy, :create?
   end
 
   def test_update

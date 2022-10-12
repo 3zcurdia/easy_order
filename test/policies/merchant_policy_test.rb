@@ -16,22 +16,22 @@ class MerchantPolicyTest < ActiveSupport::TestCase
   end
 
   def test_index
-    assert policy.index?
+    assert_predicate policy, :index?
   end
 
   def test_show
-    assert policy.show?
+    assert_predicate policy, :show?
   end
 
   def test_create
-    assert policy.create?
+    assert_predicate policy, :create?
   end
 
   def test_update
-    assert policy.update?
+    assert_predicate policy, :update?
   end
 
   def test_destroy
-    assert policy.destroy?
+    assert_predicate policy, :destroy?
   end
 end

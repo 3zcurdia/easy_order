@@ -20,7 +20,7 @@ class MenuPolicyTest < ActiveSupport::TestCase
   end
 
   def test_show
-    assert policy.show?
+    assert_predicate policy, :show?
   end
 
   def test_create

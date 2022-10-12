@@ -8,6 +8,6 @@ class MenuTest < ActiveSupport::TestCase
   end
 
   test 'must be valid' do
-    assert subject.valid?
+    assert_predicate subject, :valid?
   end
 end
