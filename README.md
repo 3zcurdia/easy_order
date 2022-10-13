@@ -1,7 +1,7 @@
 # EasyOrder
 
 ![System tests](https://github.com/3zcurdia/easy_order/workflows/System%20tests/badge.svg?branch=main)
-![Tests](https://github.com/3zcurdia/easy_order/workflows/Tests/badge.svg?branch=main)
+[![Tests](https://github.com/3zcurdia/easy_order/actions/workflows/tests.yml/badge.svg)](https://github.com/3zcurdia/easy_order/actions/workflows/tests.yml)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
