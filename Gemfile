@@ -44,7 +44,7 @@ end
 group :development do
   gem "letter_opener"
   gem "listen", "~> 3.8"
-  gem "rack-mini-profiler", "~> 3.0"
+  gem "rack-mini-profiler", "~> 3.1"
   gem "rubocop", require: false
   gem "rubocop-minitest", require: false
   gem "rubocop-performance", require: false
